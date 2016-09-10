@@ -20,6 +20,7 @@ class Concept(models.Model):
 class Question(models.Model):
     answer = models.ForeignKey(Answer)
     title = models.CharField(max_length=200)
+    description = models.TextField()
     flavor = models.ForeignKey(Flavor)
     concept = models.ForeignKey(Concept)
     difficulty_level = models.IntegerField()
