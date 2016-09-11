@@ -43,4 +43,4 @@ class Assessment(models.Model):
     created_by = models.ForeignKey(User)
     title = models.CharField(max_length=200)
     is_active = models.BooleanField(default=False)
-    course = models.ForeignKey(Course)
+    course = models.ForeignKey(Course, null=True)
