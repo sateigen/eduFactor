@@ -26,12 +26,6 @@ class Question(models.Model):
     difficulty_level = models.IntegerField()
 
 
-class Assessment(models.Model):
-    question = models.ManyToManyField(Question)
-    created_by = models.ForeignKey(User)
-    title = models.CharField(max_length=200)
-
-
 class Score(models.Model):
     question = models.ForeignKey(Question)
     user = models.ForeignKey(User)
@@ -42,3 +36,11 @@ class Score(models.Model):
 class Course(models.Model):
     user = models.ManyToManyField(User)
     name = models.CharField(max_length=200)
+
+
+class Assessment(models.Model):
+    question = models.ManyToManyField(Question)
+    created_by = models.ForeignKey(User)
+    title = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=False)
+    course = models.ForeignKey(Course)
