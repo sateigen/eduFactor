@@ -39,4 +39,6 @@ class Score(models.Model):
     time_stamp = models.DateTimeField(auto_now_add=True)
 
 
-# TODO: Add user extensions
+class Course(models.Model):
+    user = models.ManyToManyField(User)
+    name = models.CharField(max_length=200)
