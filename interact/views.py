@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
+from .models import Answer, Flavor, Concept, Course, Question, Assessment, Score
 
-# Create your views here.
+
+class IndexView(TemplateView):
+    template_name = 'interact/index.html'
