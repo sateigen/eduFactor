@@ -8,8 +8,8 @@ class IndexView(TemplateView):
 
 
 class CreateTest(TemplateView):
-    template_name = 'create_test.html'
+    template_name = 'teachers/create_test.html'
 
 
 class AddClass(TemplateView):
-    template_name = 'add_class.html'
+    template_name = 'teachers/add_class.html'

@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from views import IndexView
+from .views import IndexView, CreateTest, AddClass
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import login, logout
@@ -15,4 +15,5 @@ urlpatterns = [
         success_url='/login'),
         name='register'),
     url(r'^create_test/$', views.CreateTest.as_view(), name='create_test'),
+    url(r'^addclass/$', views.AddClass.as_view(), name='add_class'),
 ]
