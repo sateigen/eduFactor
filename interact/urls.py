@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from views import IndexView
+from .views import IndexView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import login, logout

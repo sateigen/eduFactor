@@ -4,4 +4,4 @@ from .models import Answer, Flavor, Concept, Course, Question, Assessment, Score
 
 
 class IndexView(TemplateView):
-    template_name = 'interact/index.html'
+    template_name = 'index.html'
