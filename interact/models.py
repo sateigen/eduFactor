@@ -7,22 +7,19 @@ class Answer(models.Model):
     feedback = models.TextField()
 
 
+# Ex: hotspots, fraction fill in, drag and drop, multiple select, building charts, etc.
 class Flavor(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
 
 
 # Ex: Geometry, Computation, Estimation, Algebra, Patterns, etc.
-class Concept(models.Model):
-    name = models.CharField(max_length=200)
-
-
 class Question(models.Model):
     answer = models.ForeignKey(Answer)
     title = models.CharField(max_length=200)
     description = models.TextField()
     flavor = models.ForeignKey(Flavor)
-    concept = models.ForeignKey(Concept)
+    concept = models.CharField(max_length=200)
     difficulty_level = models.IntegerField()
 
 
