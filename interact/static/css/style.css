@@ -8,6 +8,7 @@
   background-color: #B9EFE7;
   overflow-x: hidden;
   padding: 10px;
+  box-shadow: 1px 0px 3px grey;
 }
 
 .sidenav a {
@@ -21,6 +22,11 @@
 .sidenav a:hover, .offcanvas a:focus {
   color: #111;
   font-style: italic;
+}
+
+#hello {
+  font-size: 25px;
+  color: #818181;
 }
 
 .container {
