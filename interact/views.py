@@ -17,6 +17,9 @@ class AddClass(TemplateView):
     template_name = 'teachers/add_class.html'
 
 
+def student(request):
+    return render(request, 'students/student_dash.html', context={})
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
