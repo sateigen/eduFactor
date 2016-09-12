@@ -15,7 +15,7 @@ class Question(models.Model):
     flavor = models.ForeignKey(Flavor)
     concept = models.CharField(max_length=200)
     difficulty_level = models.IntegerField()
-    solution = models.CharField(max_length=200)
+    solution = models.CharField(max_length=200, null=True)
     feedback = models.TextField(null=True)
 
 

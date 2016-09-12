@@ -38,11 +38,6 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
-class AnswerViewSet(viewsets.ModelViewSet):
-    queryset = Answer.objects.all()
-    serializer_class = AnswerSerializer
-
-
 class FlavorViewSet(viewsets.ModelViewSet):
     queryset = Flavor.objects.all()
     serializer_class = FlavorSerializer

@@ -6,7 +6,6 @@ from interact import views
 router = routers.DefaultRouter()
 router.register(r'user', views.UserViewSet)
 router.register(r'group', views.GroupViewSet)
-router.register(r'answer', views.AnswerViewSet)
 router.register(r'flavor', views.FlavorViewSet)
 router.register(r'course', views.CourseViewSet)
 router.register(r'question', views.QuestionViewSet)
