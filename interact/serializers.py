@@ -24,7 +24,7 @@ class FlavorSerializer(serializers.HyperlinkedModelSerializer):
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ('id', 'title', 'description', 'answer', 'flavor', 'concept', 'difficulty_level')
+        fields = ('id', 'title', 'description', 'solution', 'flavor', 'concept', 'difficulty_level', 'feedback')
 
 
 class ScoreSerializer(serializers.HyperlinkedModelSerializer):
