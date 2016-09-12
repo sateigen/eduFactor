@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 from .views import IndexView, CreateTest, AddClass
 from django.views.generic.edit import CreateView
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserForm
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^register/$', CreateView.as_view(
         template_name='registration/register.html',
-        form_class=UserCreationForm,
+        form_class=UserForm,
         success_url='/'),
         name='register'),
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
