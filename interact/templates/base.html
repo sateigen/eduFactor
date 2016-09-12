@@ -15,7 +15,7 @@
 
 <body>
   <div class="sidenav" id="mySidenav">
-    <p id="hello">eduFactor</p>
+    <p id="hello"><a href="/">eduFactor</a></p>
     <hr>
     {% if user.is_authenticated %}
     <p id="hello">Hello, {{ user.username }}!</p>
@@ -32,12 +32,12 @@
       <div class="form-group">
         <input class="form-control" type="password" placeholder="password" name="password">
       </div>
-      <button type="submit" name="button" class="btn btn-default">Login</button> <button name="register" type="link" class="btn btn-default" href="/register/">Register</button>
+      <button type="submit" name="button" class="btn btn-default">Login</button> <a name="register" type="link" class="btn btn-default" href="/register/">Register</a>
     </form>
     {% endif %}
     <hr>
-    <a href="#">Classes</a>
-    <a href="#">Assessments</a>
+    <a id="sidenav-link" href="#">Classes</a>
+    <a id="sidenav-link" href="#">Assessments</a>
   </div>
     {% block content %}
     {% endblock %}

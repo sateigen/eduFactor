@@ -11,7 +11,7 @@
   box-shadow: 1px 0px 3px grey;
 }
 
-.sidenav a {
+#sidenav-link {
   padding: 8px 8px 8px 8px;
   text-decoration: none;
   font-size: 25px;
@@ -19,7 +19,7 @@
   display: block;
 }
 
-.sidenav a:hover, .offcanvas a:focus {
+#sidenav-link:hover, .offcanvas a:focus {
   color: #111;
   font-style: italic;
 }
@@ -40,5 +40,5 @@
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  #sidenav-link {font-size: 18px;}
 }
