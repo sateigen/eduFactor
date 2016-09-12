@@ -21,6 +21,13 @@ class AddClass(TemplateView):
 def student(request):
     return render(request, 'students/student_dash.html', context={})
 
+
+# def question(request):
+#     question = question.objects.get(id=1)
+#     if question.flavor == 'text':
+#         return render(request, 'students/text_question.html', context={})
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
