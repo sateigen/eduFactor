@@ -1,2 +1,33 @@
-* {
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #B9EFE7;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+  color: #111;
+  font-style: italic;
+}
+
+.container {
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
