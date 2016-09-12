@@ -2,11 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Create your models here.
-class Answer(models.Model):
-    feedback = models.TextField()
-
-
 # Ex: hotspots, fraction fill in, drag and drop, multiple select, building charts, etc.
 class Flavor(models.Model):
     name = models.CharField(max_length=200)
@@ -15,12 +10,13 @@ class Flavor(models.Model):
 
 # Ex: Geometry, Computation, Estimation, Algebra, Patterns, etc.
 class Question(models.Model):
-    answer = models.ForeignKey(Answer)
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    description = models.TextField(null=True)
     flavor = models.ForeignKey(Flavor)
     concept = models.CharField(max_length=200)
     difficulty_level = models.IntegerField()
+    solution = models.CharField(max_length=200, null=True)
+    feedback = models.TextField(null=True)
 
 
 class Score(models.Model):

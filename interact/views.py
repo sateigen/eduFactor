@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Answer, Flavor, Course, Question, Assessment, Score
+from .models import Flavor, Course, Question, Assessment, Score
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.models import User, Group
-from .serializers import UserSerializer, GroupSerializer, AnswerSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
+from .serializers import UserSerializer, GroupSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
 
 
 class IndexView(TemplateView):
@@ -36,11 +37,6 @@ class UserViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-
-
-class AnswerViewSet(viewsets.ModelViewSet):
-    queryset = Answer.objects.all()
-    serializer_class = AnswerSerializer
 
 
 class FlavorViewSet(viewsets.ModelViewSet):

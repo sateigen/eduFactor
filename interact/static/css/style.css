@@ -5,28 +5,33 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #B9EFE7;
+  background-color: #00BCD4;
   overflow-x: hidden;
   padding: 10px;
   box-shadow: 1px 0px 3px grey;
 }
 
-.sidenav a {
+#sidenav-link {
   padding: 8px 8px 8px 8px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #E0F7FA;
   display: block;
 }
 
-.sidenav a:hover, .offcanvas a:focus {
+#sidenav-link:hover, .offcanvas a:focus {
   color: #111;
   font-style: italic;
 }
 
 #hello {
   font-size: 25px;
-  color: #818181;
+  color: #E0F7FA;
+}
+
+#kids {
+  width: 24em;
+  height: 18em;
 }
 
 .container {
@@ -35,5 +40,5 @@
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  #sidenav-link {font-size: 18px;}
 }
