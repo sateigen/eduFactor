@@ -29,6 +29,11 @@
   color: #818181;
 }
 
+#kids {
+  width: 24em;
+  height: 18em;
+}
+
 .container {
   padding: 20px;
 }
