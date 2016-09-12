@@ -1,6 +1,118 @@
 {% extends 'base.html' %}{% load staticfiles %}
 {% block link %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'css/tara.css' %}" />
 {% endblock %}
 {% block content %}
+<body>
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#">eduFactor</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Classes<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">cl1</a></li>
+<li><a href="#">cl2</a></li>
+<li class="divider"></li>
+<li><a href="#">Add A Class</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Assessments<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">a1</a></li>
+<li><a href="#">a2</a></li>
+<li class="divider"></li>
+<li><a href="#">Create An Assessment</a></li>
+</ul>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><a href="#">Logout</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="site-wrapper">
+<div class="container">
+<div>
+<div id="page-content-wrapper">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+  <form class="form-horizontal">
+<fieldset>
+<legend>Add a Class</legend>
+<div class="form-group">
+<label for="inputid" class="col-lg-2 control-label">Class Name</label>
+<div class="col-lg-6">
+<input type="text" class="form-control" id="inputid">
+</div>
+</div>
+<div class="form-group">
+<label for="select" class="col-lg-2 control-label">Number of Students</label>
+<div class="col-lg-6">
+<select class="form-control" id="select">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+<option>13</option>
+<option>14</option>
+<option>15</option>
+<option>16</option>
+<option>17</option>
+<option>18</option>
+<option>19</option>
+<option>20</option>
+<option>21</option>
+<option>22</option>
+<option>23</option>
+<option>24</option>
+<option>25</option>
+<option>26</option>
+<option>27</option>
+<option>28</option>
+<option>29</option>
+<option>30</option>
+<option>31</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<div class="col-lg-6 col-lg-offset-2">
+<button type="reset" class="btn btn-default">Cancel</button>
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</body>
 {%endblock%}

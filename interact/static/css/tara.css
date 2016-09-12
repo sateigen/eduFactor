@@ -1,0 +1,47 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+  color: #034F84;
+}
+
+ body {
+    overflow-x: hidden;
+ }
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+  width: 1000px;
+}
+
+nav {
+  background-color: 615C60;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+  margin: 1px;
+  margin-left: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding-top: 1cm;
+}
