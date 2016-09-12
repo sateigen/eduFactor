@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Answer, Flavor, Course, Question, Assessment, Score
-from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
 from rest_framework import viewsets
 from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer, GroupSerializer, AnswerSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
@@ -23,23 +21,6 @@ class AddClass(TemplateView):
 
 def student(request):
     return render(request, 'students/student_dash.html', context={})
-
-
-def register(request):
-    if request.method == 'POST':
-        user = UserCreationForm(request.POST)
-        print(user)
-        if user.is_valid():
-            user.save()
-            if user is not None:
-                new_user = authenticate(username=user.cleaned_data['username'],
-                                        password=user.cleaned_data['password1'])
-                login(request, new_user)
-                return HttpResponseRedirect("/")
-        else:
-            user = UserCreationForm()
-    context = {'form': UserCreationForm()}
-    return render(request, 'registration/register.html', context)
 
 # def question(request):
 #     question = question.objects.get(id=1)
