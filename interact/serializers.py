@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from .models import Answer, Flavor, Concept, Question, Score, Course, Assessment
+from .models import Answer, Flavor, Question, Score, Course, Assessment
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -25,12 +25,6 @@ class FlavorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Flavor
         fields = ('id', 'name', 'description')
-
-
-class ConceptSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Concept
-        fields = ('id', 'name')
 
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
