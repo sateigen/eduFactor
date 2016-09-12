@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Answer, Flavor, Course, Question, Assessment, Score
+from .models import Flavor, Course, Question, Assessment, Score
 from rest_framework import viewsets
 from django.contrib.auth.models import User, Group
-from .serializers import UserSerializer, GroupSerializer, AnswerSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
+from .serializers import UserSerializer, GroupSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
 
 
 class IndexView(TemplateView):
