@@ -26,7 +26,7 @@ def student(request):
     return render(request, 'students/student_dash.html', context)
 
 
-def question(request):
+def question(request, question_id):
     context = {'questions': []}
     all_questions = Question.objects.all()
     for question in all_questions:
@@ -39,10 +39,6 @@ def question(request):
         if question.flavor.name == 'multi-select':
             context['questions'].append(question)
             return render(request, 'students/multi_select_question.html', context)
-
-
-class QuestionDetail(TemplateView):
-    template_name = 'students/question_detail.html'
 
 
 class UserViewSet(viewsets.ModelViewSet):
