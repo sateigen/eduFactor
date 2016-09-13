@@ -11,13 +11,11 @@ eduFactor | Student
           {% for question in questions %}
             <h1>{{ question.title }}</h1>
           {% endfor %}
-          <ul>
-            {% for answer in question.wrong_solutions %}
-            <li>answer</li>
-            {% endfor %}
-          </ul>
-
-
+            <select id="multipleSelect" multiple="multiple">
+                {% for answer in question.wrong_solutions %}
+                <option value="">{{ answer }}</option>
+                {% endfor %}
+            </select>
         </div>
     </div>
 </div>
