@@ -1,18 +1,10 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}
-eduFactor | Student
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Student {% endblock %} {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-          {% for question in questions %}
             <h1>{{ question.title }}</h1>
-          {% endfor %}
             <select id="multipleSelect" multiple="multiple">
-                {% for answer in question.wrong_solutions %}
+                {% for answer in answers %}
                 <option value="">{{ answer }}</option>
                 {% endfor %}
             </select>

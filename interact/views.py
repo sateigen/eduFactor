@@ -36,6 +36,8 @@ def question(request, question_id):
         context['answers'] = answers
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':
+        answers = question.possible_solutions.split(',')
+        context['answers'] = answers
         template = 'students/multi_select_question.html'
     return render(request, template, context)
 
