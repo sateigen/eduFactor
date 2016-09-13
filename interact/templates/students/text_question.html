@@ -8,10 +8,19 @@ eduFactor | Student
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-          {% for question in questions %}
             <h1>{{ question.title }}</h1>
-            {% endfor %}
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="answer">Answer</label>
+              <input type="text" class="form-control" id="answer">
+            </div>
+                </form>
+        </div>
+    </div>
+
 </div>
 {% endblock %}

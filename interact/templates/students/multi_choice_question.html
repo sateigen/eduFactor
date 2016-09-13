@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} eduFactor | Student {% endblock %}
+{% block title %} eduFactor | Question {% endblock %}
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
             <h1>{{ question.title }}</h1>
-          </div>
         </div>
+    </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-        <ul>
-          {% for answer in answers %}
-          <li>{{ answer }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+            {% for answer in answers %}
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{ answer }}" checked>
+                    {{ answer }}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
