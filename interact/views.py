@@ -27,18 +27,17 @@ def student(request):
 
 
 def question(request, question_id):
-    context = {'questions': []}
-    all_questions = Question.objects.all()
-    for question in all_questions:
-        if question.flavor.name == 'fill-in-the-blank':
-            context['questions'].append(question)
-            return render(request, 'students/text_question.html', context)
-        if question.flavor.name == 'multiple choice':
-            context['questions'].append(question)
-            return render(request, 'students/multi_choice_question.html', context)
-        if question.flavor.name == 'multi-select':
-            context['questions'].append(question)
-            return render(request, 'students/multi_select_question.html', context)
+    question = Question.objects.get(pk=question_id)
+    context = {'question': question}
+    if question.flavor.name == 'fill-in-the-blank':
+        template = 'students/text_question.html'
+    elif question.flavor.name == 'multiple choice':
+        incorrect = question.wrong_solutions.split(',')
+        context['incorrect'] = incorrect
+        template = 'students/multi_choice_question.html'
+    elif question.flavor.name == 'multi-select':
+        template = 'students/multi_select_question.html'
+    return render(request, template, context)
 
 
 class UserViewSet(viewsets.ModelViewSet):
