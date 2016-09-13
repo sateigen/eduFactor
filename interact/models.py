@@ -17,7 +17,7 @@ class Question(models.Model):
     difficulty_level = models.IntegerField()
     solution = models.CharField(max_length=200, null=True)
     feedback = models.TextField(null=True)
-    wrong_solutions = models.TextField(null=True)
+    possible_solutions = models.TextField(null=True)
 
 
 class Score(models.Model):

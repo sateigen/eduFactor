@@ -10,13 +10,10 @@ eduFactor | Student
         <div class="col-lg-9 col-lg-offset-3">
           {% for question in questions %}
             <h1>{{ question.title }}</h1>
-            {% endfor %}
+          {% endfor %}
             <select id="multipleSelect" multiple="multiple">
-              {% for question.solution in questions %}
-                <option value="">{{ question.solution }}</option>
-                {% endfor %}
-                {% for question.wrong_solutions in questions %}
-                <option value="">{{ question.wrong_solutions }}</option>
+                {% for answer in question.wrong_solutions %}
+                <option value="">{{ answer }}</option>
                 {% endfor %}
             </select>
         </div>
