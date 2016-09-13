@@ -25,13 +25,25 @@ def student(request):
     context = {'scores': scores}
     return render(request, 'students/student_dash.html', context)
 
-# def question(request):
-#     question = question.objects.get(id=1)
-#     if question.flavor == 'text':
-#         return render(request, 'students/text_question.html', context={})
+
+def question(request):
+    context = {'questions': []}
+    all_questions = Question.objects.all()
+    for question in all_questions:
+        if question.flavor.name == 'fill-in-the-blank':
+            context['questions'].append(question)
+            return render(request, 'students/text_question.html', context)
+        if question.flavor.name == 'multiple choice':
+            context['questions'].append(question)
+            return render(request, 'students/multi_choice_question.html', context)
+        if question.flavor.name == 'multi-select':
+            context['questions'].append(question)
+            return render(request, 'students/multi_select_question.html', context)
+
 
 class QuestionDetail(TemplateView):
     template_name = 'students/question_detail.html'
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
