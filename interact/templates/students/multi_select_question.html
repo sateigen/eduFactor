@@ -10,7 +10,14 @@ eduFactor | Student
         <div class="col-lg-9 col-lg-offset-3">
           {% for question in questions %}
             <h1>{{ question.title }}</h1>
+          {% endfor %}
+          <ul>
+            {% for answer in question.wrong_solutions %}
+            <li>answer</li>
             {% endfor %}
+          </ul>
+
+
         </div>
     </div>
 </div>

@@ -32,8 +32,8 @@ def question(request, question_id):
     if question.flavor.name == 'fill-in-the-blank':
         template = 'students/text_question.html'
     elif question.flavor.name == 'multiple choice':
-        incorrect = question.wrong_solutions.split(',')
-        context['incorrect'] = incorrect
+        answers = question.possible_solutions.split(',')
+        context['answers'] = answers
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':
         template = 'students/multi_select_question.html'
