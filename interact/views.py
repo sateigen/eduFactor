@@ -21,7 +21,9 @@ class AddClass(TemplateView):
 
 
 def student(request):
-    return render(request, 'students/student_dash.html', context={})
+    scores = Score.objects.all()
+    context = {'scores': scores}
+    return render(request, 'students/student_dash.html', context)
 
 # def question(request):
 #     question = question.objects.get(id=1)

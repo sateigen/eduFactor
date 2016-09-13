@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
     url(r'^create_test/$', views.CreateTest.as_view(), name='create_test'),
     url(r'^addclass/$', views.AddClass.as_view(), name='add_class'),
-    url(r'^student/$', views.student, name='student')
+    url(r'^student/$', views.student, name='student'),
+    url(r'^question/([0-9]+)/$', views.qestion_detail, name='question_detail'),
 ]
