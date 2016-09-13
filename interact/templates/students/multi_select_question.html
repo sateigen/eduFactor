@@ -5,5 +5,13 @@ eduFactor | Student
 {% endblock %}
 
 {% block content %}
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          {% for question in questions %}
+            <h1>{{ question.title }}</h1>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
