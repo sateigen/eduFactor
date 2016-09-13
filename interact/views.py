@@ -30,6 +30,8 @@ def student(request):
 #     if question.flavor == 'text':
 #         return render(request, 'students/text_question.html', context={})
 
+class QuestionDetail(TemplateView):
+    template_name = 'students/question_detail.html'
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
