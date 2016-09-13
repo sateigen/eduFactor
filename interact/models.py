@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Ex: hotspots, fraction fill in, drag and drop, multiple select, building charts, etc.
 class Flavor(models.Model):
     name = models.CharField(max_length=200)
@@ -17,6 +16,7 @@ class Question(models.Model):
     difficulty_level = models.IntegerField()
     solution = models.CharField(max_length=200, null=True)
     feedback = models.TextField(null=True)
+    wrong_solutions = models.TextField(null=True)
 
 
 class Score(models.Model):
