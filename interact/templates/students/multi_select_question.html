@@ -2,7 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1>{{ question.title }}</h1>
+            {{ question.flavor.description }}
+            <h2>{{ question.title }}</h2>
             <select id="multipleSelect" multiple="multiple">
                 {% for answer in answers %}
                 <option value="">{{ answer }}</option>
