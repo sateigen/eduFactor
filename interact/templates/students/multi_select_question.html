@@ -2,28 +2,35 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h4>{{ question.flavor.description }}</h4>
+            <h4 id="description">{{ question.flavor.description }}<button id="descriptionButton" class="btn btn-default">Next</button></h4>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1>{{ question.title }}</h1>
+            <h1 id="questionTitle">{{ question.title }}<button id="titleButton" class="btn btn-default">Next</button></h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
+        <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
+          <h4>Answers <span id="selectButton">| Please select an answer!</span></h4>
           <form>
             <div class="form-group">
                 <select id="multipleSelect" multiple class="multiple form-control">
                     {% for answer in answers %}
-                    <option value=''>{{ answer }}</option>
+                    <option name="optionsSelect" value="{{ answer }}">{{ answer }}</option>
                     {% endfor %}
                 </select>
             </div>
             </form>
+            <input type="hidden" value="{{ question.solution }}" id="questionSolution">
+            <hr>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
 </div>
 </div>
 {% endblock %}
+
 {% block scripts %}
+<script src="{% static "js/msq.js" %}"></script>
+{% endblock %}
