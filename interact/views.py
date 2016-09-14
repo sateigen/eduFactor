@@ -44,8 +44,19 @@ def question(request, question_id):
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':
         answers = question.possible_solutions.split(',')
+        random.shuffle(answers)
         context['answers'] = answers
         template = 'students/multi_select_question.html'
+    elif question.flavor.name == 'drag-and-drop':
+        answers = question.possible_solutions.split(',')
+        random.shuffle(answers)
+        context['answers'] = answers
+        template = 'students/drag_drop_question.html'
+    elif question.flavor.name == 'fraction-fill-in':
+        answers = question.possible_solutions.split(',')
+        random.shuffle(answers)
+        context['answers'] = answers
+        template = 'students/fraction_question.html'
     return render(request, template, context)
 
 
