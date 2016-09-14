@@ -24,9 +24,9 @@ def student(request, student_id):
     scores = Score.objects.all()
     i = 0
     for score in scores:
-        if score.score == True:
+        if score.score is True:
             i += 1
-    correct = i // 5
+    correct = (i // 5) * 'x'
     context = {'scores': scores, 'correct': correct}
     return render(request, 'students/student_dash.html', context)
 
