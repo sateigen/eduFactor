@@ -12,6 +12,12 @@
  padding-top: 1cm;
 }
 
+#draggable {
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+}
+
 *{
   font-family: 'Open Sans', sans-serif;
 }

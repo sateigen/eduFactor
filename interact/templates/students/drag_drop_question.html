@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} eduFactor | Question {% endblock %}
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="{% static 'js/ddq.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-lg-9 col-lg-offset-3">
+          <h4>{{ question.flavor.description }}</h4>
+      </div>
+  </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+            <h1>{{ question.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          <div class="ui-widget-content">
+            {% for answer in answers %}
+              <p id='draggable'>{{ answer }}</li>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
