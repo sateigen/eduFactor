@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer, GroupSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
+import random
 
 
 class IndexView(TemplateView):
@@ -38,6 +39,7 @@ def question(request, question_id):
         template = 'students/text_question.html'
     elif question.flavor.name == 'multiple choice':
         answers = question.possible_solutions.split(',')
+        random.shuffle(answers)
         context['answers'] = answers
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':

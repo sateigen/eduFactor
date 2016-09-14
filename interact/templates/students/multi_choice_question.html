@@ -5,25 +5,32 @@
 <div class="container">
   <div class="row">
       <div class="col-lg-9 col-lg-offset-3">
-          <h4>{{ question.flavor.description }}</h4>
+          <h4 id="description">{{ question.flavor.description }}<button id="descriptionButton" class="btn btn-default">Next</button></h4>
       </div>
   </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1>{{ question.title }}</h1>
+            <h1 id="questionTitle">{{ question.title }}<button id="titleButton" class="btn btn-default">Next</button></h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
+        <div class="col-lg-9 col-lg-offset-3" id="radioGroup">
+          <h4>Answers <span id="radioButton">| Please select an answer!</span></h4>
             {% for answer in answers %}
             <div class="radio">
                 <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{ answer }}">
+                    <input type="radio" name="optionsRadios" value="{{ answer }}">
                     {{ answer }}
                 </label>
             </div>
             {% endfor %}
+            <input type="hidden" value="{{ question.solution }}" id="questionSolution">
+            <hr>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/mcq.js" %}"></script>
 {% endblock %}

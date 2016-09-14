@@ -1,19 +1,29 @@
-{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Student {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Question {% endblock %} {% block content %}
 <div class="container">
-  <div class="row">
-      <div class="col-lg-9 col-lg-offset-3">
-          <h4>{{ question.flavor.description }}</h4>
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+            <h4>{{ question.flavor.description }}</h4>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
             <h1>{{ question.title }}</h1>
-            <select id="multipleSelect" multiple="multiple">
-                {% for answer in answers %}
-                <option value="">{{ answer }}</option>
-                {% endfor %}
-            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          <form>
+            <div class="form-group">
+                <select id="multipleSelect" multiple class="multiple form-control">
+                    {% for answer in answers %}
+                    <option value=''>{{ answer }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            </form>
         </div>
     </div>
 </div>
+</div>
 {% endblock %}
+{% block scripts %}
