@@ -20,9 +20,14 @@ class AddClass(TemplateView):
     template_name = 'teachers/add_class.html'
 
 
-def student(request):
+def student(request, student_id):
     scores = Score.objects.all()
-    context = {'scores': scores}
+    i = 0
+    for score in scores:
+        if score.score == True:
+            i += 1
+    correct = i // 5
+    context = {'scores': scores, 'correct': correct}
     return render(request, 'students/student_dash.html', context)
 
 

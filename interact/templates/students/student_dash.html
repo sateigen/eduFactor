@@ -18,9 +18,9 @@ eduFactor | Student
     <div class="col-lg-9 col-lg-offset-3">
       <p>Stars to fill in as activities are completed</p>
       <ul>
-          {% if scores.count|divisibleby:"5" %}
+          {% for i in correct %}
           <img src="{% static 'images/star.png' %}" alt="" />
-          {% endif %}
+          {% endfor %}
       </ul>
       <br>
     </div>
