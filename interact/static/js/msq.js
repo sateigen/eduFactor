@@ -1,4 +1,4 @@
-var $questionSolution = $('#questionSolution').val()
+var $questionSolution = $('.questionSolution')
 var $selectGroup = $('[name="optionsSelect"]')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
@@ -9,6 +9,7 @@ var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
+
 $titleButton.hide()
 // $descriptionButton.hide()
 $selectButton.hide()
@@ -16,14 +17,15 @@ $nextPage.hide()
 
 $selectGroup.click(function() {
   var $guess = $(this).val()
+  console.log(allAnswers)
   console.log($guess)
-  $selectButton.text('| The correct answer is ' + $questionSolution);
+  $selectButton.text('| The correct answers are ' + allAnswers[0] + ' and ' + allAnswers[1]);
   $nextPage.show()
-  if ($guess == $questionSolution) {
+  if ($guess in allAnswers) {
     $isCorrect = true
     console.log('yes!')
   }
-  if ($guess != $questionSolution) {
+  if ($guess != allAnswers) {
     $isCorrect = false
     console.log('no!')
   }
@@ -57,4 +59,11 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
     focusPoint.css('border-style','none')
     highlight(next, nextButton)
   })
+}
+
+
+var allAnswers = []
+var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
+for(i=0; i < answerObjects.length; i++){
+  allAnswers.push(answerObjects[i].value)
 }

@@ -34,28 +34,20 @@ def student(request, student_id):
 
 def question(request, question_id):
     question = Question.objects.get(pk=question_id)
-    context = {'question': question}
+    answers = question.possible_solutions.split(',')
+    random.shuffle(answers)
+    context = {'question': question, 'answers': answers}
     if question.flavor.name == 'fill-in-the-blank':
         template = 'students/text_question.html'
     elif question.flavor.name == 'multiple choice':
-        answers = question.possible_solutions.split(',')
-        random.shuffle(answers)
-        context['answers'] = answers
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':
-        answers = question.possible_solutions.split(',')
-        random.shuffle(answers)
-        context['answers'] = answers
+        correct = question.solution.split(',')
+        context['correct'] = correct
         template = 'students/multi_select_question.html'
     elif question.flavor.name == 'drag-and-drop':
-        answers = question.possible_solutions.split(',')
-        random.shuffle(answers)
-        context['answers'] = answers
         template = 'students/drag_drop_question.html'
     elif question.flavor.name == 'fraction-fill-in':
-        answers = question.possible_solutions.split(',')
-        random.shuffle(answers)
-        context['answers'] = answers
         template = 'students/fraction_question.html'
     return render(request, template, context)
 

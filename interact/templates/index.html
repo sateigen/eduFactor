@@ -20,6 +20,13 @@
           <h4 class="media-heading">You can do it!</h4>
           {% lorem 2 %}
         </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-9 col-lg-offset-3">
+            {% url 'question_detail' 1 as the_url %}
+            <a href="{{ the_url }}" class="btn btn-default">Let's do some math!</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
