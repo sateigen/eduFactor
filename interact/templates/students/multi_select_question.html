@@ -29,7 +29,9 @@
                 </select>
             </div>
             </form>
-            <input type="hidden" value="{{ question.solution }}" id="questionSolution">
+            {% for solution in correct %}
+            <input type="hidden" value="{{ solution }}" class="questionSolution">
+            {% endfor %}
             <hr>
             <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
