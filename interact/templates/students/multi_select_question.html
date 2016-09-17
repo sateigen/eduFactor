@@ -18,17 +18,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
-          <h4>Answers <span id="selectButton">| Please select an answer!</span></h4>
-          <form>
-            <div class="form-group">
-                <select id="multipleSelect" multiple class="multiple form-control">
-                    {% for answer in answers %}
-                    <option name="optionsSelect" value="{{ answer }}">{{ answer }}</option>
-                    {% endfor %}
-                </select>
+        <div class="col-lg-9 col-lg-offset-3 btn-group" id="selectionGroup" data-toggle="buttons">
+          <h4>Answers <span id="selectButton">| Please select the answers!</span></h4>
+              {% for answer in answers %}
+              <label class="btn btn-primary">
+                <input type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
+              </label>
+              {% endfor %}
             </div>
-            </form>
             {% for solution in correct %}
             <input type="hidden" value="{{ solution }}" class="questionSolution">
             {% endfor %}
@@ -36,6 +33,4 @@
             <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
-</div>
-</div>
 {% endblock %}

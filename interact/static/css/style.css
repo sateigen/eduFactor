@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
   font-family: 'Roboto', sans-serif;
 }
 
-.sidenav {
+/*.sidenav {
   height: 100%;
   width: 250px;
   position: fixed;
@@ -74,12 +74,13 @@ h1, h2, h3, h4 {
 #hello {
   font-size: 25px;
   color: #E0F7FA;
-}
+}*/
 
 #kids {
   width: 24em;
   height: 18em;
 }
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
