@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^add_class/$', AddClass.as_view(), name='add_class'),
     url(r'^student/([0-9]+)$', views.student, name='student'),
     url(r'^question/([0-9]+)/$', views.question, name='question_detail'),
-]
+    url(r'^about/$', views.about, name='about')
+    ]

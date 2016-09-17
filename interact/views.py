@@ -52,6 +52,10 @@ def question(request, question_id):
     return render(request, template, context)
 
 
+def about(request):
+    return render(request, 'interact/about.html', context={})
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
