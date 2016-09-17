@@ -1,45 +1,50 @@
 {% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Question {% endblock %} {% block scripts %}
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="{% static 'js/ddq.js' %}"></script>
 {% endblock %} {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h4>{{ question.flavor.description }}</h4>
+            <h4 id='description'>{{ question.flavor.description }}<button id="descriptionButton" class="btn btn-default">Next</button></h4>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1>{{ question.title }}</h1>
+            <h1 id='questionTitle'>{{ question.title }}<button id="titleButton" class="btn btn-default">Next</button></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
+            <h4>Answers<span id="selectButton">| Drag the answer to the correct box!</span></h4>
+            <form>
+                <div class="form-group">
+                    <div class="ui-widget-content">
+                        {% for answer in answers %}
+                        <p class="draggable-nonvalid" value="{{ answer }}">{{ answer }}</p>
+                        {% endfor %}
+                        <hr>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <div class="ui-widget-content">
-                {% for answer in answers %}
-                <p class="draggable" value="{{ answer }}">{{ answer }}</p>
-                    {% endfor %}
-                    <p type="hidden" value="{{ question.solution }}" id="questionSolution">
-                    <hr>
-                    <button id="nextPage" class="btn btn-default">Next Question</button>
+            <div class="droppable" id='droppable1' class="ui-widget-header">
+                <p>Tens</p>
             </div>
-            <div class="row">
-                <div class="col-lg-9 col-lg-offset-3">
-            <div class="droppable" class="ui-widget-header">
-              <p>Ones</p>
+            <div class="droppable" id='droppable2' class="ui-widget-header">
+                <p>Hundreds</p>
             </div>
-            <div class="droppable" class="ui-widget-header">
-              <p>Tens</p>
+            <div class="droppable" id='droppable3' class="ui-widget-header">
+                <p>Thousands</p>
             </div>
-            <div class="droppable" class="ui-widget-header">
-              <p>Thousands</p>
-            </div>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
-      </div>
     </div>
+</div>
 </div>
 {% endblock %}

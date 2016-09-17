@@ -46,6 +46,12 @@ def question(request, question_id):
         context['correct'] = correct
         template = 'students/multi_select_question.html'
     elif question.flavor.name == 'drag-and-drop':
+        solutions = question.solution.split(',')
+        correct = {}
+        for answer in solutions:
+            temp = answer.split(':')
+            correct[temp[0]] = temp[1]
+            context['solutions'] = correct
         template = 'students/drag_drop_question.html'
     elif question.flavor.name == 'fraction-fill-in':
         template = 'students/fraction_question.html'
