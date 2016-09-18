@@ -23,6 +23,7 @@ $submit.click(function() {
   if ($guess == $questionSolution) {
     $guessForm.css('background-color', '#6DC090')
     $isCorrect = true
+    $answerSection.popover('toggle')
     console.log('yes!')
     return false
   }
