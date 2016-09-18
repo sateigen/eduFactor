@@ -1,38 +1,28 @@
 var $questionSolution = $('.questionSolution')
-var $selectGroup = $('[name="optionsSelect"]')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#selectionGroup')
+var $answersChosen = $('.acitve')
 var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
-
 $titleButton.hide()
 // $descriptionButton.hide()
 $selectButton.hide()
 $nextPage.hide()
 
-$selectGroup.click(function() {
-  var $guess = $(this).val()
-  console.log(allAnswers)
-  console.log($guess)
-  $selectButton.text('| The correct answers are ' + allAnswers[0] + ' and ' + allAnswers[1]);
+$answers.click(function() {
+  $selectButton.text('| The correct answers are ' + correctAnswers[0] + ' and ' + correctAnswers[1]);
   $nextPage.show()
-  if ($guess in allAnswers) {
-    $isCorrect = true
-    console.log('yes!')
-  }
-  if ($guess != allAnswers) {
-    $isCorrect = false
-    console.log('no!')
-  }
 })
 
 $nextPage.click(function() {
+  checkAnswers(correctAnswers, chosenAnswers)
   if ($isCorrect) {
+    console.log('yay!')
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
     console.log($curr, typeof($curr))
@@ -61,9 +51,21 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
   })
 }
 
+function checkAnswers(correctAnswers, chosenAnswers) {
+  $('.answers').each(function(index) {
+      if ($( this ).is(':checked') == true) {
+          chosenAnswers.push($(this).val())}})
+  $isCorrect = $(correctAnswers).not(chosenAnswers).length === 0 && $(chosenAnswers).not(correctAnswers).length === 0
+}
 
-var allAnswers = []
+
+
+var correctAnswers = []
 var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
 for(i=0; i < answerObjects.length; i++){
-  allAnswers.push(answerObjects[i].value)
+  correctAnswers.push(answerObjects[i].value)
 }
+
+var chosenAnswers = []
+
+var $isCorrect

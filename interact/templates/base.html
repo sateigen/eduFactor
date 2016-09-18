@@ -1,53 +1,68 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>
         {% block title %}
         {% endblock %}
     </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% block link %}
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% block link %} {% endblock %}
 </head>
 
 <body>
-  <div class="sidenav" id="mySidenav">
-    <p id="hello"><a href="/">eduFactor</a></p>
-    <hr>
-    {% if user.is_authenticated %}
-    <p id="hello">Hello, {{ user.username }}!</p>
-    <form method="post" action="/logout/">
-      {% csrf_token %}
-      <button type="submit" name="logout" class="btn btn-default">Logout</button>
-    </form>
-    {% else %}
-    <form method="post" action="/login/">
-      {% csrf_token %}
-      <div class="form-group">
-        <input class="form-control" type="text" placeholder="username" name="username">
-      </div>
-      <div class="form-group">
-        <input class="form-control" type="password" placeholder="password" name="password">
-      </div>
-      <button type="submit" name="button" class="btn btn-default">Login</button> <a name="register" type="link" class="btn btn-default" href="/register/">Register</a>
-    </form>
-    {% endif %}
-    <hr>
-    <a id="sidenav-link" href="/about/">About</a>
-  </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="brand" href="/">eduFactor</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/" id='about'>About</a></li>
+                    {% url 'question_detail' 1 as the_url %}
+                    <li><a href="{{ the_url }}" id='tut'>Tutorial</a></li>
+                    <li><a href="/" id='pract'>Practice</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li><a id='hello' href="#">Hello, {{ user.username }}!</a></li>
+                    <form class="navbar-form navbar-right" action="/logout/" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="logout" class="btn btn-default">Logout</button>
+                    </form>
+                    {% else %}
+                    <form class="navbar-form navbar-right" method="post" action="/login/">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-default">Sign In</button>
+                        <a name="register" type="link" class="btn btn-default" href="/register/">Register</a>
+                    </form>
+                    {% endif %}
+                    </ul>
+            </div>
+        </div>
+    </nav>
     {% block content %}
     {% endblock %}
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/style.js' %}"></script>
     {% block scripts %}
     {% endblock %}
 </body>
-
 </html>

@@ -1,7 +1,36 @@
 .container {
-  padding: 20px;
-  margin-top: 25px;
+  padding: 10px;
+  margin-top: 10px;
   width: 1000px;
+}
+
+.navbar-default {
+  background-color: #485052;
+}
+
+ul.nav.navbar-nav li a:hover {
+  color: #FFFFFF;
+}
+
+#hello {
+  color: #74CFe4;
+}
+
+#brand {
+  color: #74CFe4;
+  font-size: 22px;
+}
+
+#about {
+  color: #6dc090;
+}
+
+#tut {
+  color: #ECBE45;
+}
+
+#pract{
+  color: #EF754A;
 }
 
 .site-wrapper {
@@ -12,7 +41,7 @@
  padding-top: 1cm;
 }
 
-.draggable {
+.draggable, .draggable-nonvalid {
   width: 50px;
   height: 25px;
   background: #E4E4E4;
@@ -22,13 +51,14 @@
   z-index: 1;
   border-style: solid;
   border-width: thin;
+  border-radius: 5px;
 }
 
  .droppable {
    width: 100px;
    height: 100px;
    padding: 0.5em;
-   background: #B2EBF2;
+   background: #74CFe4;
    float: left;
    margin: 10px;
    text-align: center;
@@ -36,52 +66,17 @@
    border-width: medium;
  }
 
-
 *{
   font-family: 'Open Sans', sans-serif;
+  color: #485052;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Roboto', sans-serif;
-}
-
-.sidenav {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #00BCD4;
-  overflow-x: hidden;
-  padding: 10px;
-  box-shadow: 1px 0px 3px grey;
-}
-
-#sidenav-link {
-  padding: 8px 8px 8px 8px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #E0F7FA;
-  display: block;
-}
-
-#sidenav-link:hover, .offcanvas a:focus {
-  color: #111;
-  font-style: italic;
-}
-
-#hello {
-  font-size: 25px;
-  color: #E0F7FA;
+  color: #EF754A;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #kids {
   width: 24em;
   height: 18em;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  #sidenav-link {font-size: 18px;}
 }
