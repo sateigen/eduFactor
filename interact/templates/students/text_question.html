@@ -8,23 +8,25 @@ eduFactor | Student
 <div class="container">
   <div class="row">
       <div class="col-lg-9 col-lg-offset-3">
-          <h4><span id='description'>{{ question.flavor.description }}</span><button id="descriptionButton" class="btn btn-default">Next</button></h4>
+          <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="This can help you solve the problem.  Click 'NEXT' to proceed" id='description'>{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
       </div>
   </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1 id='questionTitle'>{{ question.title }}<button id="titleButton" class="btn btn-default">Next</button></h1>
+            <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve!  What number can fill in the blank to make the equation correct?" id='questionTitle'>{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
+        <div class="col-lg-9 col-lg-offset-3">
           <form class="form-inline">
-            <div class="form-group">
-              <span><label for="guess">Answer</label>
-              <input type="text" class="form-control" id="guess"><span id="encouragement"> Please type an answer!</span></span>
-              <input type="hidden" value="{{ question.solution }}">
+            <div class="form-group" id="guessForm">
+              <span id="answerSection"><label for="guess">Answer: </label></span>
+              <input type="text" class="form-control" id="guess"><span id="encouragement"> Please type an answer!</span>
+              <input type="hidden" value="{{ question.solution }}" id="answer">
+              <input class='btn btn-default' type="submit" value="Submit" id="submit">
             </div>
           </form>
+          <hr>
             <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>

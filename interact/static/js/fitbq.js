@@ -1,32 +1,35 @@
-var $questionSolution = $('#questionSolution').val()
-var $radioGroup = $('[name="optionsRadios"]')
+var $questionSolution = $('#answer').val()
 var $description = $('#description')
-var $questionTitle = $('#questionTitle')
-var $answers = $('#radioGroup')
-var $titleButton = $('#titleButton')
-var $answers = $('#selectionGroup')
 var $descriptionButton = $('#descriptionButton')
-var $radioButton = $('#encouragement')
+var $questionTitle = $('#questionTitle')
+var $titleButton = $('#titleButton')
+var $answerSection = $('#answerSection')
+var $encouragement = $('#encouragement')
+var $submit = $('#submit')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
 $titleButton.hide()
 // $descriptionButton.hide()
-$radioButton.hide()
+$encouragement.hide()
 $nextPage.hide()
 
-$radioGroup.click(function() {
-  var $guess = $(this).val()
+$submit.click(function() {
+  var $guessForm = $('#guess')
+  var $guess = $('#guess').val()
   console.log($guess)
-  $radioButton.text('| The correct answer is ' + $questionSolution);
+  $encouragement.text('| The correct answer is ' + $questionSolution);
   $nextPage.show()
   if ($guess == $questionSolution) {
+    $guessForm.css('background-color', '#6DC090')
     $isCorrect = true
     console.log('yes!')
+    return false
   }
   if ($guess != $questionSolution) {
     $isCorrect = false
     console.log('no!')
+    return false
   }
 })
 
@@ -43,11 +46,12 @@ $(window).on('load', function () {
   console.log('loaded');
   highlight($description, $descriptionButton);
   unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
-  unhighlight($questionTitle, $titleButton, $answers, $radioButton);
+  unhighlight($questionTitle, $titleButton, $answerSection, $encouragement);
 });
 
 function highlight(focusPoint, focusButton) {
-  focusPoint.css('border-style','solid')
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','#ecbe45')
   focusButton.show()
 }
 
@@ -55,7 +59,17 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
   focusButton.on('click', function (){
     focusButton.hide()
     nextButton.show()
-    focusPoint.css('border-style','none')
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color','transparent')
     highlight(next, nextButton)
   })
 }
+
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
