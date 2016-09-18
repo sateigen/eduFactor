@@ -1,6 +1,6 @@
 .container {
-  padding: 20px;
-  margin-top: 25px;
+  padding: 10px;
+  margin-top: 10px;
   width: 1000px;
 }
 
@@ -44,7 +44,7 @@ ul.nav.navbar-nav li a:hover {
 .draggable, .draggable-nonvalid {
   width: 50px;
   height: 25px;
-  background: #E4E4E4;
+  background: #6DC090;
   text-align: center;
   float: left;
   margin: 10px 10px 10px 0;
@@ -52,10 +52,11 @@ ul.nav.navbar-nav li a:hover {
   border-style: solid;
   border-width: thin;
   border-radius: 5px;
+  border-color: #485052;
 }
 
  .droppable {
-   width: 100px;
+   width: 150px;
    height: 100px;
    padding: 0.5em;
    background: #74CFe4;
@@ -64,6 +65,7 @@ ul.nav.navbar-nav li a:hover {
    text-align: center;
    border-style: solid;
    border-width: medium;
+   border-color: #485052;
  }
 
 *{
@@ -72,8 +74,11 @@ ul.nav.navbar-nav li a:hover {
 }
 
 h1, h2, h3, h4 {
-  color: #EF754A;
   font-family: 'Montserrat', sans-serif;
+}
+
+#dropbox {
+  color: #485052;
 }
 
 #kids {
