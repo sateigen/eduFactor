@@ -5,8 +5,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.models import User, Group
-from .serializers import UserSerializer, GroupSerializer, FlavorSerializer, CourseSerializer, QuestionSerializer, AssessmentSerializer, ScoreSerializer
+from .serializers import UserSerializer, GroupSerializer, FlavorSerializer
+from .serializers import CourseSerializer, QuestionSerializer
+from .serializers import AssessmentSerializer, ScoreSerializer
 import random
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+
+
+@login_required
+def home(request):
+    return HttpResponseRedirect(reverse(student, args=[request.user.id]))
 
 
 class IndexView(TemplateView):
