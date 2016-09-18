@@ -12,6 +12,15 @@ ul.nav.navbar-nav li a:hover {
   font-weight: bold;
 }
 
+#hello {
+  color: #74CFe4;
+}
+
+#brand {
+  color: #74CFe4;
+  font-size: 22px;
+}
+
 #about {
   color: #6dc090;
 }
@@ -23,7 +32,6 @@ ul.nav.navbar-nav li a:hover {
 #pract{
   color: #EF754A;
 }
-
 
 .site-wrapper {
  display: table;
@@ -56,9 +64,7 @@ ul.nav.navbar-nav li a:hover {
    text-align: center;
    border-style: solid;
    border-width: medium;
-
  }
-
 
 *{
   font-family: 'Montserrat', sans-serif;
@@ -70,17 +76,7 @@ h1, h2, h3, h4 {
   color: #EF754A;
 }
 
-#hello {
-  font-size: 25px;
-  color: #74CFe4;
-}
-
 #kids {
   width: 24em;
   height: 18em;
 }
-
-/*@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  #sidenav-link {font-size: 18px;}
-}*/

@@ -10,7 +10,6 @@ var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
-
 $titleButton.hide()
 // $descriptionButton.hide()
 $selectButton.hide()

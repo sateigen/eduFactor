@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id="hello" href="/">eduFactor</a>
+                <a class="navbar-brand" id="brand" href="/">eduFactor</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -33,10 +33,10 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
-                    <li id="hello"><a href="#">Hello, {{ user.username }}!</a></li>
+                    <li><a id='hello' href="#">Hello, {{ user.username }}!</a></li>
                     <form class="navbar-form navbar-right" action="/logout/" method="post">
                         {% csrf_token %}
-                        <button type="submit" name="logout" class="btn btn-default navbar-right">Logout</button>
+                        <button type="submit" name="logout" class="btn btn-default">Logout</button>
                     </form>
                     {% else %}
                     <form class="navbar-form navbar-right" method="post" action="/login/">
