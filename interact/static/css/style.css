@@ -4,6 +4,27 @@
   width: 1000px;
 }
 
+.navbar-default {
+  background-color: #485052;
+}
+
+ul.nav.navbar-nav li a:hover {
+  font-weight: bold;
+}
+
+#about {
+  color: #6dc090;
+}
+
+#tut {
+  color: #ECBE45;
+}
+
+#pract{
+  color: #EF754A;
+}
+
+
 .site-wrapper {
  display: table;
  width: 100%;
@@ -45,13 +66,13 @@
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Fugaz One', cursive;
+  font-family: 'Rancho', cursive;
   color: #EF754A;
 }
 
 #hello {
   font-size: 25px;
-  color: #6DC090;
+  color: #74CFe4;
 }
 
 #kids {

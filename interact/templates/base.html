@@ -8,7 +8,7 @@
         {% block title %}
         {% endblock %}
     </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Rancho" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> {% block link %} {% endblock %}
 </head>
@@ -27,7 +27,9 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">About</a></li>
+                    <li><a href="/" id='about'>About</a></li>
+                    <li><a href="/" id='tut'>Tutorial</a></li>
+                    <li><a href="/" id='pract'>Practice</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
