@@ -4,6 +4,35 @@
   width: 1000px;
 }
 
+.navbar-default {
+  background-color: #485052;
+}
+
+ul.nav.navbar-nav li a:hover {
+  color: #FFFFFF;
+}
+
+#hello {
+  color: #74CFe4;
+}
+
+#brand {
+  color: #74CFe4;
+  font-size: 22px;
+}
+
+#about {
+  color: #6dc090;
+}
+
+#tut {
+  color: #ECBE45;
+}
+
+#pract{
+  color: #EF754A;
+}
+
 .site-wrapper {
  display: table;
  width: 100%;
@@ -35,31 +64,19 @@
    text-align: center;
    border-style: solid;
    border-width: medium;
-
  }
 
-
 *{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #485052;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Fugaz One', cursive;
   color: #EF754A;
-}
-
-#hello {
-  font-size: 25px;
-  color: #6DC090;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #kids {
   width: 24em;
   height: 18em;
 }
-
-/*@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  #sidenav-link {font-size: 18px;}
-}*/
