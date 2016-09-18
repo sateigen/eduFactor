@@ -63,6 +63,8 @@ def question(request, question_id):
             context['solutions'] = correct
         template = 'students/drag_drop_question.html'
     elif question.flavor.name == 'fraction-fill-in':
+        table_cells = int(question.description) * 'x'
+        context['table_cells'] = table_cells
         template = 'students/fraction_question.html'
     return render(request, template, context)
 
