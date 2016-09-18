@@ -80,3 +80,8 @@ h1, h2, h3, h4 {
   width: 24em;
   height: 18em;
 }
+
+/*fraction-fill-in question*/
+.clicked {
+  background-color: #6dc090
+}
