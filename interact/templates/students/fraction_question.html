@@ -4,8 +4,7 @@
 eduFactor | Question
 {% endblock %}
 {% block scripts %}
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="{% static "js/msq.js" %}"></script>
+<script src="{% static "js/ffiq.js" %}"></script>
 {% endblock %}
 {% block content %}
 
@@ -21,9 +20,18 @@ eduFactor | Question
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
+    <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
       <h4>Answers <span id="selectButton">| Please click each section you want shaded in!</span></h4>
-
+      <table class="table table-bordered">
+        <tr>
+        {% for i in table_cells %}
+        <td></td>
+        {% endfor %}
+        </tr>
+      </table>
+      <input type="hidden" value="{{ question.solution }}" class="questionSolution">
+      <hr>
+      <button id="nextPage" class="btn btn-default">Next Question</button>
     </div>
   </div>
 </div>
