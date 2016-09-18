@@ -1,5 +1,4 @@
 var $questionSolution = $('.questionSolution')
-var $selectGroup = $('[name="optionsSelect"]')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#selectionGroup')
@@ -16,24 +15,15 @@ $titleButton.hide()
 $selectButton.hide()
 $nextPage.hide()
 
-$selectGroup.click(function() {
-  var $guess = $(this).val()
-  console.log(correctAnswers)
-  console.log($guess)
+$answers.click(function() {
   $selectButton.text('| The correct answers are ' + correctAnswers[0] + ' and ' + correctAnswers[1]);
   $nextPage.show()
-  if ($guess in allAnswers) {
-    $isCorrect = true
-    console.log('yes!')
-  }
-  if ($guess != allAnswers) {
-    $isCorrect = false
-    console.log('no!')
-  }
 })
 
 $nextPage.click(function() {
+  checkAnswers(correctAnswers, chosenAnswers)
   if ($isCorrect) {
+    console.log('yay!')
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
     console.log($curr, typeof($curr))
@@ -62,6 +52,14 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
   })
 }
 
+function checkAnswers(correctAnswers, chosenAnswers) {
+  $('.answers').each(function(index) {
+      if ($( this ).is(':checked') == true) {
+          chosenAnswers.push($(this).val())}})
+  $isCorrect = $(correctAnswers).not(chosenAnswers).length === 0 && $(chosenAnswers).not(correctAnswers).length === 0
+}
+
+
 
 var correctAnswers = []
 var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
@@ -69,5 +67,6 @@ for(i=0; i < answerObjects.length; i++){
   correctAnswers.push(answerObjects[i].value)
 }
 
-// var chosen_answers = []
-// var choicesSelected = $answersChosen.each(function(index) {$(this.)})
+var chosenAnswers = []
+
+var $isCorrect

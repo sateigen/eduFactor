@@ -22,16 +22,17 @@
           <h4>Answers <span id="selectButton">| Please select the answers!</span></h4>
               {% for answer in answers %}
               <label class="btn btn-primary">
-                <input type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
+                <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
               </label>
               {% endfor %}
-
+              <br>
+              {% for solution in correct %}
+              <input type="hidden" value="{{ solution }}" class="questionSolution">
+              {% endfor %}
+              <hr>
+              <button id="nextPage" class="btn btn-default">Next Question</button>
             </div>
-            {% for solution in correct %}
-            <input type="hidden" value="{{ solution }}" class="questionSolution">
-            {% endfor %}
-            <hr>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
+
         </div>
     </div>
 {% endblock %}
