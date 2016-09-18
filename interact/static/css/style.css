@@ -9,7 +9,7 @@
 }
 
 ul.nav.navbar-nav li a:hover {
-  font-weight: bold;
+  color: #FFFFFF;
 }
 
 #hello {
@@ -67,13 +67,13 @@ ul.nav.navbar-nav li a:hover {
  }
 
 *{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #485052;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Rancho', cursive;
   color: #EF754A;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #kids {
