@@ -42,8 +42,10 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
         drop: function( event, ui ) {
           $( this )
             .addClass( "droppable-highlight" )
-            .find( "p" ),
-              console.log(ui.draggable.context)
+            .find( "p" );
+            var targetElem = ui.draggable;
+     var id = $(this).attr("id");
+     console.log(targetElem.html() +  " is dropped in " + id);
         }
       });
     });
@@ -54,8 +56,10 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
           drop: function( event, ui ) {
             $( this )
               .addClass( "droppable-highlight" )
-              .find( "p" ),
-              console.log(ui.draggable.context)
+              .find( "p" );
+              var targetElem = ui.draggable;
+       var id = $(this).attr("id");
+       console.log(targetElem.html() +  " is dropped in " + id);
           }
         });
       });
@@ -65,9 +69,14 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
             drop: function( event, ui ) {
               $( this )
                 .addClass( "droppable-highlight" )
-                .find( "p" ),
+                .find( "p" );
+                var targetElem = ui.draggable;
          var id = $(this).attr("id");
-         console.log(id + " is dropped");
+         console.log(targetElem.html() +  " is dropped in " + id);
+         if ($('#droppable1').attr('value') == targetElem.html()) {
+           $isCorrect = true;
+           console.log('yay');
+         }
             }
           });
         });
