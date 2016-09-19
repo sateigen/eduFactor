@@ -7,36 +7,59 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
+    <div class="col-lg-6">
+      <h3><span id="title">{{ question.title }}</span></h3>
+      <input type="hidden" value="{{ correct }}" id="correct">
+      <hr>
+      <table class="table table-bordered" id="dataTable">
+        <thead>
+          <tr>
+            {% for item in correct.keys %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for item in correct.values %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <button class="btn btn-default">Submit</button> <button id="nextPage" class="btn btn-default">Next Question</button>
+    </div>
+    <div class="col-lg-6">
       <table class="table" id="graph">
-        <caption>{{ graph_title }}</caption>
+        <caption id="graphTitle"><b>{{ graph_title }}</b></caption>
+        <colgroup>
+          <col class="ylabels"></col>
+          {% for label in x_labels %}
+          <col class="col{{ forloop.counter }}"></col>
+          {% endfor %}
+        </colgroup>
         <tfoot>
           <tr>
             <td></td>
             {% for label in x_labels %}
-            <td>{{ label }}</td>
+            <td class="xlabels">{{ label }}</td>
             {% endfor %}
           </tr>
         </tfoot>
         <tbody>
           {% for label in y_labels %}
             <tr>
-              <td>{{ label }}</td>
+              <td class="ylabels">{{ label }}</td>
               {% for label in x_labels %}
-              <td></td>
+              <td class="col{{ forloop.counter }}"></td>
               {% endfor %}
             </tr>
           {% endfor %}
         </tbody>
       </table>
-{{ graph_width }}
-{{ graph_height }}
-{{ graph_title }}
-{{ x_labels }}
-{{ y_labels }}
-{{ correct }}
-</div>
-</div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

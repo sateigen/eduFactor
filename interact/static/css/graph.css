@@ -1,8 +1,40 @@
 #graph {
   border-collapse: separate;
   border-spacing: 1em 0em;
+  background-color: transparent;
+  width: 1em;
 }
 
-.highlight {
-  background-color:#74cfe4
+#graph > caption {
+  text-align: center;
+}
+
+.col1.highlight {
+  background-color: #6DC090;
+}
+
+.col2.highlight {
+  background-color: #74cfe4;
+}
+
+.col3.highlight {
+  background-color: #ecbe45;
+}
+
+.col4.highlight {
+  background-color: #ef754a;
+}
+
+.col1, .col2, .col3, .col4 {
+  width: 5em;
+}
+
+.ylabels {
+  border-right: 1px solid;
+}
+
+.xlabels {
+  border-top: 1px solid !important;
+  border-collapse: collapse;
+  border-spacing: 0em 0em;
 }
