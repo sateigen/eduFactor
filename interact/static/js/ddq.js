@@ -8,27 +8,12 @@ var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
+var $submit = $('#submit')
 
 $titleButton.hide()
 // $descriptionButton.hide()
 $selectButton.hide()
 $nextPage.hide()
-
-$answers.click(function() {
-  $selectButton.text('| The correct answers are ' + correctAnswers[0] + ' and ' + correctAnswers[1]);
-  $nextPage.show()
-})
-
-$nextPage.click(function() {
-  checkAnswers(correctAnswers, chosenAnswers)
-  if ($isCorrect) {
-    console.log('yay!')
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/question/" + $next + "/"
-  }
-})
 
 $(window).on('load', function () {
   console.log('loaded');
@@ -51,73 +36,38 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
   })
 }
 
-function checkAnswers(correctAnswers, chosenAnswers) {
-  $('.answers').each(function(index) {
-      if ($( this ).is(':checked') == true) {
-          chosenAnswers.push($(this).val())}})
-  $isCorrect = $(correctAnswers).not(chosenAnswers).length === 0 && $(chosenAnswers).not(correctAnswers).length === 0
-}
-
-
-
-var correctAnswers = []
-var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
-for(i=0; i < answerObjects.length; i++){
-  correctAnswers.push(answerObjects[i].value)
-}
-
-var chosenAnswers = []
-
-var $isCorrect
-
-  $(function() {
-      $(".draggable, .draggable-nonvalid").draggable();
-      $(".droppable1").droppable({
-          accept: ".draggable1",
-          classes: {
-              "ui-droppable-active": "ui-state-active",
-              "ui-droppable-hover": "ui-state-hover"
-          },
-          drop: function(event, ui) {
-              $(this)
-                  .addClass("ui-state-highlight")
-                  .find("p")
-                  .html("Correct!");
-          }
+  $( function() {
+      $( ".draggable" ).draggable();
+      $( "#droppable3" ).droppable({
+        drop: function( event, ui ) {
+          $( this )
+            .addClass( "droppable-highlight" )
+            .find( "p" ),
+              console.log(ui.draggable.context)
+        }
       });
-  });
-
-  $(function() {
-      $(".draggable, .draggable-nonvalid").draggable();
-      $(".droppable2").droppable({
-          accept: ".draggable2",
-          classes: {
-              "ui-droppable-active": "ui-state-active",
-              "ui-droppable-hover": "ui-state-hover"
-          },
-          drop: function(event, ui) {
-              $(this)
-                  .addClass("ui-state-highlight")
-                  .find("p")
-                  .html("Correct!");
+    });
+    $( function() {
+        $( ".draggable" ).draggable();
+        $( "#droppable2" ).droppable({
+          tolerance: "fit",
+          drop: function( event, ui ) {
+            $( this )
+              .addClass( "droppable-highlight" )
+              .find( "p" ),
+              console.log(ui.draggable.context)
           }
+        });
       });
-  });
-
-
-  $(function() {
-      $(".draggable, .draggable-nonvalid").draggable();
-      $(".droppable3").droppable({
-          accept: ".draggable3",
-          classes: {
-              "ui-droppable-active": "ui-state-active",
-              "ui-droppable-hover": "ui-state-hover"
-          },
-          drop: function(event, ui) {
-              $(this)
-                  .addClass("ui-state-highlight")
-                  .find("p")
-                  .html("Correct!");
-          }
-      });
-  });
+      $( function() {
+          $( ".draggable" ).draggable();
+          $( "#droppable1" ).droppable({
+            drop: function( event, ui ) {
+              $( this )
+                .addClass( "droppable-highlight" )
+                .find( "p" ),
+         var id = $(this).attr("id");
+         console.log(id + " is dropped");
+            }
+          });
+        });
