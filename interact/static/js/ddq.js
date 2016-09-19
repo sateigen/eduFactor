@@ -55,9 +55,7 @@ $(function() {
 
 $submit.click(function() {
   $('.dropped').each(function(index, item) {
-      var targetElem = $draggable;
-      var id = $droppable.attr("id");
-      if (item.attributes.value == ($(id).attr('value'))) {
+      if ($('.droppable').attr('value') === $('.dropped').attr('value')) {
           $isCorrect = true;
           console.log('yay');
       }
