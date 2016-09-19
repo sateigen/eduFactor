@@ -18,6 +18,7 @@ ul.nav.navbar-nav li a:hover {
 
 #brand {
   color: #74CFe4;
+  font-weight: bold;
   font-size: 22px;
 }
 
@@ -41,7 +42,7 @@ ul.nav.navbar-nav li a:hover {
  padding-top: 1cm;
 }
 
-.draggable, .draggable-nonvalid {
+.draggable {
   width: 50px;
   height: 25px;
   background: #6DC090;
@@ -68,6 +69,14 @@ ul.nav.navbar-nav li a:hover {
    border-color: #485052;
  }
 
+ .navbar-nav > li > a {
+    line-height: 25px;
+ }
+
+ .droppable-highlight {
+   background: #ECBE45;
+ }
+
 *{
   font-family: 'Open Sans', sans-serif;
   color: #485052;
@@ -77,9 +86,6 @@ h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
 }
 
-#dropbox {
-  color: #485052;
-}
 
 #kids {
   width: 24em;

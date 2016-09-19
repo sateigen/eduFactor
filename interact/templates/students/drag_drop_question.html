@@ -19,32 +19,31 @@
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
             <h4>Answers<span id="selectButton">| Drag the answer to the correct box!</span></h4>
-            <form>
+            <form class="form-inline">
                 <div class="form-group">
                     <div class="ui-widget-content">
                         {% for answer in answers %}
-                        <p class="draggable-nonvalid" value="{{ answer }}">{{ answer }}</p>
+                        <p class="draggable" value="{{ answer }}">{{ answer }}</p>
                         {% endfor %}
                         <hr>
                     </div>
                 </div>
+                <div>
+                    <div class="droppable" id='droppable1' value='5480'>
+                        <h4 id='dropbox'>Tens</h4>
+                    </div>
+                    <div class="droppable" id='droppable2'>
+                        <h4 id='dropbox'>Hundreds</h4>
+                    </div>
+                    <div class="droppable" id='droppable3'>
+                        <h4 id='dropbox'>Thousands</h4>
+                    </div>
+                    <input class='btn btn-default' type="submit" value="Submit" id="submit">
             </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-            <div class="droppable" id='droppable1' class="ui-widget-header">
-                <h4 id='dropbox'>Tens</h4>
-            </div>
-            <div class="droppable" id='droppable2' class="ui-widget-header">
-                <h4 id='dropbox'>Hundreds</h4>
-            </div>
-            <div class="droppable" id='droppable3' class="ui-widget-header">
-                <h4 id='dropbox'>Thousands</h4>
-            </div>
+            <hr>
             <button id="nextPage" class="btn btn-default">Next Question</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
