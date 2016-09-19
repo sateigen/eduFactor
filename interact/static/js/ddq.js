@@ -9,74 +9,66 @@ var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 var $submit = $('#submit')
+var $droppable = $('.droppable')
+var $draggable = $('.draggable')
 
 $titleButton.hide()
-// $descriptionButton.hide()
+    // $descriptionButton.hide()
 $selectButton.hide()
 $nextPage.hide()
 
-$(window).on('load', function () {
-  console.log('loaded');
-  highlight($description, $descriptionButton);
-  unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
-  unhighlight($questionTitle, $titleButton, $answers, $selectButton);
+$(window).on('load', function() {
+    console.log('loaded');
+    highlight($description, $descriptionButton);
+    unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
+    unhighlight($questionTitle, $titleButton, $answers, $selectButton);
 });
 
 function highlight(focusPoint, focusButton) {
-  focusPoint.css('border-style','solid')
-  focusButton.show()
+    focusPoint.css('border-style', 'solid')
+    focusButton.show()
 }
 
 function unhighlight(focusPoint, focusButton, next, nextButton) {
-  focusButton.on('click', function (){
-    focusButton.hide()
-    nextButton.show()
-    focusPoint.css('border-style','none')
-    highlight(next, nextButton)
-  })
+    focusButton.on('click', function() {
+        focusButton.hide()
+        nextButton.show()
+        focusPoint.css('border-style', 'none')
+        highlight(next, nextButton)
+    })
 }
 
-  $( function() {
-      $( ".draggable" ).draggable();
-      $( "#droppable3" ).droppable({
-        drop: function( event, ui ) {
-          $( this )
-            .addClass( "droppable-highlight" )
-            .find( "p" );
+$(function() {
+    $(".draggable").draggable();
+    $(".droppable").droppable({
+        drop: function(event, ui) {
+            $(this)
+                .addClass("droppable-highlight")
+                .find("p");
             var targetElem = ui.draggable;
-     var id = $(this).attr("id");
-     console.log(targetElem.html() +  " is dropped in " + id);
+            var id = $(this).attr("id");
+            targetElem.toggleClass('dropped')
+            console.log(id + ":" + targetElem.html());
         }
-      });
     });
-    $( function() {
-        $( ".draggable" ).draggable();
-        $( "#droppable2" ).droppable({
-          tolerance: "fit",
-          drop: function( event, ui ) {
-            $( this )
-              .addClass( "droppable-highlight" )
-              .find( "p" );
-              var targetElem = ui.draggable;
-       var id = $(this).attr("id");
-       console.log(targetElem.html() +  " is dropped in " + id);
-          }
-        });
-      });
-      $( function() {
-          $( ".draggable" ).draggable();
-          $( "#droppable1" ).droppable({
-            drop: function( event, ui ) {
-              $( this )
-                .addClass( "droppable-highlight" )
-                .find( "p" );
-                var targetElem = ui.draggable;
-         var id = $(this).attr("id");
-         console.log(targetElem.html() +  " is dropped in " + id);
-         if ($('#droppable1').attr('value') == targetElem.html()) {
-           $isCorrect = true;
-           console.log('yay');
-         }
-            }
-          });
-        });
+});
+
+$submit.click(function() {
+  $('.dropped').each(function(index, item) {
+      var targetElem = $draggable;
+      var id = $droppable.attr("id");
+      if (item.attributes.value == ($(id).attr('value'))) {
+          $isCorrect = true;
+          console.log('yay');
+      }
+  })
+})
+
+$nextPage.click(function() {
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    console.log($curr, typeof($curr))
+    window.location.href = "/question/" + $next + "/"
+  }
+})
