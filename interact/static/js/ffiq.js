@@ -22,13 +22,11 @@ $answers.click(function() {
 $nextPage.click(function() {
   checkAnswers()
   if ($isCorrect) {
-    console.log('yay!')
-    window.location.href = "/"}
-  //   $curr = parseFloat(window.location.href.split('/')[4])
-  //   $next = $curr + 1
-  //   console.log($curr, typeof($curr))
-  //   window.location.href = "/question/" + $next + "/"
-  // }
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    console.log($curr, typeof($curr))
+    window.location.href = "/question/" + $next + "/"
+  }
 })
 
 $(window).on('load', function () {
