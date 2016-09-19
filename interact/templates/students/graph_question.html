@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} eduFactor | Question {% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <table class="table" id="graph">
+        <caption>{{ graph_title }}</caption>
+        <tfoot>
+          <tr>
+            <td></td>
+            {% for label in x_labels %}
+            <td>{{ label }}</td>
+            {% endfor %}
+          </tr>
+        </tfoot>
+        <tbody>
+          {% for label in y_labels %}
+            <tr>
+              <td>{{ label }}</td>
+              {% for label in x_labels %}
+              <td></td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{{ graph_width }}
+{{ graph_height }}
+{{ graph_title }}
+{{ x_labels }}
+{{ y_labels }}
+{{ correct }}
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/graph.js" %}"></script>
+{% endblock %}

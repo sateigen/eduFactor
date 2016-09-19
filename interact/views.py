@@ -60,12 +60,28 @@ def question(request, question_id):
         for answer in solutions:
             temp = answer.split(':')
             correct[temp[0]] = temp[1]
-            context['solutions'] = correct
+        context['solutions'] = correct
         template = 'students/drag_drop_question.html'
     elif question.flavor.name == 'fraction-fill-in':
         table_cells = int(question.description) * 'x'
         context['table_cells'] = table_cells
         template = 'students/fraction_question.html'
+    elif question.flavor.name == 'graph':
+        solutions = question.solution.split(',')
+        correct = {}
+        for answer in solutions:
+            temp = answer.split(':')
+            correct[temp[0]] = temp[1]
+        context['correct'] = correct
+        context['graph_width'] = len(answers)
+        graph_height = max([int(item) for item in correct.values()])
+        context['graph_height'] = graph_height
+        context['graph_title'] = question.description
+        context['x_labels'] = list(correct.keys())
+        y_labels = list(range(1, graph_height + 1))
+        y_labels.reverse()
+        context['y_labels'] = y_labels
+        template = 'students/graph_question.html'
     return render(request, template, context)
 
 
