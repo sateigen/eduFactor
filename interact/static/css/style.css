@@ -6,6 +6,7 @@
 
 .navbar-default {
   background-color: #485052;
+  font-size: 18px;
 }
 
 ul.nav.navbar-nav li a:hover {
@@ -20,22 +21,22 @@ ul.nav.navbar-nav li a:hover {
 #brand {
   color: #74CFe4;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
   text-shadow: 2px 2px 4px #000000;
 }
 
 #about {
-  color: #6dc090;
+  color: #EF754A;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 
 #tut {
-  color: #ECBE45;
+  color: #6dc090;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 
 #pract{
-  color: #EF754A;
+  color: #ECBE45;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 
