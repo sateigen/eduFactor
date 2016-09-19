@@ -55,6 +55,7 @@ def question(request, question_id):
         context['correct'] = correct
         template = 'students/multi_select_question.html'
     elif question.flavor.name == 'drag-and-drop':
+        answers = answers.sort()
         solutions = question.solution.split(',')
         correct = {}
         for answer in solutions:

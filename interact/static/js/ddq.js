@@ -2,15 +2,17 @@ var $questionSolution = $('.questionSolution')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#selectionGroup')
-var $answersChosen = $('.acitve')
+var $answersChosen = $('.active')
 var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
-var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 var $submit = $('#submit')
 var $droppable = $('.droppable')
+var $selectButton = $('#selectButton')
 var $draggable = $('.draggable')
+var $chosenAnswers = []
+var $correctAnswers = []
 
 $titleButton.hide()
     // $descriptionButton.hide()
@@ -44,6 +46,7 @@ $(function() {
         drop: function(event, ui) {
             $(this)
                 .addClass("droppable-highlight")
+                  $nextPage.show()
                 .find("p");
             var targetElem = ui.draggable;
             var id = $(this).attr("id");
@@ -53,20 +56,27 @@ $(function() {
     });
 });
 
-$submit.click(function() {
-  $('.dropped').each(function(index, item) {
-      if ($('.droppable').attr('value') === $('.dropped').attr('value')) {
-          $isCorrect = true;
-          console.log('yay');
-      }
-  })
-})
 
-$nextPage.click(function() {
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/question/" + $next + "/"
+$nextPage.click(function(e) {
+  e.preventDefault()
+checkAnswers($correctAnswers, $chosenAnswers)
+if ($isCorrect) {
+  $curr = parseFloat(window.location.href.split('/')[4])
+  $next = $curr + 1
+  console.log($curr, typeof($curr))
+  window.location.href = "/question/" + $next + "/"
   }
 })
+
+
+function checkAnswers (correctAnswers, chosenAnswers) {
+  $('.droppable').each(function(index, item){
+    $correctAnswers.push($(this).attr('value'))})
+  $('.dropped').each(function(index, item){
+    $chosenAnswers.push($(this).attr('value'))})
+  $correctAnswers.sort()
+  $chosenAnswers.sort()
+  $isCorrect = ($correctAnswers.length == $chosenAnswers.length) &&
+  $correctAnswers.every(function(element, index){
+    return element === $chosenAnswers[index]})
+}
