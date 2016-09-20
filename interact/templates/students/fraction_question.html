@@ -3,22 +3,20 @@
 {% block title %}
 eduFactor | Tutorial
 {% endblock %}
-
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
+{% endblock %}
 {% block content %}
-<div class="container">
+<div class="aligner-item">
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
-      <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="The description tells you how to answer this type of question.  Be sure to always read the description before answering the question. Click 'NEXT' to proceed." id="description">{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
+      <h3><span id="description">{{ question.flavor.description }}:</span></h3>
     </div>
-  </div>
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
-      <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve! Be sure to read it carefully. Click 'NEXT' to proceed." id="questionTitle">{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
+      <h1><span id="questionTitle">{{ question.title }}</span></h1>
     </div>
-  </div>
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3 selectionGroup">
-      <h4><span data-toggle="popover" title="The Answers" data-placement="left" data-content="Here you will find the shape(s) that you must use to answer the question. Click on each section of the shape that you wish to be highlighted. After shading in the correct amount, click the Next Page button to continue to the next question." class="selectionGroup">Show your answer below!</span><span id="selectButton"></span></h4>
+    <div class="selectionGroup">
+      <h4><span>Show your answer below!</span></h4>
       <table class="table table-bordered">
         <tr>
         {% for i in table_cells %}
@@ -28,8 +26,9 @@ eduFactor | Tutorial
       </table>
       <input type="hidden" value="{{ question.solution }}" class="questionSolution">
       <hr>
+      </div>
       <button id="nextPage" class="btn btn-default">Next Question</button>
-    </div>
+
   </div>
 </div>
 {% endblock %}
