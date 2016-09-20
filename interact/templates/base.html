@@ -30,7 +30,8 @@
                     <li><a href="{% url 'about' %}" id='about'>About</a></li>
                     {% url 'question_detail' 1 as the_url %}
                     <li><a href="{{ the_url }}" id='tut'>Tutorial</a></li>
-                    <li><a href="/" id='pract'>Practice</a></li>
+                    {% url 'practice_detail' 1 as the_url %}
+                    <li><a href="{{ the_url }}" id='pract'>Practice</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
