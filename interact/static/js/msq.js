@@ -31,6 +31,7 @@ $nextPage.click(function() {
     console.log($curr, typeof($curr))
     window.location.href = "/tutorial/" + $next + "/"
   }
+  chosenAnswers = []
 })
 
 $(window).on('load', function () {
@@ -60,8 +61,14 @@ function checkAnswers(correctAnswers, chosenAnswers) {
   $('.answers').each(function(index) {
       if ($( this ).is(':checked') == true) {
           chosenAnswers.push($(this).val())}})
-  $isCorrect = $(correctAnswers).not(chosenAnswers).length === 0 && $(chosenAnswers).not(correctAnswers).length === 0
+  correctAnswers.sort()
+  chosenAnswers.sort()
+  $isCorrect = (correctAnswers.length == chosenAnswers.length) && correctAnswers.every(function(element, index) {
+    return element === chosenAnswers[index]
+  })
+  console.log(chosenAnswers)
 }
+
 
 for(i=0; i < answerObjects.length; i++){
   correctAnswers.push(answerObjects[i].value)
