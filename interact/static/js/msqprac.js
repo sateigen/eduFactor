@@ -10,18 +10,17 @@ var $isCorrect = false
 var correctAnswers = []
 var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
 
+
 $answers.click(function() {
   $nextPage.show()
 })
 
 $nextPage.click(function() {
   checkAnswers(correctAnswers, chosenAnswers)
-  if ($isCorrect) {
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
     console.log($curr, typeof($curr))
     window.location.href = "/practice/" + $next + "/"
-  }
 })
 
 $(window).on('load', function () {
@@ -29,12 +28,16 @@ $(window).on('load', function () {
   $nextPage.hide()
 });
 
-
 function checkAnswers(correctAnswers, chosenAnswers) {
   $('.answers').each(function(index) {
       if ($( this ).is(':checked') == true) {
           chosenAnswers.push($(this).val())}})
-  $isCorrect = $(correctAnswers).not(chosenAnswers).length === 0 && $(chosenAnswers).not(correctAnswers).length === 0
+  correctAnswers.sort()
+  chosenAnswers.sort()
+  $isCorrect = (correctAnswers.length == chosenAnswers.length) && correctAnswers.every(function(element, index) {
+    return element === chosenAnswers[index]
+  })
+  console.log(chosenAnswers)
 }
 
 for(i=0; i < answerObjects.length; i++){
