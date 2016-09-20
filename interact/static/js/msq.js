@@ -2,7 +2,7 @@ var $questionSolution = $('.questionSolution')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('.selectionGroup')
-var $answersChosen = $('.acitve')
+var $answersChosen = $('.active')
 var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
@@ -29,7 +29,7 @@ $nextPage.click(function() {
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
     console.log($curr, typeof($curr))
-    window.location.href = "/question/" + $next + "/"
+    window.location.href = "/tutorial/" + $next + "/"
   }
 })
 

@@ -6,7 +6,7 @@ var $descriptionButton = $('#descriptionButton')
 var $titleButton = $('#titleButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
-var $answers = $('#selectionGroup')
+var $answers = $('.selectionGroup')
 var $isCorrect = false
 
 $titleButton.hide()
