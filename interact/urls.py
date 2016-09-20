@@ -17,7 +17,8 @@ urlpatterns = [
     url(r'^create_test/$', CreateTest.as_view(), name='create_test'),
     url(r'^add_class/$', AddClass.as_view(), name='add_class'),
     url(r'^student/([0-9]+)$', views.student, name='student'),
-    url(r'^question/([0-9]+)/$', views.question, name='question_detail'),
+    url(r'^tutorial/([0-9]+)/$', views.tutorial_question, name='question_detail'),
+    url(r'^practice/([0-9]+)/$', views.practice_question, name='practice_detail'),
     url(r'^home/$', views.home, name='home'),
     url(r'^about/$', views.about, name='about')
     ]
