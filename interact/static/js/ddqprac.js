@@ -1,10 +1,5 @@
 var $questionSolution = $('.questionSolution')
-var $description = $('#description')
-var $questionTitle = $('#questionTitle')
-var $answers = $('#selectionGroup')
 var $answersChosen = $('.active')
-var $titleButton = $('#titleButton')
-var $descriptionButton = $('#descriptionButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 var $submit = $('#submit')
@@ -14,31 +9,11 @@ var $draggable = $('.draggable')
 var $chosenAnswers = []
 var $correctAnswers = []
 
-$titleButton.hide()
-    // $descriptionButton.hide()
-$selectButton.hide()
-$nextPage.hide()
 
 $(window).on('load', function() {
     console.log('loaded');
-    highlight($description, $descriptionButton);
-    unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
-    unhighlight($questionTitle, $titleButton, $answers, $selectButton);
+    $nextPage.hide()
 });
-
-function highlight(focusPoint, focusButton) {
-    focusPoint.css('border-style', 'solid')
-    focusButton.show()
-}
-
-function unhighlight(focusPoint, focusButton, next, nextButton) {
-    focusButton.on('click', function() {
-        focusButton.hide()
-        nextButton.show()
-        focusPoint.css('border-style', 'none')
-        highlight(next, nextButton)
-    })
-}
 
 $(function() {
     $(".draggable").draggable();
@@ -56,16 +31,13 @@ $(function() {
     });
 });
 
-
 $nextPage.click(function(e) {
   e.preventDefault()
 checkAnswers($correctAnswers, $chosenAnswers)
-if ($isCorrect) {
   $curr = parseFloat(window.location.href.split('/')[4])
   $next = $curr + 1
   console.log($curr, typeof($curr))
   window.location.href = "/practice/" + $next + "/"
-  }
 })
 
 

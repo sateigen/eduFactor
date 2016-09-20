@@ -1,39 +1,36 @@
-{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %} {% block scripts %}
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script src="{% static 'js/ddqprac.js' %}"></script>
-{% endblock %}{% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %}{% block content %}
 <div class="aligner-item">
     <div>
         <h3 id='description1'>{{ question.flavor.description }}</h3>
         <div class="row">
-        <h1 id='questionTitle'>{{ question.title }}:</h1>
+            <h1 id='questionTitle'>{{ question.title }}:</h1>
         </div>
         <div class="row">
             <div id="selectionGroup">
                 <h4>Answers | Drag the answer to the correct box!</h4>
-
-                        <div class="ui-widget-content">
-                            {% for answer in answers %}
-                            <p class="draggable" value="{{ answer }}">{{ answer }}</p>
-                            {% endfor %}
-                            <hr>
-                        </div>
-                    </div>
-                    <div>
-                        {% for key, value in solutions.items %}
-                        <div class="droppable" id='{{ key }}' value='{{ value }}'>
-                            <h4 id='dropbox'>{{ key }}</h4>
-                        </div>
-                        {% endfor %}
-                        <hr>
-                <button id="nextPage" class="btn btn-default">Next Question</button>
+                <div class="ui-widget-content">
+                    {% for answer in answers %}
+                    <p class="draggable" value="{{ answer }}">{{ answer }}</p>
+                    {% endfor %}
+                    <hr>
                 </div>
+            </div>
+            <div>
+                {% for key, value in solutions.items %}
+                <div class="droppable" id='{{ key }}' value='{{ value }}'>
+                    <h4 id='dropbox'>{{ key }}</h4>
+                </div>
+                {% endfor %}
+                <hr>
+                <button id="nextPage" class="btn btn-default">Next Question</button>
             </div>
         </div>
     </div>
 </div>
+</div>
+{% endblock %} {% block scripts %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="{% static 'js/ddqprac.js' %}"></script>
 {% endblock %}

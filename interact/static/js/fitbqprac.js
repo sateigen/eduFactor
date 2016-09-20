@@ -1,15 +1,9 @@
 var $questionSolution = $('#answer').val()
 var $description = $('#description')
-var $descriptionButton = $('#descriptionButton')
-var $questionTitle = $('#questionTitle')
-var $titleButton = $('#titleButton')
 var $answerSection = $('#answerSection')
-var $encouragement = $('#encouragement')
 var $submit = $('#submit')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
-
-
 
 $submit.click(function() {
   var $guessForm = $('#guess')
@@ -39,17 +33,6 @@ $(window).on('load', function () {
   $nextPage.hide()
   console.log('loaded');
 });
-
-
-function unhighlight(focusPoint, focusButton, next, nextButton) {
-  focusButton.on('click', function (){
-    focusButton.hide()
-    nextButton.show()
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color','transparent')
-    highlight(next, nextButton)
-  })
-}
 
 $(document).ready(function() {
   $(window).keydown(function(event){
