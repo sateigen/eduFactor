@@ -12,7 +12,7 @@ $title.popover({
   placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'Here are your instructions!<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here are your instructions!"The description tells you how to answer this type of question.  Be sure to always read the description before answering the question. Click 'NEXT' to proceed."<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $dataTable.popover({
   placement:'bottom',

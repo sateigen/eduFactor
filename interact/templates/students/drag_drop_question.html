@@ -1,4 +1,9 @@
-{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Tutorial {% endblock %} {% block content %}
+{% extends 'base.html' %} {% load static %}
+{% block title %} eduFactor | Tutorial {% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
+{% endblock %}
+{% block content %}
 <div class="aligner-item">
     <div class="row">
         <h3><span id='description'>{{ question.flavor.description }}</span></h3>
@@ -7,24 +12,26 @@
         <h1><span id='questionTitle'>{{ question.title }}:</span></h1>
     </div>
     <div class="row">
-        <h4><span id="selectionGroup">Answers | Drag the answer to the correct box!</span></h4>
+        <h4><span id="selectionGroup">Answers</h4>
         <div>
             <div class="ui-widget-content">
                 {% for answer in answers %}
                 <p class="draggable" value="{{ answer }}">{{ answer }}</p>
                 {% endfor %}
-                <hr>
-            </div>
-            <div>
+                <hr></div>
+            </div></span>
+          </div>
+            <div class='row'>
                 {% for key, value in solutions.items %}
                 <div class="droppable" id='{{ key }}' value='{{ value }}'>
                     <h4 id='dropbox'>{{ key }}</h4>
                 </div>
                 {% endfor %}
                 <input type="hidden" value="{{ question.solution }}" id="questionSolution">
-            </div>
+
             <hr>
             <button id="nextPage" class="btn btn-default">Next Question</button>
+            </div>
         </div>
     </div>
 </div>

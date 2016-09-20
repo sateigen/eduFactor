@@ -8,39 +8,37 @@ var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
-var $submit = $('#submit')
 var $droppable = $('.droppable')
 var $selectButton = $('#selectButton')
 var $draggable = $('.draggable')
 var $chosenAnswers = []
 var $correctAnswers = []
 
-$nextPage.hide()
+// $nextPage.hide()
 
 $description.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'Here are your instructions!<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  title : '<span class="text-info"><strong>The Description</strong></span>',
+  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Question</strong></span>',
   id: 'dataPopover',
-  content : 'Here is your question!<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answerGroup.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>The Possible Answers</strong></span>',
+  title : '<span class="text-info"><strong>Potential Answers</strong></span>',
   id: 'dataPopover',
-  content : 'Here are the possible solutions, drag and drop them into the correct box then click submit.<br><br>' + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here are the answers! Click and drag the potential answers to the correct boxes.<br><br>' + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 
-$order = [$('#description'), $('#questionTitle'), $('#radioGroup')]
 
-
+$order = [$('#description'), $('#questionTitle'), $('#selectionGroup')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -59,6 +57,7 @@ for(var i = 0; i < $order.length; i++){
   })
 }
 
+
 $(window).on('load', function() {
     console.log('loaded');
     highlight($description);
@@ -66,10 +65,13 @@ $(window).on('load', function() {
 
 function highlight(focusPoint) {
   focusPoint.popover('toggle')
-  focusPoint.css('background-color','#ecbe45')
+  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+  // focusButton.show()
 }
 
 function unhighlight(focusPoint, next) {
+  // focusButton.hide()
+  // nextButton.show()
   focusPoint.popover('toggle')
   focusPoint.css('background-color','transparent')
   if (next){

@@ -23,7 +23,6 @@
 
 .navbar-default {
   background-color: #485052;
-  font-size: 18px;
 }
 
 ul.nav.navbar-nav li a:hover {
@@ -33,27 +32,31 @@ ul.nav.navbar-nav li a:hover {
 #hello {
   color: #74CFe4;
   text-shadow: 2px 2px 4px #000000;
+  font-size: 20px;
 }
 
 #brand {
   color: #74CFe4;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   text-shadow: 2px 2px 4px #000000;
 }
 
 #about {
   color: #EF754A;
+  font-size: 20px;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 
 #tut {
   color: #6dc090;
+  font-size: 20px;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 
 #pract{
   color: #ECBE45;
+  font-size: 20px;
   text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 

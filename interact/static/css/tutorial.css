@@ -6,3 +6,7 @@ span {
   padding-left: .5em;
   padding-right: .5em;
 }
+
+.popover {
+  max-width: 5.5cm;
+}
