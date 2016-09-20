@@ -5,17 +5,17 @@
 <div class="container">
   <div class="row">
       <div class="col-lg-9 col-lg-offset-3">
-          <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="This can help you solve the problem.  Click 'NEXT' to proceed" id="description">{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
+          <h4><span id="description">{{ question.flavor.description }}</span></h4>
       </div>
   </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-            <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve!" id="questionTitle">{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
+            <h1><span id="questionTitle">{{ question.title }}</span></h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-9 col-lg-offset-3">
-          <h4><span data-toggle="popover" title="The Answers" data-placement="left" data-content="This section has all of the potential answers! Go ahead and pick one!" id="radioGroup">Answers</span><span id="radioButton">| Please select an answer!</span></h4>
+          <h4><span id="radioGroup">Answers</span></h4>
             {% for answer in answers %}
             <div class="radio">
                 <label>

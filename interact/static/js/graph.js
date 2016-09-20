@@ -12,21 +12,21 @@ $title.popover({
   placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'Here are your instructions! ' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here are your instructions!<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $dataTable.popover({
   placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'Here is your data! ' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is your data!<br><br>' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $graphTitle.popover({
   placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'Here is your data! ' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is the graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 
 
@@ -145,15 +145,14 @@ $(function () {
 });
 
 function highlight(focusPoint) {
-  if (focusPoint.attr('id') == 'title') {
-    console.log('Title')
-  }
-  else if (focusPoint.attr('id') == 'dataTable') {
-    console.log('dataTable')
-  }
+  // if (focusPoint.attr('id') == 'title') {
+  //   console.log('Title')
+  // }
+  // else if (focusPoint.attr('id') == 'dataTable') {
+  //   console.log('dataTable')
+  // }
   focusPoint.popover('toggle')
   focusPoint.css('background-color','#ecbe45')
-
 }
 
 function unhighlight(focusPoint, next) {
@@ -176,7 +175,3 @@ $(window).on('load', function () {
   //   unhighlight($dataTable, $graphTitle)
   // })
 });
-
-//
-// $('#dataTableButton').ready(function(){console.log('yes again')
-// unhighlight($dataTable, $graphTitle)})

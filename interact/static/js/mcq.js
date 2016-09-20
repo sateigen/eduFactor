@@ -3,22 +3,57 @@ var $radioGroup = $('[name="optionsRadios"]')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#radioGroup')
-var $titleButton = $('#titleButton')
-var $descriptionButton = $('#descriptionButton')
-var $radioButton = $('#radioButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
-$titleButton.hide()
-// $descriptionButton.hide()
-$radioButton.hide()
 $nextPage.hide()
+
+$description.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Title</strong></span>',
+  content : 'Here are your instructions!<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$questionTitle.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Data</strong></span>',
+  id: 'dataPopover',
+  content : 'Here is your data!<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$answers.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Data</strong></span>',
+  id: 'dataPopover',
+  content : 'Here is the graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+
+$order = [$('#description'), $('#questionTitle'), $('#radioGroup')]
+
+function getNext(curr)
+{
+  for(var j=0; j<$order.length; j++)
+  {
+    if($order[j].is(curr)) {return $order[j+1]}
+  }
+}
+
+for(var i = 0; i < $order.length; i++){
+  $order[i].on('shown.bs.popover', function(){
+    $('#' + $(this).attr('id') + 'Button').on('click', function() {
+      //Bind binds the previous this to the current this... so in our current context
+      //$(this) is the element from the $order array...  getNext finds the next one...  or something like that
+      unhighlight($(this), getNext($(this)))
+    }.bind(this))
+  })
+}
 
 $radioGroup.click(function() {
   var $guess = $(this).val()
   console.log($guess)
-  $answers.popover('hide')
-  $radioButton.text('| The correct answer is ' + $questionSolution);
+  // $answers.popover('hide')
+  // $radioButton.text('| The correct answer is ' + $questionSolution);
   $nextPage.show()
   if ($guess == $questionSolution) {
     $isCorrect = true
@@ -40,24 +75,24 @@ $nextPage.click(function() {
 })
 
 $(window).on('load', function () {
-  console.log('loaded');
-  highlight($description, $descriptionButton);
-  unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
-  unhighlight($questionTitle, $titleButton, $answers, $radioButton);
+  // console.log('loaded');
+  highlight($description);
+  // unhighlight($description, $questionTitle);
+  // unhighlight($questionTitle, $answers);
 });
 
-function highlight(focusPoint, focusButton) {
+function highlight(focusPoint) {
   focusPoint.popover('toggle')
   focusPoint.css('background-color','#ecbe45')
-  focusButton.show()
+  // focusButton.show()
 }
 
-function unhighlight(focusPoint, focusButton, next, nextButton) {
-  focusButton.on('click', function (){
-    focusButton.hide()
-    nextButton.show()
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color','transparent')
-    highlight(next, nextButton)
-  })
+function unhighlight(focusPoint, next) {
+  // focusButton.hide()
+  // nextButton.show()
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','transparent')
+  if (next){
+    highlight(next)
+  }
 }
