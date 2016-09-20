@@ -4,6 +4,11 @@
   background-color: transparent;
   width: 1em;
 }
+/*
+td {
+  border-bottom: 1px solid black;
+  border-left: 1em solid white;
+}*/
 
 #graph > caption {
   text-align: center;
