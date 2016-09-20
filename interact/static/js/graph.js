@@ -8,6 +8,78 @@ var $correct = $('#correct').val()
 var $final = {}
 var $guesses = {}
 
+$title.popover({
+  placement:'bottom',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Title</strong></span>',
+  content : 'Here are your instructions! ' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$dataTable.popover({
+  placement:'bottom',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Data</strong></span>',
+  id: 'dataPopover',
+  content : 'Here is your data! ' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$graphTitle.popover({
+  placement:'bottom',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Data</strong></span>',
+  id: 'dataPopover',
+  content : 'Here is your data! ' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+
+
+
+$order = [$('#title'), $('#dataTable'), $('#graphTitle')]
+function getNext(curr)
+{
+  for(var j=0; j<$order.length; j++)
+  {
+    if($order[j].is(curr)) {return $order[j+1]}
+  }
+}
+
+for(var i = 0; i < $order.length; i++){
+  $order[i].on('shown.bs.popover', function(){
+    $('#' + $(this).attr('id') + 'Button').on('click', function() {
+      //Bind binds the previous this to the current this... so in our current context
+      //$(this) is the element from the $order array...  getNext finds the next one...  or something like that
+      unhighlight($(this), getNext($(this)))
+    }.bind(this))
+  })
+}
+
+
+// for(var i = 0; i < $order.length-1; i++){
+//   console.log($order[i])
+//   $order[i].attr('i', i)
+//   $order[i].on('shown.bs.popover', function(){
+//     console.log($order)
+//     $('#' + $(this).attr('id') + 'Button').attr('i', $(this).i)
+//     $('#' + $(this).attr('id') + 'Button').on('click', function() {
+//       console.log('now')
+//       unhighlight($order[$(this).i], $order[$(this).i+1])
+//     })
+//   })
+// }
+
+// $('#title').on('shown.bs.popover', function(){
+//   console.log('hello')
+//   $('#' + $title.attr('id') + 'Button').on('click', function() {
+//     console.log('now')
+//     unhighlight($title, $dataTable)
+//   })
+// })
+//
+// $('#dataTable').on('shown.bs.popover', function(){
+//   console.log('hello')
+//   $('#' + $dataTable.attr('id') + 'Button').on('click', function() {
+//     console.log('now')
+//     unhighlight($dataTable, $graphTitle)
+//   })
+// })
+
 
 function cleanCorrect() {
   $correct = $correct.replace(/\s+/g, '');
@@ -41,7 +113,7 @@ $nextPage.click(function() {
       window.location.href = '/'
     }
     else {
-      window.location.href = "/question/" + $next + "/"
+      window.location.href = "/tutorial/" + $next + "/"
     }
   }
 })
@@ -85,34 +157,26 @@ function highlight(focusPoint) {
 }
 
 function unhighlight(focusPoint, next) {
-  $('#' + focusPoint.attr('id') + 'Button').on('click', function (){
+  // $('.popover:visible button').on('click', function (){
+  // $('#' + focusPoint.attr('id') + 'Button').on('click', function (){
     console.log('clicked')
     focusPoint.popover('toggle')
     focusPoint.css('background-color','transparent')
-    highlight(next)
-  })
+    if (next){
+      highlight(next)
+    }
 }
 
 $(window).on('load', function () {
   console.log('loaded');
   highlight($title);
-  $('#titleButton').ready(function(){console.log('yes')
-    unhighlight($title, $dataTable)})
+  // $('#titleButton').ready(function(){console.log('yes')
+  //   unhighlight($title, $dataTable)})
+  // $('#dataTableButton').ready(function(){
+  //   unhighlight($dataTable, $graphTitle)
+  // })
 });
 
-$title.popover({
-  placement:'bottom',
-  html: 'true',
-  title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'Here are your instructions! ' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
-})
-$dataTable.popover({
-  placement:'bottom',
-  html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
-  id: 'dataPopover',
-  content : 'Here is your data! ' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
-})
-// 
+//
 // $('#dataTableButton').ready(function(){console.log('yes again')
 // unhighlight($dataTable, $graphTitle)})
