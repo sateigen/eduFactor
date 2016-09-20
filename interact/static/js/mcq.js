@@ -6,7 +6,7 @@ var $answers = $('#radioGroup')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 
-$nextPage.hide()
+// $nextPage.hide()
 
 $description.popover({
   placement:'left',
@@ -19,14 +19,14 @@ $questionTitle.popover({
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'Here is your data!<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is your question!  You will want to try and solve the equation.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answers.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'Here is the graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section contains all possible solutions to the question.  Click the button next to the answer you think might be correct.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 
 $order = [$('#description'), $('#questionTitle'), $('#radioGroup')]
@@ -83,7 +83,7 @@ $(window).on('load', function () {
 
 function highlight(focusPoint) {
   focusPoint.popover('toggle')
-  focusPoint.css('background-color','#ecbe45')
+  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
   // focusButton.show()
 }
 
