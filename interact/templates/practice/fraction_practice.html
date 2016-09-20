@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+eduFactor | Practice
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9 col-lg-offset-3">
+      <h4>{{ question.flavor.description }}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-lg-offset-3">
+      <h1>{{ question.title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-lg-offset-3 selectionGroup">
+      <h4>Show your answer below!</h4>
+      <table class="table table-bordered">
+        <tr>
+        {% for i in table_cells %}
+        <td></td>
+        {% endfor %}
+        </tr>
+      </table>
+      <input type="hidden" value="{{ question.solution }}" class="questionSolution">
+      <hr>
+      <button id="nextPage" class="btn btn-default">Next Question</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/ffiqprac.js" %}"></script>
+{% endblock %}

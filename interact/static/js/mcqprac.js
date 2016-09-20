@@ -32,14 +32,3 @@ $(window).on('load', function () {
   $nextPage.hide()
   console.log('loaded');
 });
-
-
-function unhighlight(focusPoint, focusButton, next, nextButton) {
-  focusButton.on('click', function (){
-    focusButton.hide()
-    nextButton.show()
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color','transparent')
-    highlight(next, nextButton)
-  })
-}
