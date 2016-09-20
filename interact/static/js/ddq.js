@@ -64,7 +64,7 @@ if ($isCorrect) {
   $curr = parseFloat(window.location.href.split('/')[4])
   $next = $curr + 1
   console.log($curr, typeof($curr))
-  window.location.href = "/question/" + $next + "/"
+  window.location.href = "/tutorial/" + $next + "/"
   }
 })
 
