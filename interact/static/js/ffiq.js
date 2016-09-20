@@ -37,7 +37,8 @@ $(window).on('load', function () {
 });
 
 function highlight(focusPoint, focusButton) {
-  focusPoint.css('border-style','solid')
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','#ecbe45')
   focusButton.show()
 }
 
@@ -45,7 +46,8 @@ function unhighlight(focusPoint, focusButton, next, nextButton) {
   focusButton.on('click', function (){
     focusButton.hide()
     nextButton.show()
-    focusPoint.css('border-style','none')
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color','transparent')
     highlight(next, nextButton)
   })
 }

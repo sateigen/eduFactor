@@ -9,7 +9,7 @@ var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 var chosenAnswers = []
-var $isCorrect
+var $isCorrect = false
 var correctAnswers = []
 var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
 
