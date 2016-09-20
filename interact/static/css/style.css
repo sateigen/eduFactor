@@ -21,14 +21,6 @@
   max-width: 100%;
 }
 
-.aligner-item--top {
-  align-self: flex-start;
-}
-
-.aligner-item--bottom {
-  align-self: flex-end;
-}
-
 .navbar-default {
   background-color: #485052;
   font-size: 18px;
@@ -109,7 +101,9 @@ h1, h2, h3, h4 {
   font-family: 'Montserrat', sans-serif;
 }
 
-
+div{
+    font-size: 16px;
+}
 #kids {
   width: 24em;
   height: 18em;

@@ -1,34 +1,27 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 {% block title %} eduFactor | Tutorial {% endblock %}
 {% block content %}
-<div class="container">
-  <div class="row">
-      <div class="col-lg-9 col-lg-offset-3">
-          <h4><span id="description">{{ question.flavor.description }}</span></h4>
-      </div>
-  </div>
+<div class="aligner-item">
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-            <h1><span id="questionTitle">{{ question.title }}</span></h1>
-        </div>
+        <h3><span id="description">{{ question.flavor.description }}</span></h3>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h4><span id="radioGroup">Answers</span></h4>
-            {% for answer in answers %}
-            <div class="radio">
-                <label>
-                    <input type="radio" name="optionsRadios" value="{{ answer }}">
-                    {{ answer }}
-                </label>
-            </div>
-            {% endfor %}
-            <input type="hidden" value="{{ question.solution }}" id="questionSolution">
-            <hr>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
-        </div>
+        <h1><span id="questionTitle">{{ question.title }}</span></h1>
     </div>
+    <div class="row">
+        <h4><span id="radioGroup">Answers</span></h4> {% for answer in answers %}
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" value="{{ answer }}"> {{ answer }}
+            </label>
+        </div>
+        {% endfor %}
+        <input type="hidden" value="{{ question.solution }}" id="questionSolution">
+        <hr>
+        <button id="nextPage" class="btn btn-default">Next Question</button>
+    </div>
+</div>
+</div>
 </div>
 {% endblock %}
 {% block scripts %}
