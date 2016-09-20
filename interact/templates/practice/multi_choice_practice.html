@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} eduFactor | Practice {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-lg-9 col-lg-offset-3">
+          <h4>{{ question.flavor.description }}</h4>
+      </div>
+  </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+            <h1>{{ question.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+          <h4>Answers | Please select an answer!</h4>
+            {% for answer in answers %}
+            <div class="radio">
+                <label>
+                    <input type="radio" name="optionsRadios" value="{{ answer }}">
+                    {{ answer }}
+                </label>
+            </div>
+            {% endfor %}
+            <input type="hidden" value="{{ question.solution }}" id="questionSolution">
+            <hr>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/mcqprac.js" %}"></script>
+{% endblock %}

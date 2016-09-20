@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+eduFactor | Practice
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-lg-9 col-lg-offset-3">
+          <h4><id='description'>{{ question.flavor.description }}</h4>
+      </div>
+  </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+            <h1>{{ question.title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9 col-lg-offset-3">
+
+          <form class="form-inline">
+            <div class="form-group" id="guessForm">
+              <label for="guess">Answer: </label>
+              <input type="text" class="form-control" id="guess">Please type an answer!
+              <input type="hidden" value="{{ question.solution }}" id="answer">
+              <input class='btn btn-default' type="submit" value="Submit" id="submit">
+            </div>
+          </form>
+          <hr>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/fitbqprac.js" %}"></script>
+{% endblock %}
