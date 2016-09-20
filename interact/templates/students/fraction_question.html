@@ -3,25 +3,22 @@
 {% block title %}
 eduFactor | Question
 {% endblock %}
-{% block scripts %}
-<script src="{% static "js/ffiq.js" %}"></script>
-{% endblock %}
-{% block content %}
 
+{% block content %}
 <div class="container">
   <div class="row">
     <div class="col-lg-9 col-lg-offset-3">
-      <h4 id="description">{{ question.flavor.description }}<button id="descriptionButton" class="btn btn-default">Next</button></h4>
+      <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="The description tells you how to answer this type of question.  Be sure to always read the description before answering the question. Click 'NEXT' to proceed." id="description">{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-9 col-lg-offset-3">
-      <h1 id="questionTitle">{{ question.title}}<button id="titleButton" class="btn btn-default">Next</button></h1>
+      <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve! Be sure to read it carefully. Click 'NEXT' to proceed." id="questionTitle">{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-9 col-lg-offset-3" id="selectionGroup">
-      <h4>Answers <span id="selectButton">| Please click each section you want shaded in!</span></h4>
+      <h4><span data-toggle="popover" title="The Answers" data-placement="left" data-content="Here you will find the shape(s) that you must use to answer the question. Click on each section of the shape that you wish to be highlighted. After shading in the correct amount, click the Next Page button to continue to the next question." class="selectionGroup">Show your answer below!</span><span id="selectButton"></span></h4>
       <table class="table table-bordered">
         <tr>
         {% for i in table_cells %}
@@ -35,4 +32,7 @@ eduFactor | Question
     </div>
   </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/ffiq.js" %}"></script>
 {% endblock %}
