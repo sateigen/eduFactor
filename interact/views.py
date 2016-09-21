@@ -39,13 +39,17 @@ def student(request, id):
     student = User.objects.get(id=id)
     if student != request.user:
         raise PermissionDenied
-    scores = Score.objects.all()
-    i = 0
-    for score in scores:
-        if score.score is True:
-            i += 1
-    correct = (i // 5) * 'x'
+    scores = student.score_set.all()
+    flavors = Flavor.objects.all()
+    flavor_names = [flavor.name for flavor in flavors]
+    correct = {}
+    for flavor in flavor_names:
+        correct[flavor] = 0
+        for score in scores:
+            if score.question.flavor.name == flavor and score.score:
+                correct[flavor] += 1
     context = {'student': student, 'scores': scores, 'correct': correct}
+    context['flavor_names'] = flavor_names
     return render(request, 'students/student_dash.html', context)
 
 

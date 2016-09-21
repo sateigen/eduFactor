@@ -10,6 +10,10 @@ eduFactor | Student
     <div class="col-lg-9 col-lg-offset-3">
       <div class="page-header">
         <h3>{{ student.username }}</h3>
+      </div>
+      {% for flavor_name, total in correct.items %}
+      <p>{{ flavor_name }}: {{ total }}</p>
+      {% endfor %}
         <!-- <h3>Completed Activities</h3>
       </div>
       <br>
@@ -28,8 +32,8 @@ eduFactor | Student
   </div> -->
   <div class="row">
     <div class="col-lg-9 col-lg-offset-3">
-      {% url 'question_detail' 1 as the_url %}
-      <a href="{{ the_url }}" class="btn btn-default">Let's do some math!</a>
+
+      <!-- <a href="{{ the_url }}" class="btn btn-default">Let's do some math!</a> -->
     </div>
   </div>
 </div>
