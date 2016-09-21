@@ -11,6 +11,7 @@ from .serializers import AssessmentSerializer, ScoreSerializer
 import random
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 
 
 @login_required
@@ -30,14 +31,17 @@ class AddClass(TemplateView):
     template_name = 'teachers/add_class.html'
 
 
-def student(request, student_id):
+def student(request, id):
+    student = User.objects.get(id=id)
+    if student != request.user:
+        raise PermissionDenied
     scores = Score.objects.all()
     i = 0
     for score in scores:
         if score.score is True:
             i += 1
     correct = (i // 5) * 'x'
-    context = {'scores': scores, 'correct': correct}
+    context = {'student': student, 'scores': scores, 'correct': correct}
     return render(request, 'students/student_dash.html', context)
 
 
