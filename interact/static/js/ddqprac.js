@@ -12,7 +12,6 @@ var $correctAnswers = []
 
 $(window).on('load', function() {
     console.log('loaded');
-    $nextPage.hide()
 });
 
 $(function() {
