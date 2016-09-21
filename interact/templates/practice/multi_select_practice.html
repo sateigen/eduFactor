@@ -1,41 +1,32 @@
-
-{% extends 'base.html' %}
-{% load static %}
-{% block title %} eduFactor | Practice {% endblock %}
-
-
-{% block content %}
+ {% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %} {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h4>{{ question.flavor.description }}</h4>
+        <div class="col-lg-8 col-lg-offset-3">
+            <h3>{{ question.flavor.description }}</h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h1>{{ question.title }}</h1>
+        <div class="col-lg-8 col-lg-offset-3">
+            <h2>{{ question.title }}</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3 btn-group selectionGroup" data-toggle="buttons">
-          <h4>Answers | Please select an answer!</h4>
-              {% for answer in answers %}
-              <label class="btn btn-primary">
-                <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
-              </label>
-              {% endfor %}
-              <br>
-              {% for solution in correct %}
-              <input type="hidden" value="{{ solution }}" class="questionSolution">
-              {% endfor %}
-              <hr>
-              <button id="nextPage" class="btn btn-default">Next Question</button>
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="selectionGroup" data-toggle="buttons">
+                <h4>Possible Answers | Select the answer(s)!</h4> {% for answer in answers %}
+                <label class="btn btn-primary">
+                    <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
+                </label>
+                {% endfor %}
+                <br> {% for solution in correct %}
+                <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
+                <hr>
             </div>
-
+            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
-{% endblock %}
-{% block scripts %}
+</div>
+{% endblock %} {% block scripts %}
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script src="{% static "js/msqprac.js" %}"></script>
+<script src="{% static " js/msqprac.js " %}"></script>
 {% endblock %}

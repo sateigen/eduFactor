@@ -1,21 +1,29 @@
 {% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %}{% block content %}
-<div class="aligner-item">
-    <div>
-        <h3 id='description1'>{{ question.flavor.description }}</h3>
-        <div class="row">
-            <h1 id='questionTitle'>{{ question.title }}:</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-3">
+            <h3 id='description1'>{{ question.flavor.description }}</h3>
         </div>
         <div class="row">
-            <div id="selectionGroup">
-                <h4>Answers | Drag the answer to the correct box!</h4>
-                <div class="ui-widget-content">
-                    {% for answer in answers %}
-                    <p class="draggable" value="{{ answer }}">{{ answer }}</p>
-                    {% endfor %}
-                    <hr>
+            <div class="col-lg-8 col-lg-offset-3">
+                <h2 id='questionTitle'>{{ question.title }}:</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div id="selectionGroup" class="col-lg-6 col-lg-offset-3">
+                <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
+                <div>
+                    <div class="ui-widget-content">
+                        {% for answer in answers %}
+                        <p class="draggable" value="{{ answer }}">{{ answer }}</p>
+                        {% endfor %}
+                        <hr>
+                    </div>
                 </div>
             </div>
-            <div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
                 {% for key, value in solutions.items %}
                 <div class="droppable" id='{{ key }}' value='{{ value }}'>
                     <h4 id='dropbox'>{{ key }}</h4>
@@ -26,7 +34,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %} {% block scripts %}
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">

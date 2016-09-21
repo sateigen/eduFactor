@@ -4,18 +4,18 @@
 {% block content %}
 <div class="container">
   <div class="row">
-      <div class="col-lg-9 col-lg-offset-3">
-          <h4>{{ question.flavor.description }}</h4>
+      <div class="col-lg-6 col-lg-offset-3">
+          <h3>{{ question.flavor.description }}</h3>
       </div>
   </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-            <h1>{{ question.title }}</h1>
+        <div class="col-lg-6 col-lg-offset-3">
+            <h2>{{ question.title }}</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h4>Answers | Please select an answer!</h4>
+        <div class="col-lg-6 col-lg-offset-3">
+          <h4 id="radioGroup">Possible Answers | Select One!</h4>
             {% for answer in answers %}
             <div class="radio">
                 <label>

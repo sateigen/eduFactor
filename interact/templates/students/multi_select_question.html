@@ -1,38 +1,33 @@
-{% extends 'base.html' %} {% load static %}
-{% block title %} eduFactor | Tutorial {% endblock %}
-{% block link %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
-{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Tutorial {% endblock %} {% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}"> {% endblock %} {% block content %}
 <div class="container">
-<div class='row'>
-  <div class="col-lg-8 col-lg-offset-3">
-        <h3><span id="description">{{ question.flavor.description }}</span></h3>
-    </div>
-  </div>
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-3">
-        <h2><span id="questionTitle">{{ question.title }}</span></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <div class="selectionGroup" data-toggle="buttons">
-            <h4><span>Possible Answers | Select the answer(s)!</span></h4>
-            {% for answer in answers %}
-            <label class="btn btn-primary">
-                <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
-            </label>
-            {% endfor %}
-            <br> {% for solution in correct %}
-            <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
-            <hr>
+    <div class='row'>
+        <div class="col-lg-8 col-lg-offset-3">
+            <h3><span id="description">{{ question.flavor.description }}</span></h3>
         </div>
-<button id="nextPage" class="btn btn-default">Next Question</button>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-3">
+            <h2><span id="questionTitle">{{ question.title }}</span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="selectionGroup" data-toggle="buttons">
+                <h4><span>Possible Answers | Select the answer(s)!</span></h4> {% for answer in answers %}
+                <label class="btn btn-primary">
+                    <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
+                </label>
+                {% endfor %}
+                <br> {% for solution in correct %}
+                <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
+                <hr>
+            </div>
+            <button id="nextPage" class="btn btn-default">Next Question</button>
+        </div>
+    </div>
 </div>
 {% endblock %} {% block scripts %}
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script src="{% static "js/msq.js" %}"></script>
+<script src="{% static " js/msq.js " %}"></script>
 {% endblock %}
