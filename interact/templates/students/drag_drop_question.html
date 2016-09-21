@@ -6,25 +6,25 @@
 {% block content %}
 <div class="container">
   <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-8 col-lg-offset-3">
         <h3><span id='description'>{{ question.flavor.description }}</span></h3>
     </div>
   </div>
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-          <h1><span id='questionTitle'>{{ question.title }}:</span></h1>
+      <div class="col-lg-8 col-lg-offset-3">
+          <h2><span id='questionTitle'>{{ question.title }}:</span></h2>
     </div>
   </div>
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <h4><span id="selectionGroup">Answers</h4>
+      <div id="selectionGroup" class="col-lg-6 col-lg-offset-3">
+        <h4><span>Possible Answers | Drag the answers to the correct box!</span></h4>
         <div>
             <div class="ui-widget-content">
                 {% for answer in answers %}
                 <p class="draggable" value="{{ answer }}">{{ answer }}</p>
                 {% endfor %}
                 <hr></div>
-            </div></span>
+            </div>
           </div>
             <div class='row'>
               <div class="col-lg-6 col-lg-offset-3">

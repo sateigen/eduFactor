@@ -15,15 +15,15 @@ eduFactor | Tutorial
   </div>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <h1><span id='questionTitle'>{{ question.title }}</span></h1>
+            <h2><span id='questionTitle'>{{ question.title }}</span></h2>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
           <form class="form-inline">
             <div class="form-group" id="guessForm">
-              <span id="answerSection"><label for="guess">Answer: </label></span>
-              <input type="text" class="form-control" id="guess"><span id="encouragement"> Please type an answer!</span>
+              <h4><label for="guess"><span id="answerSection">Answer | Enter the answer!</span></label></span>
+              <input type="text" class="form-control" id="guess">
               <input type="hidden" value="{{ question.solution }}" id="answer">
 
             </div>
