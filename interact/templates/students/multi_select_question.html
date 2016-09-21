@@ -4,14 +4,19 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
 {% endblock %}
 {% block content %}
-<div class='aligner-item'>
-    <div class="row">
+<div class="container">
+<div class='row'>
+  <div class="col-lg-6 col-lg-offset-3">
         <h3><span id="description">{{ question.flavor.description }}</span></h3>
     </div>
+  </div>
     <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
         <h1><span id="questionTitle">{{ question.title }}</span></h1>
+      </div>
     </div>
     <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
         <div class="selectionGroup" data-toggle="buttons">
             <h4><span>Answers | Please select an answer!</span></h4>
             {% for answer in answers %}
@@ -25,6 +30,7 @@
         </div>
 <button id="nextPage" class="btn btn-default">Next Question</button>
     </div>
+  </div>
 </div>
 {% endblock %} {% block scripts %}
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>

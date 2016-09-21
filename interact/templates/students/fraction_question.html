@@ -7,15 +7,19 @@ eduFactor | Tutorial
 <link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
 {% endblock %}
 {% block content %}
-<div class="aligner-item">
-  <div class="row">
+<div class="container">
+<div class='row'>
+  <div class="col-lg-6 col-lg-offset-3">
       <h3><span id="description">{{ question.flavor.description }}:</span></h3>
     </div>
+  </div>
   <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
       <h1><span id="questionTitle">{{ question.title }}</span></h1>
     </div>
+  </div>
   <div class="row">
-    <div class="selectionGroup">
+    <div class="col-lg-6 col-lg-offset-3 selectionGroup">
       <h4><span>Show your answer below!</span></h4>
       <table class="table table-bordered">
         <tr>
@@ -28,9 +32,8 @@ eduFactor | Tutorial
       <hr>
       </div>
       <button id="nextPage" class="btn btn-default">Next Question</button>
-
+    </div>
   </div>
-</div>
 {% endblock %}
 {% block scripts %}
 <script src="{% static "js/ffiq.js" %}"></script>
