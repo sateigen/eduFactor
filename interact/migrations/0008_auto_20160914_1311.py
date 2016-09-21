@@ -22,7 +22,7 @@ def more_questions(apps, schema_editor):
 
     Question(solution='2',
              title='Shade in 1/2 of the boxes.',
-             description='4'
+             description='4',
              flavor=Flavor(pk=5),
              concept='fractions',
              difficulty_level=3,
