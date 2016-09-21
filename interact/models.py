@@ -10,7 +10,7 @@ class Flavor(models.Model):
 
 # Ex: Geometry, Computation, Estimation, Algebra, Patterns, etc.
 class Question(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.TextField()
     description = models.TextField(null=True)
     flavor = models.ForeignKey(Flavor)
     concept = models.CharField(max_length=200)

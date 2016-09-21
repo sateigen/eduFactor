@@ -100,8 +100,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='ten thousands',
-             title="What place value is the 4 in?",
-             description= "943,509.83"
+             title="What place value is the 4 in? 943,509.83",
              flavor=Flavor(pk=1),
              concept='place value',
              difficulty_level=4,
@@ -133,8 +132,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='0.09, 0.145, 0.34, 0.52, 1.63',
-             title="Order these decimals from least to greatest.",
-             description= '0.34, 0.52, 0.145, 1.63, 0.09',
+             title="Order these decimals from least to greatest. 0.34, 0.52, 0.145, 1.63, 0.09",
              flavor=Flavor(pk=1),
              concept='place value',
              difficulty_level=4,
@@ -142,8 +140,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='>',
-             title="Which symbol could be placed in the blank to make this statement true.",
-             description='43.75 _ 43.7'
+             title="Which symbol could be placed in the blank to make this statement true.  43.75 _ 43.7",
              flavor=Flavor(pk=1),
              concept='',
              difficulty_level=4,
@@ -167,8 +164,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='2,916',
-             title="Which would be the 7th term of this pattern",
-             description='4, 12, 36, 108, ...',
+             title="Which would be the 7th term of this pattern: 4, 12, 36, 108, ...",
              flavor=Flavor(pk=1),
              concept='patterns',
              difficulty_level=4,
@@ -209,8 +205,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='14 - 9',
-             title="Which would be the first step in solving the following problem?",
-             description="9 ÷ 3(14 - 9) + 4"
+             title="Which would be the first step in solving the following problem? 9 ÷ 3(14 - 9) + 4",
              flavor=Flavor(pk=1),
              concept='order of operations',
              difficulty_level=5,
@@ -250,8 +245,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='30',
-             title="Which would be the 8th term of this pattern",
-             description='2, 3, 5, 8, 12, ...'
+             title="Which would be the 8th term of this pattern: 2, 3, 5, 8, 12, ...",
              flavor=Flavor(pk=1),
              concept='patterns',
              difficulty_level=5,

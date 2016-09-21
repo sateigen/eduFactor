@@ -55,7 +55,7 @@ def student(request, id):
 
 def tutorial_question(request, question_id):
     question = Question.objects.get(pk=question_id)
-    answers = question.possible_solutions.split(',')
+    answers = question.possible_solutions.split('|')
     random.shuffle(answers)
     context = {'question': question, 'answers': answers}
     if question.flavor.name == 'fill-in-the-blank':
@@ -63,12 +63,12 @@ def tutorial_question(request, question_id):
     elif question.flavor.name == 'multiple choice':
         template = 'students/multi_choice_question.html'
     elif question.flavor.name == 'multi-select':
-        correct = question.solution.split(',')
+        correct = question.solution.split('|')
         context['correct'] = correct
         template = 'students/multi_select_question.html'
     elif question.flavor.name == 'drag-and-drop':
         answers = answers.sort()
-        solutions = question.solution.split(',')
+        solutions = question.solution.split('|')
         correct = {}
         for answer in solutions:
             temp = answer.split(':')
@@ -79,8 +79,8 @@ def tutorial_question(request, question_id):
         table_cells = int(question.description) * 'x'
         context['table_cells'] = table_cells
         template = 'students/fraction_question.html'
-    elif question.flavor.name == 'graph':
-        solutions = question.solution.split(',')
+    elif question.flavor.name == 'bar graph':
+        solutions = question.solution.split('|')
         correct = {}
         for answer in solutions:
             temp = answer.split(':')
@@ -100,7 +100,7 @@ def tutorial_question(request, question_id):
 
 def practice_question(request, question_id):
     question = Question.objects.get(pk=question_id)
-    answers = question.possible_solutions.split(',')
+    answers = question.possible_solutions.split('|')
     random.shuffle(answers)
     context = {'question': question, 'answers': answers}
     if question.flavor.name == 'fill-in-the-blank':
@@ -108,12 +108,12 @@ def practice_question(request, question_id):
     elif question.flavor.name == 'multiple choice':
         template = 'practice/multi_choice_practice.html'
     elif question.flavor.name == 'multi-select':
-        correct = question.solution.split(',')
+        correct = question.solution.split('|')
         context['correct'] = correct
         template = 'practice/multi_select_practice.html'
     elif question.flavor.name == 'drag-and-drop':
         answers = answers.sort()
-        solutions = question.solution.split(',')
+        solutions = question.solution.split('|')
         correct = {}
         for answer in solutions:
             temp = answer.split(':')
@@ -125,7 +125,7 @@ def practice_question(request, question_id):
         context['table_cells'] = table_cells
         template = 'practice/fraction_practice.html'
     elif question.flavor.name == 'graph':
-        solutions = question.solution.split(',')
+        solutions = question.solution.split('|')
         correct = {}
         for answer in solutions:
             temp = answer.split(':')
