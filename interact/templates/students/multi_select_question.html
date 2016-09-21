@@ -1,40 +1,32 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
 {% block title %} eduFactor | Tutorial {% endblock %}
-
-
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="The description tells you how to answer this type of question.  Be sure to always read the description before answering the question. Click 'NEXT' to proceed." id="description">{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-          <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve! Be sure to read it carefully. Click 'NEXT' to proceed." id="questionTitle">{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-9 col-lg-offset-3 btn-group selectionGroup" data-toggle="buttons">
-          <h4><span data-toggle="popover" title="The Answers" data-placement="left" data-content="This section has all of the potential answers! Go ahead and pick all those you believe are right!" class="selectionGroup">Answers | Please select an answer!</span><span id="selectButton"></span></h4>
-              {% for answer in answers %}
-              <label class="btn btn-primary">
-                <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
-              </label>
-              {% endfor %}
-              <br>
-              {% for solution in correct %}
-              <input type="hidden" value="{{ solution }}" class="questionSolution">
-              {% endfor %}
-              <hr>
-              <button id="nextPage" class="btn btn-default">Next Question</button>
-            </div>
-
-        </div>
-    </div>
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
 {% endblock %}
-{% block scripts %}
+{% block content %}
+<div class='aligner-item'>
+    <div class="row">
+        <h3><span id="description">{{ question.flavor.description }}</span></h3>
+    </div>
+    <div class="row">
+        <h1><span id="questionTitle">{{ question.title }}</span></h1>
+    </div>
+    <div class="row">
+        <div class="selectionGroup" data-toggle="buttons">
+            <h4><span>Answers | Please select an answer!</span></h4>
+            {% for answer in answers %}
+            <label class="btn btn-primary">
+                <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
+            </label>
+            {% endfor %}
+            <br> {% for solution in correct %}
+            <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
+            <hr>
+        </div>
+<button id="nextPage" class="btn btn-default">Next Question</button>
+    </div>
+</div>
+{% endblock %} {% block scripts %}
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="{% static "js/msq.js" %}"></script>
 {% endblock %}
