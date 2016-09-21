@@ -136,7 +136,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=1),
              concept='place value',
              difficulty_level=4,
-             possible_solutions='0.09, 0.145, 0.34, 0.52, 1.63|0.52, 1.63, 0.34, 0.145, 0.09|1.63, 0.52, 0.34, 0.145, 0.09|'
+             possible_solutions='0.09, 0.145, 0.34, 0.52, 1.63|0.52, 1.63, 0.34, 0.145, 0.09|1.63, 0.52, 0.34, 0.145, 0.09|0.145, 1.63, 0.09, 0.52, 0.34'
              ).save()
 
     Question(solution='>',
@@ -261,7 +261,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='26,905|26905'
              ).save()
 
-    Question(solution='60|60 birds',
+    Question(solution='60',
              title="While Jerrie and Linda were on the way to school, they counted the number of birds they each saw. Jerrie saw 39 birds and Linda saw 24 birds. About how many birds did they see together?",
              flavor=Flavor(pk=2),
              concept='estimation',
