@@ -18,23 +18,23 @@ def add_questions(apps, schema_editor):
              flavor=Flavor(pk=1),
              concept='addition',
              difficulty_level=3,
-             possible_solutions='200,600,900,800'
+             possible_solutions='200|600|900|800'
              ).save()
 
     Question(solution='3',
-             title='4 x  = 12',
+             title='4 x _ = 12',
              flavor=Flavor(pk=2),
              concept='multiplication',
              difficulty_level=3,
-             possible_solutions='3,3.0'
+             possible_solutions='3|3.0'
              ).save()
 
-    Question(solution=['2 x 8', '4 x 4'],
+    Question(solution='2 x 8|4 x 4',
              title='Select all the multiplication facts that equal 16.',
              flavor=Flavor(pk=3),
              concept='multiplication',
              difficulty_level=3,
-             possible_solutions='4 x 2,8 x 4,2 x 8,4 x 4'
+             possible_solutions='4 x 2|8 x 4|2 x 8|4 x 4'
              ).save()
 
 

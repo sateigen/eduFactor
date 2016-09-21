@@ -11,12 +11,13 @@ def add_graph_question(apps, schema_editor):
 
     Flavor(name='graph', description='Using the data, complete the graph').save()
 
-    Question(solution='apples:10,bananas:5,oranges:3,pears:7',
+    Question(solution='apples:10|bananas:5|oranges:3|pears:7',
              title='Fill in the graph with the data given',
+             description="Bryce's Fruit",
              flavor=Flavor(pk=6),
              concept='graph',
              difficulty_level=3,
-             possible_solutions='apples:10,bananas:5,oranges:3,pears:7'
+             possible_solutions='apples:10|bananas:5|oranges:3|pears:7'
              ).save()
 
 class Migration(migrations.Migration):

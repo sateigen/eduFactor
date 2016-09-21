@@ -12,20 +12,21 @@ def more_questions(apps, schema_editor):
     Flavor(name='drag-and-drop', description='Drag the correct answer(s) to appropriate box(es).').save()
     Flavor(name='fraction-fill-in', description='Click each box that you want to be shaded').save()
 
-    Question(solution='5000,5500,5480',
+    Question(solution='5000|5500|5480',
              title='Round 5,475 to the following place values',
              flavor=Flavor(pk=4),
              concept='rounding',
              difficulty_level=3,
-             possible_solutions='5000,4000,6000,5400,5500,5600,5580,5480,5470'
+             possible_solutions='5,000|4,000|6,000|5,400|5,500|5,600|5,580|5,480|5,470'
              ).save()
 
-    Question(solution='0.5',
+    Question(solution='2',
              title='Shade in 1/2 of the boxes.',
+             description='4'
              flavor=Flavor(pk=5),
              concept='fractions',
              difficulty_level=3,
-             possible_solutions='0.5'
+             possible_solutions='2'
              ).save()
 
 class Migration(migrations.Migration):
