@@ -22,6 +22,10 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
 
+class PracticeLandingView(TemplateView):
+    template_name = 'practice/practice_landing.html'
+
+
 class CreateTest(TemplateView):
     template_name = 'teachers/create_test.html'
 

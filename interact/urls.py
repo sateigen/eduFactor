@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from .views import IndexView, CreateTest, AddClass
+from .views import IndexView, CreateTest, AddClass, PracticeLandingView
 from django.views.generic.edit import CreateView
 from .forms import UserForm
 from django.contrib.auth.views import login, logout
@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^student/([0-9]+)$', views.student, name='student'),
     url(r'^tutorial/([0-9]+)/$', views.tutorial_question, name='question_detail'),
     url(r'^practice/([0-9]+)/$', views.practice_question, name='practice_detail'),
+    url(r'^practice_dashboard/$', PracticeLandingView.as_view(), name='practice'),
     url(r'^home/$', views.home, name='home'),
     url(r'^about/$', views.about, name='about')
     ]
