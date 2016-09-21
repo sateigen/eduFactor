@@ -1,18 +1,13 @@
 var $questionSolution = $('#answer').val()
 var $description = $('#description')
-var $descriptionButton = $('#descriptionButton')
 var $questionTitle = $('#questionTitle')
-var $titleButton = $('#titleButton')
 var $answerSection = $('#answerSection')
 var $encouragement = $('#encouragement')
 var $submit = $('#submit')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
+var $guessForm = $('#guessForm')
 
-$titleButton.hide()
-// $descriptionButton.hide()
-$encouragement.hide()
-$nextPage.hide()
 
 $submit.click(function() {
   var $guessForm = $('#guess')
@@ -43,27 +38,67 @@ $nextPage.click(function() {
   }
 })
 
-$(window).on('load', function () {
-  console.log('loaded');
-  highlight($description, $descriptionButton);
-  unhighlight($description, $descriptionButton, $questionTitle, $titleButton);
-  unhighlight($questionTitle, $titleButton, $answerSection, $encouragement);
-});
+$description.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Description</strong></span>',
+  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$questionTitle.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>The Question</strong></span>',
+  id: 'dataPopover',
+  content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
+$guessForm.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Your Answer</strong></span>',
+  id: 'dataPopover',
+  content : 'Type your answer into the blank box!<br><br>' + '<button type="button" id="' + $guessForm.attr('id') + 'Button" class="btn btn-default">Next</button>'
+})
 
-function highlight(focusPoint, focusButton) {
-  focusPoint.popover('toggle')
-  focusPoint.css('background-color','#ecbe45')
-  focusButton.show()
+
+$order = [$('#description'), $('#questionTitle'), $('#guessForm')]
+function getNext(curr)
+{
+  for(var j=0; j<$order.length; j++)
+  {
+    if($order[j].is(curr)) {return $order[j+1]}
+  }
 }
 
-function unhighlight(focusPoint, focusButton, next, nextButton) {
-  focusButton.on('click', function (){
-    focusButton.hide()
-    nextButton.show()
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color','transparent')
-    highlight(next, nextButton)
+for(var i = 0; i < $order.length; i++){
+  $order[i].on('shown.bs.popover', function(){
+    $('#' + $(this).attr('id') + 'Button').on('click', function() {
+      //Bind binds the previous this to the current this... so in our current context
+      //$(this) is the element from the $order array...  getNext finds the next one...  or something like that
+      unhighlight($(this), getNext($(this)))
+    }.bind(this))
   })
+}
+
+
+$(window).on('load', function() {
+    console.log('loaded');
+    highlight($description);
+});
+
+function highlight(focusPoint) {
+  focusPoint.popover('toggle')
+  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+  // focusButton.show()
+}
+
+function unhighlight(focusPoint, next) {
+  // focusButton.hide()
+  // nextButton.show()
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','transparent')
+  if (next){
+    highlight(next)
+  }
 }
 
 $(document).ready(function() {

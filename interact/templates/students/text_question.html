@@ -3,28 +3,31 @@
 {% block title %}
 eduFactor | Tutorial
 {% endblock %}
-
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container">
   <div class="row">
-      <div class="col-lg-9 col-lg-offset-3">
-          <h4><span data-toggle="popover" title="The Description" data-placement="left" data-content="This can help you solve the problem.  Click 'NEXT' to proceed" id='description'>{{ question.flavor.description }}</span> <button id="descriptionButton" class="btn btn-default">Next</button></h4>
+      <div class="col-lg-6 col-lg-offset-3">
+          <h3><span id='description'>{{ question.flavor.description }}</span></h3>
       </div>
   </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
-            <h1><span data-toggle="popover" title="The Question" data-placement="left" data-content="Here is the problem you are going to solve!  What number can fill in the blank to make the equation correct?" id='questionTitle'>{{ question.title }}</span> <button id="titleButton" class="btn btn-default">Next</button></h1>
+        <div class="col-lg-6 col-lg-offset-3">
+            <h3><span id='questionTitle'>{{ question.title }}</span></h3>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-9 col-lg-offset-3">
+        <div class="col-lg-6 col-lg-offset-3">
           <form class="form-inline">
             <div class="form-group" id="guessForm">
-              <span data-toggle="popover" title="The Answer" data-placement="left" data-content="Type your answer in the blank, then click 'SUBMIT'.  You can proceed to the next question when you enter the correct answer!" id="answerSection"><label for="guess">Answer: </label></span>
+              <span id="answerSection"><label for="guess">Answer: </label></span>
               <input type="text" class="form-control" id="guess"><span id="encouragement"> Please type an answer!</span>
               <input type="hidden" value="{{ question.solution }}" id="answer">
-              <input class='btn btn-default' type="submit" value="Submit" id="submit">
+
             </div>
+            <input class='btn btn-default' type="submit" value="Submit" id="submit">
           </form>
           <hr>
             <button id="nextPage" class="btn btn-default">Next Question</button>
