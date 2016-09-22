@@ -12,7 +12,7 @@ def more_questions(apps, schema_editor):
     Flavor(name='drag-and-drop', description='Drag the correct answer(s) to appropriate box(es).').save()
     Flavor(name='fraction-fill-in', description='Click each box that you want to be shaded').save()
 
-    Question(solution='5000|5500|5480',
+    Question(solution='thousands:5,000|hundreds:5,500|tens:5,480',
              title='Round 5,475 to the following place values',
              flavor=Flavor(pk=4),
              concept='rounding',
