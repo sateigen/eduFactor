@@ -258,7 +258,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='place value',
              difficulty_level=3,
-             possible_solutions='26,905|26905'
+             possible_solutions='26,905'
              ).save()
 
     Question(solution='60',
@@ -266,7 +266,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='estimation',
              difficulty_level=3,
-             possible_solutions='60|60 birds'
+             possible_solutions='60'
              ).save()
 
     Question(solution='3,117',
@@ -274,7 +274,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='subtraction',
              difficulty_level=3,
-             possible_solutions='3,117|3117'
+             possible_solutions='3,117'
              ).save()
 
     Question(solution='32',
@@ -299,7 +299,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='place value',
              difficulty_level=4,
-             possible_solutions='14,601.8|14601.8'
+             possible_solutions='14,601.8'
              ).save()
 
     Question(solution='33,000',
@@ -307,7 +307,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='rounding',
              difficulty_level=4,
-             possible_solutions='33,000|33000'
+             possible_solutions='33,000'
              ).save()
 
     Question(solution='37,896',
@@ -315,7 +315,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='subtraction',
              difficulty_level=4,
-             possible_solutions='37,896|37896'
+             possible_solutions='37,896'
              ).save()
 
     Question(solution='2,916',
@@ -323,7 +323,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='multiplication',
              difficulty_level=4,
-             possible_solutions='2,916|2916'
+             possible_solutions='2,916'
              ).save()
 
     Question(solution='1',
@@ -348,7 +348,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='rounding',
              difficulty_level=5,
-             possible_solutions='51,890|51890'
+             possible_solutions='51,890'
              ).save()
 
     Question(solution='326',
@@ -364,7 +364,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=2),
              concept='multiplication',
              difficulty_level=5,
-             possible_solutions='33,288|33288'
+             possible_solutions='33,288'
              ).save()
 
     Question(solution='90',
