@@ -15,7 +15,6 @@ var answerObjects = $questionSolution.each(function(index) {$(this).attr('value'
 
 $answers.click(function() {
   $selectButton.text('| The correct answers are ' + correctAnswers[0] + ' and ' + correctAnswers[1]);
-  $nextPage.show()
 })
 
 $nextPage.click(function() {
@@ -85,6 +84,9 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
+  }
+  else {
+    $nextPage.show()
   }
 }
 

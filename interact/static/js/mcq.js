@@ -95,4 +95,7 @@ function unhighlight(focusPoint, next) {
   if (next){
     highlight(next)
   }
+  else {
+    $nextPage.show()
+  }
 }

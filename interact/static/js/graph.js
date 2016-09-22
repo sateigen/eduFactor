@@ -101,7 +101,6 @@ function checkGraph() {
   })
   if (JSON.stringify($final) === JSON.stringify($guesses)) {
     $isCorrect = true
-    $nextPage.show()
   }
 }
 

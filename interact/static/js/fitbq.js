@@ -14,7 +14,6 @@ $submit.click(function() {
   var $guess = $('#guess').val()
   console.log($guess)
   $encouragement.text('| The correct answer is ' + $questionSolution);
-  $nextPage.show()
   if ($guess == $questionSolution) {
     $guessForm.css('background-color', '#6DC090')
     $isCorrect = true
@@ -98,6 +97,9 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
+  }
+  else {
+    $nextPage.show()
   }
 }
 

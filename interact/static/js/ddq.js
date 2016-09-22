@@ -77,6 +77,9 @@ function unhighlight(focusPoint, next) {
   if (next){
     highlight(next)
   }
+  else {
+    $nextPage.show()
+  }
 }
 
 $(function() {
@@ -92,7 +95,6 @@ $(function() {
         drop: function(event, ui) {
             $(this)
                 .addClass("droppable-highlight")
-                  $nextPage.show()
                 .find("p");
             var targetElem = ui.draggable;
             var id = $(this).attr("id");
