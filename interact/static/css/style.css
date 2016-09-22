@@ -31,6 +31,13 @@
   border-color: #74CFe4;
 }
 
+.btn-primary:active:focus, .btn-primary:active, .btn-primary:focus, .btn-primary.focus, .btn-primary.active {
+  background-color: #3F7683;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-color: #3F7683;
+}
+
 .aligner-item {
   max-width: 100%;
 }

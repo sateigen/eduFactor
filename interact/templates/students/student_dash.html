@@ -3,41 +3,30 @@
 {% block title %}
 eduFactor | Student
 {% endblock %}
-
+{% block link %}
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container" id="student">
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
+    <div class="col-lg-10 col-lg-offset-1">
       <div class="page-header">
         <h3>{{ student.username }}</h3>
       </div>
-      {% for flavor_name, total in correct.items %}
-      <p>{{ flavor_name }}: {{ total }}</p>
-      {% endfor %}
-        <!-- <h3>Completed Activities</h3>
+      <div id="chart">
+        <svg width="960" height="500"></svg>
       </div>
-      <br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
-      <p>Stars to fill in as activities are completed</p>
-      <ul>
-          {% for i in correct %}
-          <img src="{% static 'images/star.png' %}" alt="" />
-          {% endfor %}
-      </ul>
-      <br>
-    </div>
-  </div> -->
-  <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
-
-      <!-- <a href="{{ the_url }}" class="btn btn-default">Let's do some math!</a> -->
     </div>
   </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
+<script src="http://nvd3.org/assets/lib/d3.v3.js"></script>
+<script src="http://nvd3.org/assets/js/nv.d3.js"></script>
+<script>
+data = {{ correct|safe }}
+</script>
+<script src="{% static "js/student.js" %}"></script>
 {% endblock %}

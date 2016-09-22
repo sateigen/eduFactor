@@ -10,6 +10,7 @@ var $isCorrect = false
 // check this function for is question correct
 $nextPage.click(function() {
   checkAnswers()
+  console.log($isCorrect)
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
     console.log($curr, typeof($curr))

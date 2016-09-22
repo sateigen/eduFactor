@@ -1,3 +1,7 @@
-#student {
+/*#student {
   text-align: center;
+}*/
+
+.tick.major > line {
+  opacity: 0 !important;
 }

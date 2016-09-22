@@ -79,9 +79,15 @@ function unhighlight(focusPoint, next) {
   }
 }
 
-
 $(function() {
-    $(".draggable").draggable();
+    $(".draggable").draggable({
+      start: function() {
+        var $this = $(this);
+        $this.removeClass('dropped')
+        $this.data('is-correct', false);
+      }
+    });
+
     $(".droppable").droppable({
         drop: function(event, ui) {
             $(this)
@@ -90,8 +96,13 @@ $(function() {
                 .find("p");
             var targetElem = ui.draggable;
             var id = $(this).attr("id");
-            targetElem.toggleClass('dropped')
-            console.log(id + ":" + targetElem.html());
+            targetElem.addClass('dropped')
+            var $this = $(this);
+             if ($this.attr("value") == targetElem.attr("value")) {
+                targetElem.data('is-correct', true);
+             } else {
+               targetElem.data('is-correct', false);
+             }
         }
     });
 });
@@ -99,24 +110,26 @@ $(function() {
 
 $nextPage.click(function(e) {
   e.preventDefault()
-checkAnswers($correctAnswers, $chosenAnswers)
-if ($isCorrect) {
-  $curr = parseFloat(window.location.href.split('/')[4])
-  $next = $curr + 1
-  console.log($curr, typeof($curr))
-  window.location.href = "/tutorial/" + $next + "/"
+  checkAnswers($correctAnswers, $chosenAnswers)
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    console.log($curr, typeof($curr))
+    window.location.href = "/tutorial/" + $next + "/"
   }
 })
 
 
-function checkAnswers (correctAnswers, chosenAnswers) {
-  $('.droppable').each(function(index, item){
-    $correctAnswers.push($(this).attr('value'))})
-  $('.dropped').each(function(index, item){
-    $chosenAnswers.push($(this).attr('value'))})
-  $correctAnswers.sort()
-  $chosenAnswers.sort()
-  $isCorrect = ($correctAnswers.length == $chosenAnswers.length) &&
-  $correctAnswers.every(function(element, index){
-    return element === $chosenAnswers[index]})
+function checkAnswers () {
+  var howManyCorrectAnswers = $('.droppable').length;
+  var correctAnswers = 0;
+
+  $('.dropped').each(function(index, item) {
+    var isCorrect = $(this).data('is-correct');
+    if (isCorrect) {
+      correctAnswers++;
+    }
+  })
+
+  $isCorrect = howManyCorrectAnswers == correctAnswers;
 }

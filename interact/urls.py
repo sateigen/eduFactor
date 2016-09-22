@@ -1,12 +1,13 @@
 from django.conf.urls import url
 from . import views
-from .views import IndexView, CreateTest, AddClass, PracticeLandingView
+from .views import IndexView, CreateTest, AddClass, PracticeLandingView, AboutView
 from django.views.generic.edit import CreateView
 from .forms import UserForm
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^about/$', AboutView.as_view(), name='about'),
     url(r'^login/$', login, name='login'),
     url(r'^register/$', CreateView.as_view(
         template_name='registration/register.html',
@@ -20,6 +21,5 @@ urlpatterns = [
     url(r'^tutorial/([0-9]+)/$', views.tutorial_question, name='question_detail'),
     url(r'^practice/([0-9]+)/$', views.practice_question, name='practice_detail'),
     url(r'^practice_dashboard/$', PracticeLandingView.as_view(), name='practice'),
-    url(r'^home/$', views.home, name='home'),
-    url(r'^about/$', views.about, name='about')
+    url(r'^home/$', views.home, name='home')
     ]
