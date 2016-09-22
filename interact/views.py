@@ -4,6 +4,7 @@ from .models import Flavor, Course, Question, Assessment, Score
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
+from django.views import View, generic
 from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer, GroupSerializer, FlavorSerializer
 from .serializers import CourseSerializer, QuestionSerializer
@@ -21,6 +22,10 @@ def home(request):
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'interact/about.html'
 
 
 class PracticeLandingView(TemplateView):
@@ -103,48 +108,45 @@ def practice_question(request, question_id):
     answers = question.possible_solutions.split('|')
     random.shuffle(answers)
     context = {'question': question, 'answers': answers}
-    if question.flavor.name == 'fill-in-the-blank':
-        template = 'practice/fill_in_the_blank_practice.html'
-    elif question.flavor.name == 'multiple choice':
-        template = 'practice/multi_choice_practice.html'
-    elif question.flavor.name == 'multi-select':
-        correct = question.solution.split('|')
-        context['correct'] = correct
-        template = 'practice/multi_select_practice.html'
-    elif question.flavor.name == 'drag-and-drop':
-        answers = answers.sort()
-        solutions = question.solution.split('|')
-        correct = {}
-        for answer in solutions:
-            temp = answer.split(':')
-            correct[temp[0]] = temp[1]
-        context['solutions'] = correct
-        template = 'practice/drag_drop_practice.html'
-    elif question.flavor.name == 'fraction-fill-in':
-        table_cells = int(question.description) * 'x'
-        context['table_cells'] = table_cells
-        template = 'practice/fraction_practice.html'
-    elif question.flavor.name == 'graph':
-        solutions = question.solution.split('|')
-        correct = {}
-        for answer in solutions:
-            temp = answer.split(':')
-            correct[temp[0]] = temp[1]
-        context['correct'] = correct
-        context['graph_width'] = len(answers)
-        graph_height = max([int(item) for item in correct.values()])
-        context['graph_height'] = graph_height
-        context['graph_title'] = question.description
-        context['x_labels'] = list(correct.keys())
-        y_labels = list(range(1, graph_height + 1))
-        y_labels.reverse()
-        context['y_labels'] = y_labels
-        template = 'practice/graph_practice.html'
+    for difficulty_level in question.difficulty_level:
+        if question.flavor.name == 'fill-in-the-blank':
+            template = 'practice/fill_in_the_blank_practice.html'
+        elif question.flavor.name == 'multiple choice':
+            template = 'practice/multi_choice_practice.html'
+        elif question.flavor.name == 'multi-select':
+            correct = question.solution.split('|')
+            context['correct'] = correct
+            template = 'practice/multi_select_practice.html'
+        elif question.flavor.name == 'drag-and-drop':
+            answers = answers.sort()
+            solutions = question.solution.split('|')
+            correct = {}
+            for answer in solutions:
+                temp = answer.split(':')
+                correct[temp[0]] = temp[1]
+            context['solutions'] = correct
+            template = 'practice/drag_drop_practice.html'
+        elif question.flavor.name == 'fraction-fill-in':
+            table_cells = int(question.description) * 'x'
+            context['table_cells'] = table_cells
+            template = 'practice/fraction_practice.html'
+        elif question.flavor.name == 'graph':
+            solutions = question.solution.split('|')
+            correct = {}
+            for answer in solutions:
+                temp = answer.split(':')
+                correct[temp[0]] = temp[1]
+            context['correct'] = correct
+            context['graph_width'] = len(answers)
+            graph_height = max([int(item) for item in correct.values()])
+            context['graph_height'] = graph_height
+            context['graph_title'] = question.description
+            context['x_labels'] = list(correct.keys())
+            y_labels = list(range(1, graph_height + 1))
+            y_labels.reverse()
+            context['y_labels'] = y_labels
+            template = 'practice/graph_practice.html'
     return render(request, template, context)
-
-
-def about(request):
-    return render(request, 'interact/about.html', context={})
 
 
 class UserViewSet(viewsets.ModelViewSet):
