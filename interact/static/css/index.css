@@ -1,0 +1,36 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding: 2px 16px;
+    width: 55rem;
+    text-align: center;
+  }
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 #6Dc090;
+}
+
+.row{
+  padding-bottom: 1cm;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #74CFe4;
+  color: #000000;
+  font-weight: bold;
+  border-color: #74CFe4;
+}
+
+.btn {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#welcome {
+  text-align: left;
+}

@@ -1,37 +1,44 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock %}
 {% block content %}
+<div class="aligner-item">
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="page-header">
-        <h3>Welcome to eduFactor<small> | Practice makes perfect</small></h3>
-      </div>
-    </div>
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="media">
-        <div class="media-left">
-          <a href="#">
-            <img id="kids" class="media-object" src="http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg" alt="learning">
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading">You can do it!</h4>
-          {% lorem 2 %}
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-5 col-lg-offset-1">
-        {% url 'question_detail' 1 as the_url %}
-        <a href="{{ the_url }}" class="btn btn-default">Let's refresh!</a>
-        <a href="{% url "practice" %}" class="btn btn-default">Let's practice!</a>
-
-          </div>
-        </div>
+        <h3 id="welcome">Welcome to eduFactor<small> | Practice makes perfect</small></h3>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card card-block">
+        <h4 class="card-title">Tutorial</h4>
+        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+      <img src="http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg" alt="Card image" id="kids">
+      <div class="card-block">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card card-block">
+        <h4 class="card-title">Practice</h4>
+        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+      <img src="http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg" alt="Card image" id="kids">
+      <div class="card-block">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
-
+</div>
 {% endblock %}
