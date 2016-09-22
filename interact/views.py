@@ -124,7 +124,7 @@ def practice_question(request, question_id):
         table_cells = int(question.description) * 'x'
         context['table_cells'] = table_cells
         template = 'practice/fraction_practice.html'
-    elif question.flavor.name == 'graph':
+    elif question.flavor.name == 'bar graph':
         solutions = question.solution.split('|')
         correct = {}
         for answer in solutions:

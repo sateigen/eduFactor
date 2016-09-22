@@ -384,12 +384,12 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='529|483|503|457|425|550|562'
              ).save()
 
-    Question(solution='2 x 8 = 16|16 ÷ 2 = 16',
+    Question(solution='2 x 8 = 16|16 ÷ 2 = 8',
              title="Select each fact that is in the same fact-family as 8 x 2 = 16.",
              flavor=Flavor(pk=3),
              concept='fact-families',
              difficulty_level=3,
-             possible_solutions='2 x 8 = 16|16 ÷ 2 = 16|16 - 8 = 8|8 + 2 = 10'
+             possible_solutions='2 x 8 = 16|16 ÷ 2 = 8|16 - 8 = 8|8 + 2 = 10'
              ).save()
 
     Question(solution='29|33|41',
@@ -397,7 +397,7 @@ def add_practice_questions(apps, schema_editor):
              flavor=Flavor(pk=3),
              concept='patterns',
              difficulty_level=3,
-             possible_solutions='29|33|41|22|'
+             possible_solutions='29|33|41|22'
              ).save()
 
     Question(solution='7 x 2|2 x 7',
@@ -507,7 +507,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='90,000|80,000|90,000|89,000|89,500|89,600|89,520|89,530'
              ).save()
 
-    Question(solution='addition:subtraction|subtraction:addition|multiplication:division|division|multiplication',
+    Question(solution='addition:subtraction|subtraction:addition|multiplication:division|division:multiplication',
              title="Drag the inverse operation of each into the correct box.",
              flavor=Flavor(pk=4),
              concept='inverse operations',
@@ -515,7 +515,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='addition|subtraction|multiplication|division'
              ).save()
 
-    Question(solution='803 _ 830:<|324 _ 324:=|107 _ 1,007:>',
+    Question(solution='803 _ 830:<|324 _ 324:=|1,007 _ 107:>',
              title="Drag each symbol to a statement to make it true.",
              flavor=Flavor(pk=4),
              concept='inequalities',
@@ -581,12 +581,12 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
 # drag and drop quesitons 5th grade
-    Question(solution='equilateral:6in, 6in, 6in|scalene:2cm, 3cm, 4cm|isosceles:12m, 12m, 5m',
+    Question(solution='equilateral:4in, 4in, 4in|scalene:2cm, 3cm, 4cm|isosceles:12m, 12m, 5m',
              title="Classify each set of side lengths of a triangle as equilateral, scalene, or isosceles.",
              flavor=Flavor(pk=4),
              concept='geometry',
              difficulty_level=5,
-             possible_solutions='6in, 6in, 6in|2cm, 3cm, 4cm|12m, 12m, 5m'
+             possible_solutions='4in, 4in, 4in|2cm, 3cm, 4cm|12m, 12m, 5m'
              ).save()
 
     Question(solution='ten thousands:0|thousandths:9|tens:7|tenths:8|ones:1',
