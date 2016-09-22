@@ -4,12 +4,12 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-9 col-lg-offset-3">
+    <div class="col-lg-10 col-lg-offset-1">
       <div class="page-header">
         <h3>Welcome to eduFactor<small> | Practice makes perfect</small></h3>
       </div>
     </div>
-    <div class="col-lg-9 col-lg-offset-3">
+    <div class="col-lg-10 col-lg-offset-1">
       <div class="media">
         <div class="media-left">
           <a href="#">
@@ -22,9 +22,11 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-lg-9 col-lg-offset-3">
-            {% url 'question_detail' 1 as the_url %}
-            <a href="{{ the_url }}" class="btn btn-default">Let's do some math!</a>
+          <div class="col-lg-5 col-lg-offset-1">
+        {% url 'question_detail' 1 as the_url %}
+        <a href="{{ the_url }}" class="btn btn-default">Let's refresh!</a>
+        <a href="{% url "practice" %}" class="btn btn-default">Let's practice!</a>
+
           </div>
         </div>
       </div>
