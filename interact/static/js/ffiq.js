@@ -15,7 +15,6 @@ var $isCorrect = false
 
 $answers.click(function() {
   $selectButton.text('| The correct answer is ' + $questionSolution + ' shaded in.');
-  $nextPage.show()
 })
 
 // check this function for is question correct
@@ -91,6 +90,9 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
+  }
+  else {
+    $nextPage.show()
   }
 }
 
