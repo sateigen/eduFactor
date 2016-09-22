@@ -6,37 +6,36 @@
 {% block content %}
 <div class="aligner-item">
 <div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="page-header">
-        <h3 id="welcome">Welcome to eduFactor<small> | Practice makes perfect</small></h3>
-      </div>
+  <div class="row" id="heading">
+    <div class="col-md-12">
+      <h2>Practice Makes Perfect</h2>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-6">
+      <a href="{% url 'question_detail' 1 %}" name='level' method="get">
       <div class="card card-block">
         <h4 class="card-title">Tutorial</h4>
-        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        <h6 class="card-subtitle text-muted">Answer questions with hints about what steps to take</h6>
       <img src="http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg" alt="Card image" id="kids">
       <div class="card-block">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <p class="card-text">Learn what each type of question is asking you to do and make sure you know how to answer it. Follow the step by step instructions for how to work through each question type.</p>
+
       </div>
     </div>
+    </a>
     </div>
     <div class="col-lg-6">
+      <a href="{% url 'practice' %}" name='level' method="get">
       <div class="card card-block">
         <h4 class="card-title">Practice</h4>
-        <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        <h6 class="card-subtitle text-muted">Answer questions with no hints.</h6>
       <img src="http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg" alt="Card image" id="kids">
       <div class="card-block">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <p class="card-text">Build your confidence by practicing the different types of questions. Choose questions based on type of question or grade level content. Use the feedback you receive to see what to work on next.</p>
       </div>
     </div>
+  </a>
     </div>
   </div>
 </div>
