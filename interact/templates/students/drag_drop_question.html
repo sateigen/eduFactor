@@ -3,17 +3,17 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
-            <h3><span id='description'>{{ question.flavor.description }}</span></h3>
+            <h3 id='description'>{{ question.flavor.description }}</h3>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
-            <h2><span id='questionTitle'>{{ question.title }}:</span></h2>
+            <h2 id='questionTitle'>{{ question.title }}:</h2>
         </div>
     </div>
     <div class="row">
         <div id="selectionGroup" class="col-lg-6 col-lg-offset-3">
-            <h4><span>Possible Answers | Drag the answers to the correct boxes!</span></h4>
+            <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
             <div>
                 <div class="ui-widget-content">
                     {% for answer in answers %}
