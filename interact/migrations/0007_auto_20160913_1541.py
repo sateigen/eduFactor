@@ -10,7 +10,7 @@ def add_questions(apps, schema_editor):
     Flavor = apps.get_model("interact", "Flavor")
 
     Flavor(name='multiple choice', description='Choose the best answer.').save()
-    Flavor(name='fill-in-the-blank', description='Type your answer in the box.').save()
+    Flavor(name='fill-in-the-blank', description='Type your answer in the box. If the answer is larger than 999,  you must include the appropriate commas.').save()
     Flavor(name='multi-select', description='Click on each answer that is correct.').save()
 
     Question(solution='800',

@@ -142,7 +142,7 @@ def add_practice_questions(apps, schema_editor):
     Question(solution='>',
              title="Which symbol could be placed in the blank to make this statement true.  43.75 _ 43.7",
              flavor=Flavor(pk=1),
-             concept='',
+             concept='inequalities',
              difficulty_level=4,
              possible_solutions='>|=|<'
              ).save()
@@ -253,7 +253,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
 # fill in the blank quesitons 3rd grade
-    Question(solution='26,905|26905',
+    Question(solution='26,905',
              title="Write twenty-six thousand, nine hundred five in standard form.",
              flavor=Flavor(pk=2),
              concept='place value',
@@ -269,7 +269,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='60|60 birds'
              ).save()
 
-    Question(solution='3,117|3117',
+    Question(solution='3,117',
              title="5,200 - 2,083",
              flavor=Flavor(pk=2),
              concept='subtraction',
@@ -294,7 +294,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
 # fill in the blank quesitons 4th grade
-    Question(solution='14,601.8|14601.8',
+    Question(solution='14,601.8',
              title="Write fourteen thousand, six hundred one and eight tenths in standard form.",
              flavor=Flavor(pk=2),
              concept='place value',
@@ -302,7 +302,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='14,601.8|14601.8'
              ).save()
 
-    Question(solution='33,000|33000',
+    Question(solution='33,000',
              title="Round 32,957 to the nearest hundred.",
              flavor=Flavor(pk=2),
              concept='rounding',
@@ -310,7 +310,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='33,000|33000'
              ).save()
 
-    Question(solution='37,896|37896',
+    Question(solution='37,896',
              title="50,400 - 12,504",
              flavor=Flavor(pk=2),
              concept='subtraction',
@@ -318,7 +318,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='37,896|37896'
              ).save()
 
-    Question(solution='2,916|2916',
+    Question(solution='2,916',
              title="36 x 81",
              flavor=Flavor(pk=2),
              concept='multiplication',
@@ -343,7 +343,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='2'
              ).save()
 
-    Question(solution='51,890|51890',
+    Question(solution='51,890',
              title="Round 51,890.37 to the nearest whole.",
              flavor=Flavor(pk=2),
              concept='rounding',
@@ -359,7 +359,7 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='326'
              ).save()
 
-    Question(solution='33,288|33288',
+    Question(solution='33,288',
              title="438 x 76",
              flavor=Flavor(pk=2),
              concept='multiplication',
@@ -508,7 +508,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='addition:subtraction|subtraction:addition|multiplication:division|division:multiplication',
-             title="Drag the inverse operation of each into the correct box.",
+             title="Drag the inverse operation of each into the correct box",
              flavor=Flavor(pk=4),
              concept='inverse operations',
              difficulty_level=3,
@@ -516,7 +516,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='803 _ 830:<|324 _ 324:=|1,007 _ 107:>',
-             title="Drag each symbol to a statement to make it true.",
+             title="Drag each symbol to a statement to make it true",
              flavor=Flavor(pk=4),
              concept='inequalities',
              difficulty_level=3,
@@ -524,7 +524,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='thousands:9|ten thousands:3|tens:5|hundred thousands:7|hundreds:2|ones:4',
-             title="Drag each digit to its correct place value using the number 739,254.",
+             title="Drag each digit to its correct place value using the number 739,254",
              flavor=Flavor(pk=4),
              concept='place value',
              difficulty_level=3,
@@ -532,7 +532,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='less than:<|greater than: >|equal to:=|not equal to:≠',
-             title="Drag each symbol to the correct term.",
+             title="Drag each symbol to the correct term",
              flavor=Flavor(pk=4),
              concept='inequalities',
              difficulty_level=3,
@@ -541,7 +541,7 @@ def add_practice_questions(apps, schema_editor):
 
 # drag and drop quesitons 4th grade
     Question(solution='7th Term:1,074|8th Term:1,004|9th Term:924',
-             title="Extend the following pattern: 1,284; 1,274; 1,254; 1,224; 1,184.",
+             title="Extend the following pattern: 1,284; 1,274; 1,254; 1,224; 1,184",
              flavor=Flavor(pk=4),
              concept='place value',
              difficulty_level=4,
@@ -549,7 +549,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='sum:addition|difference:subtraction|product:multiplication|quotient:division',
-             title="Drag each operation to its correct term.",
+             title="Drag each operation to its correct term",
              flavor=Flavor(pk=4),
              concept='vocabulary',
              difficulty_level=4,
@@ -557,7 +557,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='product:56|factor:8|operation:x',
-             title="For the fact 7 x 8 = 56, drag each part to the correct term.",
+             title="For the fact 7 x 8 = 56, drag each part to the correct term",
              flavor=Flavor(pk=4),
              concept='vocabulary',
              difficulty_level=4,
@@ -565,7 +565,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='8.03 _ 8.3:<|32.4 _ 32.40:=|1.07 _ 1.007:>',
-             title="Drag each symbol to a statement to make it true.",
+             title="Drag each symbol to a statement to make it true",
              flavor=Flavor(pk=4),
              concept='inequalities',
              difficulty_level=4,
@@ -573,7 +573,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='thousands:6|thousandths:1|tens:4|tenths:3|millions:5|hundred thousands:0',
-             title="Drag each digit to its correct place value using the number 5,076,249.381.",
+             title="Drag each digit to its correct place value using the number 5,076,249.381",
              flavor=Flavor(pk=4),
              concept='place value',
              difficulty_level=4,
@@ -582,7 +582,7 @@ def add_practice_questions(apps, schema_editor):
 
 # drag and drop quesitons 5th grade
     Question(solution='equilateral:4in, 4in, 4in|scalene:2cm, 3cm, 4cm|isosceles:12m, 12m, 5m',
-             title="Classify each set of side lengths of a triangle as equilateral, scalene, or isosceles.",
+             title="Classify each set of side lengths of a triangle as equilateral, scalene, or isosceles",
              flavor=Flavor(pk=4),
              concept='geometry',
              difficulty_level=5,
@@ -590,7 +590,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='ten thousands:0|thousandths:9|tens:7|tenths:8|ones:1',
-             title="Drag each digit to its correct place value using the number 603,471.829.",
+             title="Drag each digit to its correct place value using the number 603,471.829",
              flavor=Flavor(pk=4),
              concept='place value',
              difficulty_level=5,
@@ -598,7 +598,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='mean:the fair share of a set of data|median:the middle number in a set of data|mode:the most frequently occuring data point in a set of data|range:the spread of a set of data',
-             title="Drag each definition to the correct term.",
+             title="Drag each definition to the correct term",
              flavor=Flavor(pk=4),
              concept='statistics',
              difficulty_level=5,
@@ -606,7 +606,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='prime:exactly two factors|composite:more than two factors',
-             title="Drag each definition to the correct term.",
+             title="Drag each definition to the correct term",
              flavor=Flavor(pk=4),
              concept='number characteristics',
              difficulty_level=5,
@@ -614,7 +614,7 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
     Question(solution='variable:x|variable expression:5 + x|open sentence:5 + x = 14',
-             title='Drag each item to its correct description.',
+             title='Drag each item to its correct description',
              flavor=Flavor(pk=4),
              concept='algebra',
              difficulty_level=5,
