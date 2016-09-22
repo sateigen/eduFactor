@@ -42,3 +42,14 @@ $(document).ready(function() {
     }
   });
 });
+
+// scoring the answer
+// function scoreAnswer() {
+//   var $guessForm = $('#guess')
+//   var $guess = $('#guess').val()
+//   console.log($guess)
+//   if ($guess == $questionSolution) {
+//     console.log('yes!')
+//     $.post( "/api/score", {score: true, time_stamp: 'now', question_id: })
+//   }
+// }
