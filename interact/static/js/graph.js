@@ -145,25 +145,22 @@ $(function () {
 });
 
 function highlight(focusPoint) {
-  // if (focusPoint.attr('id') == 'title') {
-  //   console.log('Title')
-  // }
-  // else if (focusPoint.attr('id') == 'dataTable') {
-  //   console.log('dataTable')
-  // }
   focusPoint.popover('toggle')
-  focusPoint.css('background-color','#ecbe45')
+  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+  // focusButton.show()
 }
 
 function unhighlight(focusPoint, next) {
-  // $('.popover:visible button').on('click', function (){
-  // $('#' + focusPoint.attr('id') + 'Button').on('click', function (){
-    console.log('clicked')
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color','transparent')
-    if (next){
-      highlight(next)
-    }
+  // focusButton.hide()
+  // nextButton.show()
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','transparent')
+  if (next){
+    highlight(next)
+  }
+  else {
+    $nextPage.show()
+  }
 }
 
 $(window).on('load', function () {

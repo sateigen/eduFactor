@@ -34,8 +34,10 @@ td {
   width: 5em;
 }
 
-.ylabels {
+td.ylabels {
   border-right: 1px solid;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
 }
 
 .xlabels {

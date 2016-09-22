@@ -8,28 +8,6 @@ var $correct = $('#correct').val()
 var $final = {}
 var $guesses = {}
 
-$title.popover({
-  placement:'bottom',
-  html: 'true',
-  title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
-})
-$dataTable.popover({
-  placement:'bottom',
-  html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
-  id: 'dataPopover',
-  content : 'Here is your data!<br><br>' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
-})
-$graphTitle.popover({
-  placement:'bottom',
-  html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
-  id: 'dataPopover',
-  content : 'Here is the graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
-})
-
-
 
 $order = [$('#title'), $('#dataTable'), $('#graphTitle')]
 function getNext(curr)
@@ -91,7 +69,6 @@ function cleanCorrect() {
   })
 }
 
-$nextPage.hide()
 
 function checkGraph() {
   cleanCorrect()
@@ -168,7 +145,7 @@ function unhighlight(focusPoint, next) {
 
 $(window).on('load', function () {
   console.log('loaded');
-  highlight($title);
+  // highlight($title);
   // $('#titleButton').ready(function(){console.log('yes')
   //   unhighlight($title, $dataTable)})
   // $('#dataTableButton').ready(function(){
