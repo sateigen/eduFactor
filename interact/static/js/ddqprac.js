@@ -8,7 +8,7 @@ var $selectButton = $('#selectButton')
 var $draggable = $('.draggable')
 var $chosenAnswers = []
 var $correctAnswers = []
-
+var questions = {{ questions }};
 
 $(window).on('load', function() {
     console.log('loaded');
@@ -47,9 +47,14 @@ $nextPage.click(function(e) {
   e.preventDefault()
   checkAnswers($correctAnswers, $chosenAnswers)
     $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
+    $next = $curr + 1 //
     console.log($curr, typeof($curr))
-    window.location.href = "/tutorial/" + $next + "/"
+    if ($next == 11) {
+      window.location.href = '/'
+    }
+    else {
+      window.location.href = "/practice/" + $next + "/"
+    }
 })
 
 

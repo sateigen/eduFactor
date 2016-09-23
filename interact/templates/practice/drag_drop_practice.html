@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <div id="selectionGroup" class="col-lg-6 col-lg-offset-3">
+            <div id="selectionGroup" class="col-lg-8 col-lg-offset-3">
                 <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
                 <div>
                     <div class="ui-widget-content">
@@ -23,15 +23,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-8 col-lg-offset-3">
                 {% for key, value in solutions.items %}
                 <div class="droppable" id='{{ key }}' value='{{ value }}'>
                     <h4 id='dropbox'>{{ key }}</h4>
                 </div>
                 {% endfor %}
-                <hr>
+              </div>
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-3">
                 <button id="nextPage" class="btn btn-default">Next Question</button>
             </div>
+          </div>
         </div>
     </div>
 </div>
@@ -39,5 +42,10 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script>
+{% comment %}
+  var questionList = {{ questions }}
+{% endcomment %}
+</script>
 <script src="{% static 'js/ddqprac.js' %}"></script>
 {% endblock %}

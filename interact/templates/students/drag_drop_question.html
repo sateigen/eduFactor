@@ -3,16 +3,16 @@
 <div class="container question">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
-            <h3 id='description'>{{ question.flavor.description }}</h3>
+            <h3><span id='description'>{{ question.flavor.description }}</span></h3>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
-            <h2 id='questionTitle'>{{ question.title }}:</h2>
+            <h2><span id='questionTitle'>{{ question.title }}:</span></h2>
         </div>
     </div>
     <div class="row">
-        <div id="selectionGroup" class="col-lg-6 col-lg-offset-3">
+        <div id="selectionGroup" class="col-lg-8 col-lg-offset-3">
             <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
             <div>
                 <div class="ui-widget-content">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class='row'>
-            <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-8 col-lg-offset-3">
                 {% for key, value in solutions.items %}
                 <div class="droppable" id='{{ key }}' value='{{ value }}'>
                     <h4 id='dropbox'>{{ key }}</h4>
@@ -32,6 +32,8 @@
                 {% endfor %}
                 <input type="hidden" value="{{ question.solution }}" id="questionSolution">
                 <hr>
+              </div>
+                <div>
                 <button id="nextPage" class="btn btn-default">Next Question</button>
             </div>
         </div>

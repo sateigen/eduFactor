@@ -86,12 +86,7 @@ $nextPage.click(function() {
   if ($isCorrect) {
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
-    if ($next == 7) {
-      window.location.href = '/'
-    }
-    else {
       window.location.href = "/practice/" + $next + "/"
-    }
   }
 })
 
