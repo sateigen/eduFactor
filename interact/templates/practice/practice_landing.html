@@ -15,30 +15,34 @@ eduFactor | Practice
   </div>
   <div class="row">
   <div class="col-sm-4">
+    <a href="{% url 'level' 3 %}" name='level' method="get">
     <div class="card card-block">
       <h3 class="card-title">Third Grade</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering questions at the third grade level.</p>
-      <a href="{% url 'level' 3 %}" name='level' method="get" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'level' 4 %}" name='level' method="get">
     <div class="card card-block">
       <h3 class="card-title">Fourth Grade</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering questions at the fourth grade level.</p>
-      <a href="{% url 'level' 4 %}" name='level' method="get" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'level' 5 %}" name='level' method="get">
     <div class="card card-block">
       <h3 class="card-title">Fifth Grade</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering questions at the fifth grade level.</p>
-      <a href="{% url 'level' 5 %}" name='level' method="get" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-12">
     <h2>Assessments by Question Type</h2>
@@ -46,55 +50,62 @@ eduFactor | Practice
 </div>
 <div class="row">
   <div class="col-sm-4">
+    <a href="{% url 'flavor' 'choice' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Multiple Choice</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering multiple choice questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
     </div>
+      </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'flavor' 'fill' %}" name='flavor'>
     <div class="card card-block">
       <h3 class="card-title">Fill in the Blank</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering fill in the blank questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'flavor' 'bar' %}" name='flavor'>
     <div class="card card-block">
       <h3 class="card-title">Graph</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering graph building questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
-    </div>
+      </div>
   </div>
+</a>
 </div>
 <div class="row">
   <div class="col-sm-4">
+      <a href="{% url 'flavor' 'drag' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Drag and Drop</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering drap and drop questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
     </div>
+  </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'flavor' 'select' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Multiple Select</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering multiple select questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
   <div class="col-sm-4">
+    <a href="{% url 'flavor' 'fraction' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Fraction Fill In</h3>
       <hr>
       <p class="card-text">A 10 question assessment organized to practice answering fraction fill in questions.</p>
-      <a href="#" class="btn btn-primary">Start Practicing!</a>
     </div>
+    </a>
   </div>
+
 </div>
 </div>
 </div>

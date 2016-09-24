@@ -19,11 +19,8 @@ urlpatterns = [
     url(r'^add_class/$', AddClass.as_view(), name='add_class'),
     url(r'^student/(?P<id>\d+)/$', views.student, name='student'),
     url(r'^tutorial/([0-9]+)/$', views.tutorial_question, name='question_detail'),
-    # url(r'^practice/([0-9]+)/$', views.practice_question, name='practice_detail'),
     url(r'^practice_dashboard/$', PracticeLandingView.as_view(), name='practice'),
     url(r'^practice/(?P<difficulty_level>[0-9]+)/$', views.get_queryset_by_level, name='level'),
-    # url(r'^practice/(?P<pk>[0-9]+)/drag-and-drop/$', DragAndDrop.as_view(), name='drag_and_drop'),
+    url(r'^practice/(?P<flavor>\D+)/$', views.get_queryset_by_flavor, name='flavor'),
     url(r'^home/$', views.home, name='home')
     ]
-
-# ?P<flavor>\D+)/$

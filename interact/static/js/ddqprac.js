@@ -8,7 +8,7 @@ var $selectButton = $('#selectButton')
 var $draggable = $('.draggable')
 var $chosenAnswers = []
 var $correctAnswers = []
-var questions = {{ questions }};
+var questions = {{ questions|safe }};
 
 $(window).on('load', function() {
     console.log('loaded');
@@ -42,12 +42,12 @@ $(function() {
     });
 });
 
-
+// Array ['question 1', 'question 2'];
 $nextPage.click(function(e) {
   e.preventDefault()
   checkAnswers($correctAnswers, $chosenAnswers)
     $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1 //
+    $next = questions[$curr + 1] //
     console.log($curr, typeof($curr))
     if ($next == 11) {
       window.location.href = '/'

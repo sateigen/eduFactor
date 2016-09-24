@@ -44,7 +44,7 @@
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script>
 {% comment %}
-  var questionList = {{ questions }}
+  var questions = {{ questions|safe }}
 {% endcomment %}
 </script>
 <script src="{% static 'js/ddqprac.js' %}"></script>
