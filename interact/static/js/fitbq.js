@@ -9,7 +9,7 @@ var $isCorrect = false
 var $guessForm = $('#guessForm')
 
 
-$submit.click(function() {
+$nextPage.click(function() {
   var $guessForm = $('#guess')
   var $guess = $('#guess').val()
   console.log($guess)
@@ -19,16 +19,11 @@ $submit.click(function() {
     $isCorrect = true
     $answerSection.popover('toggle')
     console.log('yes!')
-    return false
   }
   if ($guess != $questionSolution) {
     $isCorrect = false
     console.log('no!')
-    return false
   }
-})
-
-$nextPage.click(function() {
   if ($isCorrect) {
     $curr = parseFloat(window.location.href.split('/')[4])
     $next = $curr + 1
