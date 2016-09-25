@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %}{% block content %}
-<div class="container question">
+<div class="container question" id="{{ question.id }}" user="{{ user.id }}">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
             <h3 id='description1'>{{ question.flavor.description }}</h3>
+        </div>
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-3">
@@ -30,22 +31,19 @@
                 </div>
                 {% endfor %}
               </div>
+              </div>
               <div class="row">
-                  <div class="col-lg-8 col-lg-offset-3">
-                <button id="nextPage" class="btn btn-default">Next Question</button>
+                  <div class="col-lg-8 col-lg-offset-3">{% if pager.has_next %}
+                  <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
+                  {% else %}
+                  <a id="nextPage" href="/" class="btn btn-default">Great job!</a>
+                  {% endif %}
             </div>
           </div>
-        </div>
-    </div>
+
 </div>
 {% endblock %} {% block scripts %}
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script>
-{% comment %}
-  var questions = {{ questions|safe }}
-{% endcomment %}
-</script>
 <script src="{% static 'js/ddqprac.js' %}"></script>
 {% endblock %}

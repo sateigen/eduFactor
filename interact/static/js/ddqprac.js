@@ -8,7 +8,7 @@ var $selectButton = $('#selectButton')
 var $draggable = $('.draggable')
 var $chosenAnswers = []
 var $correctAnswers = []
-var questions = {{ questions|safe }};
+// var questions = {{ questions|safe }}
 
 $(window).on('load', function() {
     console.log('loaded');
@@ -44,17 +44,27 @@ $(function() {
 
 // Array ['question 1', 'question 2'];
 $nextPage.click(function(e) {
-  e.preventDefault()
   checkAnswers($correctAnswers, $chosenAnswers)
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = questions[$curr + 1] //
-    console.log($curr, typeof($curr))
-    if ($next == 11) {
-      window.location.href = '/'
-    }
-    else {
-      window.location.href = "/practice/" + $next + "/"
-    }
+  $user = $('.container.question').attr('user')
+  $questionID = $('.container.question').attr('id')
+  console.log($isCorrect)
+  if ($isCorrect) {
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': true , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('hello');
+      });
+  } else {
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': false , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('false');
+      });
+  }
 })
 
 

@@ -1,5 +1,5 @@
  {% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Practice {% endblock %} {% block content %}
-<div class="container question">
+<div class="container question" id="{{ question.id }}" user="{{ user.id }}">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
             <h3>{{ question.flavor.description }}</h3>
@@ -22,8 +22,12 @@
                 <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
                 <hr>
             </div>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
-        </div>
+            {% if pager.has_next %}
+            <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
+            {% else %}
+            <a id="nextPage" href="/" class="btn btn-default">Great job!</a>
+            {% endif %}
+          </div>
     </div>
 </div>
 {% endblock %} {% block scripts %}

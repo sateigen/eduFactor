@@ -183,6 +183,95 @@ def multiple_choice(request):
     return render(request, 'practice/multi_choice_practice.html', context)
 
 
+def fraction_fill_in(request):
+    questions = Question.objects.filter(flavor=5)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    print(paginator.num_pages)
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    table_cells = int(question.description) * 'x'
+    context['table_cells'] = table_cells
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    return render(request, 'practice/fraction_practice.html', context)
+
+
+def multiple_select(request):
+    questions = Question.objects.filter(flavor=3)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    return render(request, 'practice/multi_select_practice.html', context)
+
+
+def drag_and_drop(request):
+    questions = Question.objects.filter(flavor=4)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    solutions = question.solution.split('|')
+    correct = {}
+    for answer in solutions:
+        temp = answer.split(':')
+        correct[temp[0]] = temp[1]
+    context['solutions'] = correct
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    return render(request, 'practice/drag_drop_practice.html', context)
+
+
 def get_queryset_by_flavor(request, flavor):
     questions = Question.objects.filter(flavor__name__icontains=flavor)
     q_list = []

@@ -22,6 +22,9 @@ urlpatterns = [
     url(r'^practice_dashboard/$', PracticeLandingView.as_view(), name='practice'),
     url(r'^practice/(?P<difficulty_level>[0-9]+)/$', views.get_queryset_by_level, name='level'),
     url(r'^practice/choice/$', views.multiple_choice, name='multiple_choice'),
+    url(r'^practice/fraction/$', views.fraction_fill_in, name='fraction_fill_in'),
+    url(r'^practice/select/$', views.multiple_select, name='multiple_select'),
+    url(r'^practice/drag/$', views.drag_and_drop, name='drag_and_drop'),
     url(r'^practice/(?P<flavor>\D+)/$', views.get_queryset_by_flavor, name='flavor'),
     url(r'^home/$', views.home, name='home')
     ]

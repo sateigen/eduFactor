@@ -17,11 +17,25 @@ $answers.click(function() {
 
 $nextPage.click(function() {
   checkAnswers(correctAnswers, chosenAnswers)
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/practice/" + $next + "/"
-})
+  $user = $('.container.question').attr('user')
+  $questionID = $('.container.question').attr('id')
+  if ($isCorrect) {
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': true , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('hello');
+      });
+  } else {
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': false , 'time_stamp': 'now'}
+      }).done(function() {
+      });
+  }
+    })
 
 $(window).on('load', function () {
   console.log('loaded');
