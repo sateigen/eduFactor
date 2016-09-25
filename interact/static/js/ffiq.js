@@ -38,7 +38,7 @@ $questionTitle.popover({
   html: 'true',
   title : '<span class="text-info"><strong>The Question</strong></span>',
   id: 'dataPopover',
-  content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is the problem you are going to solve! Be sure to read it carefully, you may have to simplify your answer.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answers.popover({
   placement:'left',
@@ -52,7 +52,7 @@ $nextQuestion.popover({
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
   id: 'submitPopover',
-  content : "The correct answer is to have 2 sections shaded in.<hr><br> You must have the correct answers chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+  content : "The correct answer is to have 2 sections shaded in.<hr><br> You must have the correct number of sections shaded in before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })
 
 

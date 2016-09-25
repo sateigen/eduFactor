@@ -35,7 +35,7 @@ $answerGroup.popover({
   html: 'true',
   title : '<span class="text-info"><strong>Potential Answers</strong></span>',
   id: 'dataPopover',
-  content : 'Here are the answers! Click and drag the potential answers to the correct boxes.<br><br>' + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : "Here are the answer choices! Click and drag one answer at a time to the correct box Do not click the 'Next Page' button until you have dragged an answer to each box.<br><br>" + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextQuestion.popover({
   placement:'left',
