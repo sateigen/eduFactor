@@ -1,2 +1,32 @@
-{{ form.as_p }}
-<button type="submit" name="button"></button>
+{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Login {% endblock %} {% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/practice_landing.css' %}"> {% endblock %} {% block content %}
+<body>
+    <div class="aligner-item">
+        <div class="container">
+            <div class="form-group">
+                <form method="POST">
+                    <div class="row">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            <h2>Log In</h2>
+                            <div class="jumbotron" id='jumbotron1'>
+                                <div class='form card-block'>
+                                    <div>
+                                        <label for="username">Username:</label>
+                                        <input class='form-control' id='username' name='username' required>
+                                    </div>
+                                    <div>
+                                        <label for="pwd">Password:</label>
+                                        <input type='password' class='form-control' id='pwd' name='password' required>
+                                    </div>
+                                    <button type='submit' class='btn btn-default' style="margin-top: 15px">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
