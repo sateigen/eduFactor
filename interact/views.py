@@ -112,47 +112,61 @@ def get_queryset_by_level(request, difficulty_level):
         q_list.append(q)
     random.shuffle(q_list)
     q_list = q_list[:10]
-    for question in q_list:
-        answers = question.possible_solutions.split('|')
-        random.shuffle(answers)
-        context = {'question': question, 'answers': answers, 'questions': questions}
-        if question.flavor.name == 'fill-in-the-blank':
-            template = 'practice/fill_in_the_blank_practice.html'
-        elif question.flavor.name == 'multiple choice':
-            template = 'practice/multi_choice_practice.html'
-        elif question.flavor.name == 'multi-select':
-            correct = question.solution.split('|')
-            context['correct'] = correct
-            template = 'practice/multi_select_practice.html'
-        elif question.flavor.name == 'drag-and-drop':
-            answers = answers.sort()
-            solutions = question.solution.split('|')
-            correct = {}
-            for answer in solutions:
-                temp = answer.split(':')
-                correct[temp[0]] = temp[1]
-            context['solutions'] = correct
-            template = 'practice/drag_drop_practice.html'
-        elif question.flavor.name == 'fraction-fill-in':
-            table_cells = int(question.description) * 'x'
-            context['table_cells'] = table_cells
-            template = 'practice/fraction_practice.html'
-        elif question.flavor.name == 'bar graph':
-            solutions = question.solution.split('|')
-            correct = {}
-            for answer in solutions:
-                temp = answer.split(':')
-                correct[temp[0]] = temp[1]
-            context['correct'] = correct
-            context['graph_width'] = len(answers)
-            graph_height = max([int(item) for item in correct.values()])
-            context['graph_height'] = graph_height
-            context['graph_title'] = question.description
-            context['x_labels'] = list(correct.keys())
-            y_labels = list(range(1, graph_height + 1))
-            y_labels.reverse()
-            context['y_labels'] = y_labels
-            template = 'practice/graph_practice.html'
+    paginator = Paginator(q_list, 1)
+    print(paginator.num_pages)
+    page = request.GET.get('page')
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    print(page)
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    context = {'question': question, 'answers': answers, 'pager': pager}
+    if question.flavor.name == 'fill-in-the-blank':
+        template = 'practice/fill_in_the_blank_practice.html'
+    elif question.flavor.name == 'multiple choice':
+        template = 'practice/multi_choice_practice.html'
+    elif question.flavor.name == 'multi-select':
+        correct = question.solution.split('|')
+        context['correct'] = correct
+        template = 'practice/multi_select_practice.html'
+    elif question.flavor.name == 'drag-and-drop':
+        answers = answers.sort()
+        solutions = question.solution.split('|')
+        correct = {}
+        for answer in solutions:
+            temp = answer.split(':')
+            correct[temp[0]] = temp[1]
+        context['solutions'] = correct
+        template = 'practice/drag_drop_practice.html'
+    elif question.flavor.name == 'fraction-fill-in':
+        table_cells = int(question.description) * 'x'
+        context['table_cells'] = table_cells
+        template = 'practice/fraction_practice.html'
+    elif question.flavor.name == 'bar graph':
+        solutions = question.solution.split('|')
+        correct = {}
+        for answer in solutions:
+            temp = answer.split(':')
+            correct[temp[0]] = temp[1]
+        context['correct'] = correct
+        context['graph_width'] = len(answers)
+        graph_height = max([int(item) for item in correct.values()])
+        context['graph_height'] = graph_height
+        context['graph_title'] = question.description
+        context['x_labels'] = list(correct.keys())
+        y_labels = list(range(1, graph_height + 1))
+        y_labels.reverse()
+        context['y_labels'] = y_labels
+        template = 'practice/graph_practice.html'
     return render(request, template, context)
 
 
