@@ -7,7 +7,8 @@ var $nextPage = $('#nextPage')
 var $correct = $('#correct').val()
 var $final = {}
 var $guesses = {}
-
+var $user = $('.container.question').attr('user')
+var $questionID = $('.container.question').attr('id')
 
 $order = [$('#title'), $('#dataTable'), $('#graphTitle')]
 function getNext(curr)
@@ -84,9 +85,24 @@ function checkGraph() {
 
 $nextPage.click(function() {
   if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-      window.location.href = "/practice/" + $next + "/"
+    console.log("CORRECT")
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': true , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('correct');
+      });
+  }
+  else {
+    console.log("INCORRECT")
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': false , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('score incorrect');
+      });
   }
 })
 

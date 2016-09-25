@@ -21,18 +21,20 @@ $submit.click(function() {
       method: 'post',
       data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': true , 'time_stamp': 'now'}
       }).done(function() {
-        console.log('hello');
+        console.log('correct');
       });
-      $curr = parseFloat(window.location.href.split('/')[4])
-      $next = $curr + 1
-      console.log($curr, typeof($curr))
-      window.location.href = "/practice/" + $next + "/"
-    return false
   }
   if ($guess != $questionSolution) {
     $isCorrect = false
-    console.log('no!')
-    return false
+    $user = $('.container.question').attr('user')
+    $questionID = $('.container.question').attr('id')
+    $.ajax({
+      url: "/api/score/",
+      method: 'post',
+      data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': false , 'time_stamp': 'now'}
+      }).done(function() {
+        console.log('not very correct');
+      });
   }
 })
 

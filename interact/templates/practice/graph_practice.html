@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}">
 {% endblock %}
 {% block content %}
-<div class="container question">
+<div class="container question" id="{{ question.id }}" user="{{ user.id }}">
   <div class="row">
     <div class="col-lg-6">
       <h3><span id="title">{{ question.title }}</span></h3>
@@ -28,7 +28,11 @@
         </tbody>
       </table>
       <hr>
-      <button id="nextPage" class="btn btn-default">Next Question</button>
+      {% if pager.has_next %}
+        <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
+      {% else %}
+        <a id="nextPage" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a>
+      {% endif %}
     </div>
     <div class="col-lg-6">
       <table class="table" id="graph">
