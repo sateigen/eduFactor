@@ -12,9 +12,10 @@ eduFactor | Home
   <div class="row">
     <div class="col-lg-10 col-lg-offset-1">
       <div class="page-header">
-        <h3>{{ student.username }}</h3>
+        <h3>{{ student.username }}<small> | You have answered {{ total }} questions.</small></h3>
       </div>
       <div id="chart">
+        <h3>Attempted Questions by Type</h3>
         <svg width="960" height="500"></svg>
       </div>
     </div>
@@ -25,7 +26,7 @@ eduFactor | Home
 <script src="http://nvd3.org/assets/lib/d3.v3.js"></script>
 <script src="http://nvd3.org/assets/js/nv.d3.js"></script>
 <script>
-data = {{ correct|safe }}
+data = {{ attempted|safe }}
 </script>
 <script src="{% static "js/student.js" %}"></script>
 {% endblock %}

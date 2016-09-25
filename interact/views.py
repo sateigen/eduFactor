@@ -49,12 +49,27 @@ def student(request, id):
     flavors = Flavor.objects.all()
     flavor_names = [flavor.name for flavor in flavors]
     correct = {}
+    attempted = {}
+    differences = {}
+    total = 0
     for flavor in flavor_names:
         correct[flavor] = 0
+        attempted[flavor] = 0
         for score in scores:
             if score.question.flavor.name == flavor and score.score:
                 correct[flavor] += 1
-    context = {'student': student, 'scores': scores, 'correct': correct}
+            if score.question.flavor.name == flavor:
+                attempted[flavor] += 1
+                total += 1
+        if attempted[flavor] == 0:
+            differences[flavor] = 2
+        else:
+            differences[flavor] = correct[flavor]/attempted[flavor]
+    print("CORRECT", correct)
+    print("ATTEMPTED", attempted)
+    print(differences)
+    focus = min(differences, key=lambda key: differences[key])
+    context = {'student': student, 'scores': scores, 'correct': correct, 'attempted': attempted, 'focus': focus, 'total': total}
     context['flavor_names'] = flavor_names
     return render(request, 'students/student_dash.html', context)
 
