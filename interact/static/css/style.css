@@ -27,10 +27,6 @@ height: 270px;
 margin-top: 1cm;
 }
 
-p {
-  width: 100%;
-}
-
 #nextPage {
   margin-bottom: 1cm;
 }
@@ -114,6 +110,7 @@ ul.nav.navbar-nav li a:hover {
   min-width: 50px;
   min-height: 25px;
   height: auto;
+  max-width: 125px;
   width: auto;
   background: #6DC090;
   text-align: center;
@@ -128,7 +125,7 @@ ul.nav.navbar-nav li a:hover {
 
  .droppable {
    width: 150px;
-   height: 100px;
+   height: 150px;
    padding: 0.5em;
    background: #74CFe4;
    float: left;
