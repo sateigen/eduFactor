@@ -13,6 +13,8 @@ import random
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 @login_required
@@ -152,6 +154,33 @@ def get_queryset_by_level(request, difficulty_level):
             context['y_labels'] = y_labels
             template = 'practice/graph_practice.html'
     return render(request, template, context)
+
+
+def multiple_choice(request):
+    questions = Question.objects.filter(flavor=1)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    return render(request, 'practice/multi_choice_practice.html', context)
 
 
 def get_queryset_by_flavor(request, flavor):

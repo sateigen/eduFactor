@@ -6,6 +6,7 @@
   <div class="row">
       <div class="col-lg-6 col-lg-offset-3">
           <h3>{{ question.flavor.description }}</h3>
+
       </div>
   </div>
     <div class="row">
@@ -26,7 +27,11 @@
             {% endfor %}
             <input type="hidden" value="{{ question.solution }}" id="questionSolution">
             <hr>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
+            {% if pager.has_next %}
+              <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
+            {% else %}
+              <a id="nextPage" href="/" class="btn btn-default">Great job!</a>
+            {% endif %}
         </div>
     </div>
 </div>

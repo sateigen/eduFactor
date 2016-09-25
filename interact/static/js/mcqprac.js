@@ -22,10 +22,7 @@ $radioGroup.click(function() {
 })
 
 $nextPage.click(function() {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/practice/" + $next + "/"
+    console.log("yes, you clicked this button.")
 })
 
 $(window).on('load', function () {
