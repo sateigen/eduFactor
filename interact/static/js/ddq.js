@@ -107,6 +107,12 @@ $(function() {
              }
         }
     });
+    $(".droppable").droppable({
+      out: function(event, ui) {
+        $(this)
+        .toggleClass("droppable-highlight")
+      }
+    })
 });
 
 
