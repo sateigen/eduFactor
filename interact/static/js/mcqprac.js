@@ -45,6 +45,5 @@ $nextPage.click(function() {
 })
 
 $(window).on('load', function () {
-  $nextPage.hide()
   console.log('loaded');
 });

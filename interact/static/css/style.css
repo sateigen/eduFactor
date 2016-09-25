@@ -15,6 +15,22 @@
  padding-top: 0.75cm;
 }
 
+#jumbotron {
+width: 450px;
+height: 390px;
+margin-top: 1cm;
+}
+
+#jumbotron1 {
+width: 450px;
+height: 270px;
+margin-top: 1cm;
+}
+
+#nextPage {
+  margin-bottom: 1cm;
+}
+
 .aligner {
   display: flex;
   align-items: center;
@@ -91,8 +107,11 @@ ul.nav.navbar-nav li a:hover {
 }
 
 .draggable {
-  width: 50px;
-  height: 25px;
+  min-width: 50px;
+  min-height: 25px;
+  height: auto;
+  max-width: 125px;
+  width: auto;
   background: #6DC090;
   text-align: center;
   float: left;
@@ -106,7 +125,7 @@ ul.nav.navbar-nav li a:hover {
 
  .droppable {
    width: 150px;
-   height: 100px;
+   height: 150px;
    padding: 0.5em;
    background: #74CFe4;
    float: left;

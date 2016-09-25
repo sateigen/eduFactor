@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} eduFactor | Tutorial {% endblock %}
+{% block title %} eduFactor | Practice {% endblock %}
 {% block link %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/graph.css' %}">
 {% endblock %}
 {% block content %}
 <div class="container question" id="{{ question.id }}" user="{{ user.id }}">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5 col-lg-offset-1">
       <h3><span id="title">{{ question.title }}</span></h3>
       <input type="hidden" value="{{ correct }}" id="correct">
       <hr>
@@ -30,11 +30,13 @@
       <hr>
       {% if pager.has_next %}
         <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
-      {% else %}
-        <a id="nextPage" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a>
-      {% endif %}
+        {% elif not pager.has_next and user.is_authenticated %}
+          <a id="submit" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a>
+          {% else %}
+          <a id="submit" href="{% url 'register' %}" class="btn btn-default">Great job!</a>
+        {% endif %}
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4 col-lg-offset-1">
       <table class="table" id="graph">
         <caption id="graphTitle"><b>{{ graph_title }}</b></caption>
         <colgroup>
