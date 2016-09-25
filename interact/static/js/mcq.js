@@ -12,21 +12,21 @@ $description.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'Here are your instructions!<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'Here is your question!  You will want to try and solve the equation.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answers.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
-  content : 'This section contains all possible solutions to the question.  Click the button next to the answer you think might be correct.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section contains all possible solutions to the question.  To select an answer, click on the button next to it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextQuestion.popover({
   placement:'left',

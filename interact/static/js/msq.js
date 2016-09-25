@@ -32,7 +32,7 @@ $description.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question, it may help you know how many answers to choose.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
@@ -46,7 +46,7 @@ $answers.popover({
   html: 'true',
   title : '<span class="text-info"><strong>Potential Answers</strong></span>',
   id: 'dataPopover',
-  content : 'This section has all of the potential answers! Go ahead and pick all those you believe are right!<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section has all of the potential answers! Go ahead and click on all those you believe are right, the answers you have chosen will be a darker blue. You may click on an answer you have selected to deselct it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextQuestion.popover({
   placement:'left',

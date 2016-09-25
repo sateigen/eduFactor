@@ -37,7 +37,7 @@ $description.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question, it may tell you what characters(letters, numbers, commas, etc.) you are allowed to use in your answer.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
@@ -58,7 +58,7 @@ $nextQuestion.popover({
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
   id: 'submitPopover',
-  content : "The correct answer is 3.<hr><br> You must have the correct answers typed before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+  content : "The correct answer is 3.<hr><br> You must have the correct answer typed before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })
 
 
