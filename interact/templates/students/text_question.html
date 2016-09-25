@@ -6,6 +6,7 @@ eduFactor | Tutorial
 {% block link %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
 {% endblock %}
+
 {% block content %}
 <div class="container question">
   <div class="row">
@@ -29,10 +30,13 @@ eduFactor | Tutorial
             </div>
           </form>
           <hr>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
-
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-3" id="nextQuestion">
+      <button id="nextPage" class="btn btn-default">Next Question</button>
+  </div>
+</div>
 </div>
 {% endblock %}
 {% block scripts %}

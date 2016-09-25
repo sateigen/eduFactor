@@ -4,9 +4,9 @@ var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#radioGroup')
 var $nextPage = $('#nextPage')
+var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 
-// $nextPage.hide()
 
 $description.popover({
   placement:'left',
@@ -28,8 +28,15 @@ $answers.popover({
   id: 'dataPopover',
   content : 'This section contains all possible solutions to the question.  Click the button next to the answer you think might be correct.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
+$nextQuestion.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  id: 'submitPopover',
+  content : "The correct answer is 800.<hr><br> You must have the correct answer chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+})
 
-$order = [$('#description'), $('#questionTitle'), $('#radioGroup')]
+$order = [$('#description'), $('#questionTitle'), $('#radioGroup'), $('#nextQuestion')]
 
 function getNext(curr)
 {
@@ -94,8 +101,5 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
-  }
-  else {
-    $nextPage.show()
   }
 }

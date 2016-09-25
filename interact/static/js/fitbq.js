@@ -5,6 +5,7 @@ var $answerSection = $('#answerSection')
 var $encouragement = $('#encouragement')
 var $submit = $('#submit')
 var $nextPage = $('#nextPage')
+var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var $guessForm = $('#guessForm')
 
@@ -52,9 +53,16 @@ $guessForm.popover({
   id: 'dataPopover',
   content : 'Type your answer into the blank box!<br><br>' + '<button type="button" id="' + $guessForm.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
+$nextQuestion.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  id: 'submitPopover',
+  content : "The correct answer is 3.<hr><br> You must have the correct answers typed before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+})
 
 
-$order = [$('#description'), $('#questionTitle'), $('#guessForm')]
+$order = [$('#description'), $('#questionTitle'), $('#guessForm'), $('#nextQuestion')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -92,9 +100,6 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
-  }
-  else {
-    $nextPage.show()
   }
 }
 

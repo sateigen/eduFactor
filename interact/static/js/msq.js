@@ -7,9 +7,9 @@ var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
+var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var chosenAnswers = []
-var $isCorrect = false
 var correctAnswers = []
 var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
 
@@ -48,9 +48,16 @@ $answers.popover({
   id: 'dataPopover',
   content : 'This section has all of the potential answers! Go ahead and pick all those you believe are right!<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
+$nextQuestion.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  id: 'submitPopover',
+  content : "The correct answers are 4x4 and 2x8.<hr><br> You must have the correct answers chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+})
 
 
-$order = [$('#description'), $('#questionTitle'), $('.selectionGroup')]
+$order = [$('#description'), $('#questionTitle'), $('.selectionGroup'), $('#nextQuestion')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -84,9 +91,6 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
-  }
-  else {
-    $nextPage.show()
   }
 }
 
