@@ -1,7 +1,7 @@
 # eduFactor
 
 ## Goal
-  - Build a Django app to help students become more comfortable with web-based, interactive math questions
+  - Build a Django app to help students become more comfortable with web-based, interactive math questions.
 
 ## Live
   - Visit our live site: http://edufactor.herokuapp.com/
