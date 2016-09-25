@@ -16,7 +16,6 @@ from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-
 @login_required
 def home(request):
     return HttpResponseRedirect(reverse(student, args=[request.user.id]))
