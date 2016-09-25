@@ -7,6 +7,7 @@ var $answersChosen = $('.active')
 var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $nextPage = $('#nextPage')
+var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var $droppable = $('.droppable')
 var $selectButton = $('#selectButton')
@@ -36,9 +37,17 @@ $answerGroup.popover({
   id: 'dataPopover',
   content : 'Here are the answers! Click and drag the potential answers to the correct boxes.<br><br>' + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
+$nextQuestion.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  id: 'submitPopover',
+  content : "The correct answers are thousands: 5000; hundreds: 5500; tens: 5480.<hr><br> You must have the correct answers chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+})
 
 
-$order = [$('#description'), $('#questionTitle'), $('#selectionGroup')]
+
+$order = [$('#description'), $('#questionTitle'), $('#selectionGroup'), $('#nextQuestion')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -76,9 +85,6 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
-  }
-  else {
-    $nextPage.show()
   }
 }
 

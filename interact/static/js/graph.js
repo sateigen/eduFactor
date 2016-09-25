@@ -4,6 +4,7 @@ var $isCorrect = false
 var $graph = $('#graph')
 var $graphTitle = $('#graphTitle')
 var $nextPage = $('#nextPage')
+var $nextQuestion = $('#nextQuestion')
 var $correct = $('#correct').val()
 var $final = {}
 var $guesses = {}
@@ -28,10 +29,16 @@ $graphTitle.popover({
   id: 'dataPopover',
   content : 'Here is the graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
+$nextQuestion.popover({
+  placement:'left',
+  html: 'true',
+  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  id: 'submitPopover',
+  content : "The correct answer is to have 5 sections shaded in for bananas, 3 sections for oranges, 7 sections for pears, and 10 sections for apples.<hr><br> You must have the correct answers chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
+})
 
 
-
-$order = [$('#title'), $('#dataTable'), $('#graphTitle')]
+$order = [$('#title'), $('#dataTable'), $('#graphTitle'), $('#nextQuestion')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -90,8 +97,6 @@ function cleanCorrect() {
     $final[answer[0].replace(/'+/g,"")] = answer[1].replace(/'+/g,"")
   })
 }
-
-$nextPage.hide()
 
 function checkGraph() {
   cleanCorrect()
@@ -156,9 +161,6 @@ function unhighlight(focusPoint, next) {
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
-  }
-  else {
-    $nextPage.show()
   }
 }
 

@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container question">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5 col-lg-offset-1">
       <h3><span id="title">{{ question.title }}</span></h3>
       <input type="hidden" value="{{ correct }}" id="correct">
       <hr>
@@ -29,9 +29,12 @@
         </tbody>
       </table>
       <hr>
-      <button id="nextPage" class="btn btn-default">Next Question</button>
+
+      <div class="col-lg-2 col-lg-offset-3" id="nextQuestion">
+        <button id="nextPage" class="btn btn-default">Next Question</button>
+      </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4 col-lg-offset-1">
       <table class="table" id="graph">
         <caption id="graphTitle"><b>{{ graph_title }}</b></caption>
         <colgroup>

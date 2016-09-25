@@ -1,7 +1,13 @@
-{% extends 'base.html' %} {% load static %} {% block title %} eduFactor | Tutorial {% endblock %} {% block link %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}"> {% endblock %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} eduFactor | Tutorial {% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tutorial.css' %}">
+{% endblock %}
+
+{% block content %}
 <div class="container question">
-    <div class='row'>
+    <div class="row">
         <div class="col-lg-8 col-lg-offset-3">
             <h3><span id="description">{{ question.flavor.description }}</span></h3>
         </div>
@@ -23,11 +29,16 @@
                 <input type="hidden" value="{{ solution }}" class="questionSolution"> {% endfor %}
                 <hr>
             </div>
-            <button id="nextPage" class="btn btn-default">Next Question</button>
         </div>
     </div>
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-3" id="nextQuestion">
+        <button id="nextPage" class="btn btn-default">Next Question</button>
+      </div>
+    </div>
 </div>
-{% endblock %} {% block scripts %}
+{% endblock %}
+{% block scripts %}
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="{% static "js/msq.js" %}"></script>
 {% endblock %}
