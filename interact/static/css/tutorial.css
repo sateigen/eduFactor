@@ -5,6 +5,7 @@
 span {
   padding-left: .5em;
   padding-right: .5em;
+  line-height: 1.2em;
 }
 
 .popover {

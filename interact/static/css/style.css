@@ -52,6 +52,7 @@ span {
 
 .navbar-default {
   background-color: #485052;
+  width: 100%
 }
 
 ul.nav.navbar-nav li a:hover {
