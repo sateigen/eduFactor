@@ -25,7 +25,11 @@ eduFactor | Practice
               <input type="text" class="form-control" id="guess">
               <input type="hidden" value="{{ question.solution }}" id="answer">
             </div>
-            <input class='btn btn-default' type="submit" value="Submit" id="submit">
+            {% if pager.has_next %}
+              <a id="submit" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
+            {% else %}
+              <a id="submit" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a>
+            {% endif %}
           </form>
           <hr>
             <!-- <button id="nextPage" class="btn btn-default">Next Question</button> -->

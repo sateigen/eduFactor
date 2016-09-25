@@ -156,6 +156,74 @@ def get_queryset_by_level(request, difficulty_level):
     return render(request, template, context)
 
 
+def graph(request):
+    questions = Question.objects.filter(flavor=6)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    solutions = question.solution.split('|')
+    correct = {}
+    for answer in solutions:
+        temp = answer.split(':')
+        correct[temp[0]] = temp[1]
+    context['correct'] = correct
+    context['graph_width'] = len(answers)
+    graph_height = max([int(item) for item in correct.values()])
+    context['graph_height'] = graph_height
+    context['graph_title'] = question.description
+    context['x_labels'] = list(correct.keys())
+    y_labels = list(range(1, graph_height + 1))
+    y_labels.reverse()
+    context['y_labels'] = y_labels
+    return render(request, 'practice/graph_practice.html', context)
+
+
+def fill_blank(request):
+    questions = Question.objects.filter(flavor=2)
+    questions = list(questions)
+    random.shuffle(questions)
+    questions = questions[:10]
+    paginator = Paginator(questions, 1)
+    page = request.GET.get('page')
+    context = {}
+    try:
+        pager = paginator.page(page)
+        question = pager[0]
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        pager = paginator.page(1)
+        question = pager[0]
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        # pager = paginator.page(paginator.num_pages)
+        return HttpResponseRedirect('/')
+    answers = question.possible_solutions.split('|')
+    random.shuffle(answers)
+    context['pager'] = pager
+    context['question'] = question
+    context['answers'] = answers
+    return render(request, 'practice/fill_in_the_blank_practice.html', context)
+
+
 def multiple_choice(request):
     questions = Question.objects.filter(flavor=1)
     questions = list(questions)
