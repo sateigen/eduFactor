@@ -1,18 +1,6 @@
-var $questionSolution = $('.questionSolution')
-var $answersChosen = $('.active')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
-var $submit = $('#submit')
-var $droppable = $('.droppable')
-var $selectButton = $('#selectButton')
-var $draggable = $('.draggable')
-var $chosenAnswers = []
-var $correctAnswers = []
-// var questions = {{ questions|safe }}
 
-$(window).on('load', function() {
-    console.log('loaded');
-});
 
 $(function() {
     $(".draggable").draggable({
@@ -42,28 +30,23 @@ $(function() {
     });
 });
 
-// Array ['question 1', 'question 2'];
+
 $nextPage.click(function(e) {
-  checkAnswers($correctAnswers, $chosenAnswers)
+  checkAnswers()
   $user = $('.container.question').attr('user')
   $questionID = $('.container.question').attr('id')
-  console.log($isCorrect)
   if ($isCorrect) {
     $.ajax({
       url: "/api/score/",
       method: 'post',
       data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': true , 'time_stamp': 'now'}
-      }).done(function() {
-        console.log('hello');
-      });
+      })
   } else {
     $.ajax({
       url: "/api/score/",
       method: 'post',
       data: {'user': '/api/user/' + $user + '/' , 'question': '/api/question/' + $questionID + '/' , 'score': false , 'time_stamp': 'now'}
-      }).done(function() {
-        console.log('false');
-      });
+      })
   }
 })
 

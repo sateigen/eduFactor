@@ -1,9 +1,5 @@
 var $questionSolution = $('.questionSolution').attr('value')
-var $description = $('#description')
-var $answersChosen = $('.clicked')
-var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
-var $answers = $('.selectionGroup')
 var $isCorrect = false
 
 

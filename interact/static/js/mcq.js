@@ -55,36 +55,9 @@ for(var i = 0; i < $order.length; i++){
   })
 }
 
-$radioGroup.click(function() {
-  var $guess = $(this).val()
-  console.log($guess)
-  // $answers.popover('hide')
-  // $radioButton.text('| The correct answer is ' + $questionSolution);
-  $nextPage.show()
-  if ($guess == $questionSolution) {
-    $isCorrect = true
-    console.log('yes!')
-  }
-  if ($guess != $questionSolution) {
-    $isCorrect = false
-    console.log('no!')
-  }
-})
-
-$nextPage.click(function() {
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/tutorial/" + $next + "/"
-  }
-})
 
 $(window).on('load', function () {
-  // console.log('loaded');
   highlight($description);
-  // unhighlight($description, $questionTitle);
-  // unhighlight($questionTitle, $answers);
 });
 
 function highlight(focusPoint) {
@@ -98,11 +71,30 @@ function highlight(focusPoint) {
 
 
 function unhighlight(focusPoint, next) {
-  // focusButton.hide()
-  // nextButton.show()
   focusPoint.popover('toggle')
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
   }
 }
+
+
+$nextPage.click(function() {
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    window.location.href = "/tutorial/" + $next + "/"
+  }
+})
+
+
+$radioGroup.click(function() {
+  var $guess = $(this).val()
+  $nextPage.show()
+  if ($guess == $questionSolution) {
+    $isCorrect = true
+  }
+  if ($guess != $questionSolution) {
+    $isCorrect = false
+  }
+})

@@ -2,35 +2,10 @@ var $questionSolution = $('#answer').val()
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answerSection = $('#answerSection')
-var $encouragement = $('#encouragement')
-var $submit = $('#submit')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
 var $guessForm = $('#guessForm')
 
-
-$nextPage.click(function() {
-  var $guessForm = $('#guess')
-  var $guess = $('#guess').val()
-  console.log($guess)
-  $encouragement.text('| The correct answer is ' + $questionSolution);
-  if ($guess == $questionSolution) {
-    $guessForm.css('background-color', '#6DC090')
-    $isCorrect = true
-    $answerSection.popover('toggle')
-    console.log('yes!')
-  }
-  if ($guess != $questionSolution) {
-    $isCorrect = false
-    console.log('no!')
-  }
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/tutorial/" + $next + "/"
-  }
-})
 
 $description.popover({
   placement:'right',
@@ -82,7 +57,6 @@ for(var i = 0; i < $order.length; i++){
 
 
 $(window).on('load', function() {
-    console.log('loaded');
     highlight($description);
 });
 
@@ -97,14 +71,30 @@ function highlight(focusPoint) {
 
 
 function unhighlight(focusPoint, next) {
-  // focusButton.hide()
-  // nextButton.show()
   focusPoint.popover('toggle')
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
   }
 }
+
+
+$nextPage.click(function() {
+  var $guessForm = $('#guess')
+  var $guess = $('#guess').val()
+  if ($guess == $questionSolution) {
+    $isCorrect = true
+  }
+  if ($guess != $questionSolution) {
+    $isCorrect = false
+  }
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    window.location.href = "/tutorial/" + $next + "/"
+  }
+})
+
 
 $(document).ready(function() {
   $(window).keydown(function(event){

@@ -2,30 +2,13 @@ var $questionSolution = $('.questionSolution')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('.selectionGroup')
-var $answersChosen = $('.active')
-var $titleButton = $('#titleButton')
-var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $isCorrect = false
-var chosenAnswers = []
-var correctAnswers = []
-var answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
+var $chosenAnswers = []
+var $correctAnswers = []
+var $answerObjects = $questionSolution.each(function(index) {$(this).attr('value')})
 
-$answers.click(function() {
-  $selectButton.text('| The correct answers are ' + correctAnswers[0] + ' and ' + correctAnswers[1]);
-})
-
-$nextPage.click(function() {
-  checkAnswers(correctAnswers, chosenAnswers)
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/tutorial/" + $next + "/"
-  }
-  chosenAnswers = []
-})
 
 $description.popover({
   placement:'right',
@@ -76,7 +59,6 @@ for(var i = 0; i < $order.length; i++){
 }
 
 $(window).on('load', function() {
-    console.log('loaded');
     highlight($description);
 });
 
@@ -98,20 +80,35 @@ function unhighlight(focusPoint, next) {
   }
 }
 
-function checkAnswers(correctAnswers, chosenAnswers) {
+
+$nextPage.click(function() {
+  checkAnswers($correctAnswers, $chosenAnswers)
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    window.location.href = "/tutorial/" + $next + "/"
+  }
+  $chosenAnswers = []
+})
+
+
+$answers.click(function() {
+  $selectButton.text('| The correct answers are ' + $correctAnswers[0] + ' and ' + $correctAnswers[1]);
+})
+
+
+function checkAnswers($correctAnswers, $chosenAnswers) {
   $('.answers').each(function(index) {
       if ($( this ).is(':checked') == true) {
-          chosenAnswers.push($(this).val())}})
-  correctAnswers.sort()
-  chosenAnswers.sort()
-  $isCorrect = (correctAnswers.length == chosenAnswers.length) && correctAnswers.every(function(element, index) {
-    return element === chosenAnswers[index]
+          $chosenAnswers.push($(this).val())}})
+  $correctAnswers.sort()
+  $chosenAnswers.sort()
+  $isCorrect = ($correctAnswers.length == $chosenAnswers.length) && $correctAnswers.every(function(element, index) {
+    return element === $chosenAnswers[index]
   })
-  console.log(chosenAnswers)
-  console.log($isCorrect)
 }
 
 
-for(i=0; i < answerObjects.length; i++){
-  correctAnswers.push(answerObjects[i].value)
+for(i=0; i < $answerObjects.length; i++){
+  $correctAnswers.push($answerObjects[i].value)
 }

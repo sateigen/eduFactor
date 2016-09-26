@@ -57,34 +57,42 @@ for(var i = 0; i < $order.length; i++){
 }
 
 
-// for(var i = 0; i < $order.length-1; i++){
-//   console.log($order[i])
-//   $order[i].attr('i', i)
-//   $order[i].on('shown.bs.popover', function(){
-//     console.log($order)
-//     $('#' + $(this).attr('id') + 'Button').attr('i', $(this).i)
-//     $('#' + $(this).attr('id') + 'Button').on('click', function() {
-//       console.log('now')
-//       unhighlight($order[$(this).i], $order[$(this).i+1])
-//     })
-//   })
-// }
+$(window).on('load', function () {
+  highlight($title);
+});
 
-// $('#title').on('shown.bs.popover', function(){
-//   console.log('hello')
-//   $('#' + $title.attr('id') + 'Button').on('click', function() {
-//     console.log('now')
-//     unhighlight($title, $dataTable)
-//   })
-// })
-//
-// $('#dataTable').on('shown.bs.popover', function(){
-//   console.log('hello')
-//   $('#' + $dataTable.attr('id') + 'Button').on('click', function() {
-//     console.log('now')
-//     unhighlight($dataTable, $graphTitle)
-//   })
-// })
+
+function highlight(focusPoint) {
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
+
+function unhighlight(focusPoint, next) {
+  focusPoint.popover('toggle')
+  focusPoint.css('background-color','transparent')
+  if (next){
+    highlight(next)
+  }
+}
+
+
+$nextPage.click(function() {
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    if ($next == 7) {
+      window.location.href = '/'
+    }
+    else {
+      window.location.href = "/tutorial/" + $next + "/"
+    }
+  }
+})
 
 
 function cleanCorrect() {
@@ -108,18 +116,6 @@ function checkGraph() {
   }
 }
 
-$nextPage.click(function() {
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    if ($next == 7) {
-      window.location.href = '/'
-    }
-    else {
-      window.location.href = "/tutorial/" + $next + "/"
-    }
-  }
-})
 
 $(function () {
   var isMouseDown = false,
@@ -145,34 +141,4 @@ $(function () {
       isMouseDown = false;
       checkGraph()
     });
-});
-
-function highlight(focusPoint) {
-  if (focusPoint == $nextPage) {
-    focusPoint.popover('toggle')
-    focusPoint.css('background-color', '#ECBE45')
-  } else {
-    focusPoint.popover('toggle')
-    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-}}
-
-
-function unhighlight(focusPoint, next) {
-  // focusButton.hide()
-  // nextButton.show()
-  focusPoint.popover('toggle')
-  focusPoint.css('background-color','transparent')
-  if (next){
-    highlight(next)
-  }
-}
-
-$(window).on('load', function () {
-  console.log('loaded');
-  highlight($title);
-  // $('#titleButton').ready(function(){console.log('yes')
-  //   unhighlight($title, $dataTable)})
-  // $('#dataTableButton').ready(function(){
-  //   unhighlight($dataTable, $graphTitle)
-  // })
 });

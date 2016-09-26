@@ -1,29 +1,10 @@
 var $questionSolution = $('.questionSolution').attr('value')
 var $description = $('#description')
 var $questionTitle = $('#questionTitle')
-var $answersChosen = $('.clicked')
-var $descriptionButton = $('#descriptionButton')
-var $titleButton = $('#titleButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
 var $answers = $('.selectionGroup')
 var $isCorrect = false
-
-
-$answers.click(function() {
-  $selectButton.text('| The correct answer is ' + $questionSolution + ' shaded in.');
-})
-
-// check this function for is question correct
-$nextPage.click(function() {
-  checkAnswers()
-  if ($isCorrect) {
-    $curr = parseFloat(window.location.href.split('/')[4])
-    $next = $curr + 1
-    console.log($curr, typeof($curr))
-    window.location.href = "/tutorial/" + $next + "/"
-  }
-})
 
 
 $description.popover({
@@ -64,6 +45,7 @@ function getNext(curr)
   }
 }
 
+
 for(var i = 0; i < $order.length; i++){
   $order[i].on('shown.bs.popover', function(){
     $('#' + $(this).attr('id') + 'Button').on('click', function() {
@@ -76,9 +58,9 @@ for(var i = 0; i < $order.length; i++){
 
 
 $(window).on('load', function() {
-    console.log('loaded');
     highlight($description);
 });
+
 
 function highlight(focusPoint) {
   if (focusPoint == $nextPage) {
@@ -91,14 +73,27 @@ function highlight(focusPoint) {
 
 
 function unhighlight(focusPoint, next) {
-  // focusButton.hide()
-  // nextButton.show()
   focusPoint.popover('toggle')
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
   }
 }
+
+
+$nextPage.click(function() {
+  checkAnswers()
+  if ($isCorrect) {
+    $curr = parseFloat(window.location.href.split('/')[4])
+    $next = $curr + 1
+    window.location.href = "/tutorial/" + $next + "/"
+  }
+})
+
+
+$answers.click(function() {
+  $selectButton.text('| The correct answer is ' + $questionSolution + ' shaded in.');
+})
 
 
 $("td").click(function(){

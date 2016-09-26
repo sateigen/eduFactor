@@ -1,8 +1,4 @@
-var $title = $('#title')
-var $dataTable = $('#dataTable')
 var $isCorrect = false
-var $graph = $('#graph')
-var $graphTitle = $('#graphTitle')
 var $nextPage = $('#nextPage')
 var $correct = $('#correct').val()
 var $final = {}
@@ -28,36 +24,6 @@ for(var i = 0; i < $order.length; i++){
     }.bind(this))
   })
 }
-
-
-// for(var i = 0; i < $order.length-1; i++){
-//   console.log($order[i])
-//   $order[i].attr('i', i)
-//   $order[i].on('shown.bs.popover', function(){
-//     console.log($order)
-//     $('#' + $(this).attr('id') + 'Button').attr('i', $(this).i)
-//     $('#' + $(this).attr('id') + 'Button').on('click', function() {
-//       console.log('now')
-//       unhighlight($order[$(this).i], $order[$(this).i+1])
-//     })
-//   })
-// }
-
-// $('#title').on('shown.bs.popover', function(){
-//   console.log('hello')
-//   $('#' + $title.attr('id') + 'Button').on('click', function() {
-//     console.log('now')
-//     unhighlight($title, $dataTable)
-//   })
-// })
-//
-// $('#dataTable').on('shown.bs.popover', function(){
-//   console.log('hello')
-//   $('#' + $dataTable.attr('id') + 'Button').on('click', function() {
-//     console.log('now')
-//     unhighlight($dataTable, $graphTitle)
-//   })
-// })
 
 
 function cleanCorrect() {
@@ -95,7 +61,6 @@ $nextPage.click(function() {
       });
   }
   else {
-    console.log("INCORRECT")
     $.ajax({
       url: "/api/score/",
       method: 'post',
@@ -133,33 +98,14 @@ $(function () {
 });
 
 function highlight(focusPoint) {
-  // if (focusPoint.attr('id') == 'title') {
-  //   console.log('Title')
-  // }
-  // else if (focusPoint.attr('id') == 'dataTable') {
-  //   console.log('dataTable')
-  // }
   focusPoint.popover('toggle')
   focusPoint.css('background-color','#ecbe45')
 }
 
 function unhighlight(focusPoint, next) {
-  // $('.popover:visible button').on('click', function (){
-  // $('#' + focusPoint.attr('id') + 'Button').on('click', function (){
-    console.log('clicked')
     focusPoint.popover('toggle')
     focusPoint.css('background-color','transparent')
     if (next){
       highlight(next)
     }
 }
-
-$(window).on('load', function () {
-  console.log('loaded');
-  // highlight($title);
-  // $('#titleButton').ready(function(){console.log('yes')
-  //   unhighlight($title, $dataTable)})
-  // $('#dataTableButton').ready(function(){
-  //   unhighlight($dataTable, $graphTitle)
-  // })
-});
