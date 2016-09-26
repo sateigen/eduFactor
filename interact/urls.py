@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^practice/drag/$', views.drag_and_drop, name='drag_and_drop'),
     url(r'^practice/fill/$', views.fill_blank, name='fill_blank'),
     url(r'^practice/bar/$', views.graph, name="graph"),
-    url(r'^practice/(?P<flavor>\D+)/$', views.get_queryset_by_flavor, name='flavor'),
     url(r'^home/$', views.home, name='home')
     ]

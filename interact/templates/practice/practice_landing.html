@@ -50,64 +50,58 @@ eduFactor | Assessments
 </div>
 <div class="row">
   <div class="col-sm-4">
-    <a href="{% url 'flavor' 'choice' %}" name='flavor' method='get'>
+    <a href="{% url 'multiple_choice' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Multiple Choice</h3>
       <hr>
       <img src="{% static 'images/multiple_choice.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text"><img src="{% static 'images/multiple_choice.png' %}" height="30" width="30"></img></p> -->
     </div>
       </a>
   </div>
   <div class="col-sm-4">
-    <a href="{% url 'flavor' 'fill' %}" name='flavor'>
+    <a href="{% url 'fill_blank' %}" name='flavor'>
     <div class="card card-block">
       <h3 class="card-title">Fill in the Blank</h3>
       <hr>
       <img src="{% static 'images/input.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text">A 10 question assessment organized to practice answering fill in the blank questions.</p> -->
     </div>
     </a>
   </div>
   <div class="col-sm-4">
-    <a href="{% url 'flavor' 'bar' %}" name='flavor'>
+    <a href="{% url 'graph' %}" name='flavor'>
     <div class="card card-block">
       <h3 class="card-title">Graph</h3>
       <hr>
       <img src="{% static 'images/graph.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text">A 10 question assessment organized to practice answering graph building questions.</p> -->
       </div>
   </div>
 </a>
 </div>
 <div class="row">
   <div class="col-sm-4">
-      <a href="{% url 'flavor' 'drag' %}" name='flavor' method='get'>
+      <a href="{% url 'drag_and_drop' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Drag and Drop</h3>
       <hr>
       <img src="{% static 'images/drag.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text">A 10 question assessment organized to practice answering drap and drop questions.</p> -->
     </div>
   </a>
   </div>
   <div class="col-sm-4">
-    <a href="{% url 'flavor' 'select' %}" name='flavor' method='get'>
+    <a href="{% url 'multiple_select' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Multiple Select</h3>
       <hr>
       <img src="{% static 'images/multiple_select3.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text">A 10 question assessment organized to practice answering multiple select questions.</p> -->
     </div>
     </a>
   </div>
   <div class="col-sm-4">
-    <a href="{% url 'flavor' 'fraction' %}" name='flavor' method='get'>
+    <a href="{% url 'fraction_fill_in' %}" name='flavor' method='get'>
     <div class="card card-block">
       <h3 class="card-title">Fraction Fill In</h3>
       <hr>
       <img src="{% static 'images/fraction.png' %}" height="100" width="100"></img>
-      <!-- <p class="card-text">A 10 question assessment organized to practice answering fraction fill in questions.</p> -->
     </div>
     </a>
   </div>
