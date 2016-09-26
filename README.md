@@ -19,3 +19,4 @@
 ## Credits
 - http://dwtd9qkskt5ds.cloudfront.net/blog/wp-content/uploads/2014/08/Child-Raising-Hand-In-Class-9-9.jpg
 - http://languagemagazine.com/internetedition/images/managing-diversity_jan15.jpg
+
