@@ -9,27 +9,27 @@ var $final = {}
 var $guesses = {}
 
 $title.popover({
-  placement:'left',
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
   content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $dataTable.popover({
-  placement:'left',
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',
   content : 'Here is the data you will use to build your graph!<br><br>' + '<button type="button" id="' + $dataTable.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $graphTitle.popover({
-  placement:'left',
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'Here is the empty graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
-  placement:'left',
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
