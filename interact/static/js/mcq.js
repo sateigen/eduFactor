@@ -10,27 +10,27 @@ var $isCorrect = false
 $description.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>The Title</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  title : '<span class="text-info"><strong>The Description</strong></span>',
+  content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
+  title : '<span class="text-info"><strong>The Question</strong></span>',
   id: 'dataPopover',
   content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answers.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
+  title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'This section contains all possible solutions to the question.  To select an answer, click on the button next to it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
   content : "The correct answer is 800.<hr><br> You must have the correct answer chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })

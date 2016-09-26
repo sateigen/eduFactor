@@ -12,7 +12,7 @@ $title.popover({
   placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $dataTable.popover({
   placement:'bottom',
@@ -24,14 +24,14 @@ $dataTable.popover({
 $graphTitle.popover({
   placement:'bottom',
   html: 'true',
-  title : '<span class="text-info"><strong>The Data</strong></span>',
+  title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'Here is the empty graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
   placement:'bottom',
   html: 'true',
-  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
   content : "The correct answer is to have 5 sections shaded in for bananas, 3 sections for oranges, 7 sections for pears, and 10 sections for apples.<hr><br> You must have the correct answers before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })
