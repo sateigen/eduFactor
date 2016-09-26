@@ -42,10 +42,6 @@ margin-top: 1cm;
   justify-content: center;
 }
 
-span {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .btn-primary {
   background-color: #74CFe4;
   color: #000000;
@@ -123,9 +119,11 @@ ul.nav.navbar-nav li a:hover {
   margin: 10px 10px 10px 0;
   z-index: 99;
   border-style: solid;
-  border-width: thin;
+  border-width: 2px;
   border-radius: 5px;
   border-color: #485052;
+  padding: 0.5em;
+  font-weight: bold;
 }
 
  .droppable {
