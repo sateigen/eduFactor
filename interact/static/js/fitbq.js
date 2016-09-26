@@ -8,27 +8,27 @@ var $guessForm = $('#guessForm')
 
 
 $description.popover({
-  placement:'right',
+  placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
   content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question, it may tell you what characters(letters, numbers, commas, etc.) you are allowed to use in your answer.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
-  placement:'right',
+  placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Question</strong></span>',
   id: 'dataPopover',
   content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $guessForm.popover({
-  placement:'right',
+  placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'Type your answer into the blank box!<br><br>' + '<button type="button" id="' + $guessForm.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
-  placement:'bottom',
+  placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
