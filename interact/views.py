@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Flavor, Course, Question, Assessment, Score
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from django.views import View, generic
@@ -9,6 +10,7 @@ from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer, GroupSerializer, FlavorSerializer
 from .serializers import CourseSerializer, QuestionSerializer
 from .serializers import AssessmentSerializer, ScoreSerializer
+from .forms import UserForm
 import random
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -19,6 +21,19 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 @login_required
 def home(request):
     return HttpResponseRedirect(reverse(student, args=[request.user.id]))
+
+
+class SignUpView(CreateView):
+    form_class = UserForm
+    template_name = 'registration/register.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        valid = super(SignUpView, self).form_valid(form)
+        username, password = form.cleaned_data.get('username'), form.cleaned_data.get('password')
+        new_user = authenticate(username=username, password=password)
+        login(self.request, new_user)
+        return valid
 
 
 class IndexView(TemplateView):

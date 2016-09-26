@@ -715,22 +715,22 @@ def add_practice_questions(apps, schema_editor):
 
 
 # graph quesitons 3rd grade
-    Question(solution='yellow:9|green:3|blue:12|red:7',
+    Question(solution='yellow:9|green:3|blue:10|red:7',
              title='Use the data below to complete the graph.',
              description='Favorite Colors',
              flavor=Flavor(pk=6),
              concept='bar graph',
              difficulty_level=3,
-             possible_solutions='yellow:9|green:3|blue:12|red:7'
+             possible_solutions='yellow:9|green:3|blue:10|red:7'
              ).save()
 
-    Question(solution='Soccer:14|Baseball:12|Archery:4|Football:8',
+    Question(solution='Soccer:7|Baseball:7|Archery:4|Football:8',
              title="Use the data below to complete the graph.",
              description='Favorite Sports',
              flavor=Flavor(pk=6),
              concept='bar graph',
              difficulty_level=3,
-             possible_solutions='Soccer:14|Baseball:12|Archery:4|Football:8'
+             possible_solutions='Soccer:7|Baseball:7|Archery:4|Football:8'
              ).save()
 
     Question(solution='Shirts:5|Shorts:3|Shoes:1',
@@ -742,13 +742,13 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='Shirts:5|Shorts:3|Shoes:1'
              ).save()
 
-    Question(solution='Mr. Mendez:24|Ms. Davis:22|Ms. Teigen:25',
+    Question(solution='Mr. Mendez:5|Ms. Davis:8|Ms. Teigen:10',
              title="Use the data below to complete the graph.",
              description='Students in Each 3rd Grade Class',
              flavor=Flavor(pk=6),
              concept='bar graph',
              difficulty_level=3,
-             possible_solutions='Mr. Mendez:24|Ms. Davis:22|Ms. Teigen:25'
+             possible_solutions='Mr. Mendez:5|Ms. Davis:8|Ms. Teigen:10'
              ).save()
 
     Question(solution='Chocolate:10|Vanilla:8|Strawberry:2',
@@ -761,13 +761,13 @@ def add_practice_questions(apps, schema_editor):
              ).save()
 
 # graph quesitons 4th grade
-    Question(solution='Yes:9|No:13',
+    Question(solution='Yes:6|No:9',
              title="Use the data below to complete the graph.",
              description='Do We Wear Glasses?',
              flavor=Flavor(pk=6),
              concept='bar graph',
              difficulty_level=4,
-             possible_solutions='Yes:9|No:13'
+             possible_solutions='Yes:6|No:9'
              ).save()
 
     Question(solution='Giraffes:5|Peacocks:1|Zebras:8|Pandas:2',
@@ -788,13 +788,13 @@ def add_practice_questions(apps, schema_editor):
              possible_solutions='Action:5|Comedy:2|Family:6'
              ).save()
 
-    Question(solution='Bus:18|Walk:1|Car:3',
+    Question(solution='Bus:10|Walk:1|Car:5',
              title="Use the data below to complete the graph.",
              description='How Do We Get To School?',
              flavor=Flavor(pk=6),
              concept='bar graph',
              difficulty_level=4,
-             possible_solutions='Bus:18|Walk:1|Car:3'
+             possible_solutions='Bus:10|Walk:1|Car:5'
              ).save()
 
     Question(solution='Math:6|Science:9|History:6|English:4',
