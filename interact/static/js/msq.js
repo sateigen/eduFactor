@@ -28,27 +28,27 @@ $nextPage.click(function() {
 })
 
 $description.popover({
-  placement:'left',
+  placement:'right',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
   content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question, it may help you know how many answers to choose.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
-  placement:'left',
+  placement:'right',
   html: 'true',
   title : '<span class="text-info"><strong>The Question</strong></span>',
   id: 'dataPopover',
   content : 'Here is the problem you are going to solve! Be sure to read it carefully.<br><br>' + '<button type="button" id="' + $questionTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $answers.popover({
-  placement:'left',
+  placement:'right',
   html: 'true',
   title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'These are all of the potential answers! Go ahead and click on all those you believe are right, the answers you have chosen will be a darker blue. You may click on an answer you have selected to deselct it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
-  placement:'left',
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
