@@ -48,6 +48,9 @@ def student(request, id):
     scores = student.score_set.all()
     flavors = Flavor.objects.all()
     flavor_names = [flavor.name for flavor in flavors]
+    flavor_urls = {'bar graph': 'bar', 'fraction-fill-in': 'fraction',
+                   'drag-and-drop': 'drag', 'multiple choice': 'choice',
+                   'fill-in-the-blank': 'fill', 'multi-select': 'select'}
     correct = {}
     attempted = {}
     differences = {}
@@ -65,11 +68,11 @@ def student(request, id):
             differences[flavor] = 2
         else:
             differences[flavor] = correct[flavor]/attempted[flavor]
-    print("CORRECT", correct)
-    print("ATTEMPTED", attempted)
-    print(differences)
     focus = min(differences, key=lambda key: differences[key])
-    context = {'student': student, 'scores': scores, 'correct': correct, 'attempted': attempted, 'focus': focus, 'total': total}
+    focus_url = flavor_urls[focus]
+    print(focus)
+
+    context = {'student': student, 'scores': scores, 'correct': correct, 'attempted': attempted, 'focus': focus_url, 'total': total}
     context['flavor_names'] = flavor_names
     return render(request, 'students/student_dash.html', context)
 

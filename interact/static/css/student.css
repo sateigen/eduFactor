@@ -5,3 +5,13 @@
 .tick.major > line {
   opacity: 0 !important;
 }
+
+.tick.major > text {
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nv-bar > text {
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
