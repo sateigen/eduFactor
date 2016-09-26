@@ -125,10 +125,10 @@ def tutorial_question(request, question_id):
 def get_queryset_by_level(request, difficulty_level):
     questions = Question.objects.filter(difficulty_level=difficulty_level)
     q_list = []
-    for q in questions:
-        q_list.append(q)
-    random.shuffle(q_list)
-    q_list = q_list[:10]
+    while len(q_list) < 11:
+        selection = random.choice(questions)
+        if selection not in q_list:
+            q_list.append(selection)
     paginator = Paginator(q_list, 1)
     print(paginator.num_pages)
     page = request.GET.get('page')
@@ -374,10 +374,10 @@ def drag_and_drop(request):
 def get_queryset_by_flavor(request, flavor):
     questions = Question.objects.filter(flavor__name__icontains=flavor)
     q_list = []
-    for q in questions:
-        q_list.append(q)
-    random.shuffle(q_list)
-    q_list = q_list[:10]
+    while len(q_list) < 11:
+        selection = random.choice(set(questions))
+        if selection not in q_list:
+            q_list.append(selection)
     for question in q_list:
         answers = question.possible_solutions.split('|')
         random.shuffle(answers)
