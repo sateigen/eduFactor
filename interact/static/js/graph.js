@@ -9,13 +9,13 @@ var $final = {}
 var $guesses = {}
 
 $title.popover({
-  placement:'bottom',
+  placement:'right',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
   content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $title.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $dataTable.popover({
-  placement:'bottom',
+  placement:'right',
   html: 'true',
   title : '<span class="text-info"><strong>The Data</strong></span>',
   id: 'dataPopover',

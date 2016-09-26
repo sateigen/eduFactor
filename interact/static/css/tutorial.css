@@ -7,7 +7,12 @@ span {
 }
 
 .popover {
-  max-width: 5.5cm;
+  min-width: 5.5cm;
+  max-width: 100%;
+}
+
+.popover.bottom {
+  min-width: 10cm;
 }
 
 #guessForm {
