@@ -4,7 +4,6 @@ var $description = $('#description')
 var $questionTitle = $('#questionTitle')
 var $answers = $('#radioGroup')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 
 
@@ -28,7 +27,7 @@ $answers.popover({
   id: 'dataPopover',
   content : 'This section contains all possible solutions to the question.  To select an answer, click on the button next to it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
+$nextPage.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
@@ -36,7 +35,7 @@ $nextQuestion.popover({
   content : "The correct answer is 800.<hr><br> You must have the correct answer chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })
 
-$order = [$('#description'), $('#questionTitle'), $('#radioGroup'), $('#nextQuestion')]
+$order = [$('#description'), $('#questionTitle'), $('#radioGroup'), $('#nextPage')]
 
 function getNext(curr)
 {
@@ -89,10 +88,14 @@ $(window).on('load', function () {
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-  // focusButton.show()
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
 
 function unhighlight(focusPoint, next) {
   // focusButton.hide()

@@ -6,7 +6,6 @@ var $descriptionButton = $('#descriptionButton')
 var $titleButton = $('#titleButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $answers = $('.selectionGroup')
 var $isCorrect = false
 
@@ -47,7 +46,7 @@ $answers.popover({
   id: 'dataPopover',
   content : 'Here you will find the shape(s) that you must use to answer the question. Click on each section of the shape that you wish to be highlighted.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
+$nextPage.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
@@ -56,7 +55,7 @@ $nextQuestion.popover({
 })
 
 
-$order = [$('#description'), $('#questionTitle'), $('.selectionGroup'), $('#nextQuestion')]
+$order = [$('#description'), $('#questionTitle'), $('.selectionGroup'), $('#nextPage')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -82,10 +81,14 @@ $(window).on('load', function() {
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-  // focusButton.show()
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
 
 function unhighlight(focusPoint, next) {
   // focusButton.hide()

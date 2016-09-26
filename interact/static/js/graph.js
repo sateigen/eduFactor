@@ -4,7 +4,6 @@ var $isCorrect = false
 var $graph = $('#graph')
 var $graphTitle = $('#graphTitle')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $correct = $('#correct').val()
 var $final = {}
 var $guesses = {}
@@ -29,8 +28,8 @@ $graphTitle.popover({
   id: 'dataPopover',
   content : 'Here is the empty graph! Click and drag the mouse over each section to fill in your bar graph.<br><br>' + '<button type="button" id="' + $graphTitle.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
-  placement:'left',
+$nextPage.popover({
+  placement:'bottom',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
   id: 'submitPopover',
@@ -38,7 +37,7 @@ $nextQuestion.popover({
 })
 
 
-$order = [$('#title'), $('#dataTable'), $('#graphTitle'), $('#nextQuestion')]
+$order = [$('#title'), $('#dataTable'), $('#graphTitle'), $('#nextPage')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -149,10 +148,14 @@ $(function () {
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-  // focusButton.show()
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
 
 function unhighlight(focusPoint, next) {
   // focusButton.hide()

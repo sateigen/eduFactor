@@ -7,7 +7,6 @@ var $answersChosen = $('.active')
 var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var $droppable = $('.droppable')
 var $selectButton = $('#selectButton')
@@ -37,7 +36,7 @@ $answerGroup.popover({
   id: 'dataPopover',
   content : "Here are the answer choices! Click and drag one answer at a time to the correct box Do not click the 'Next Page' button until you have dragged an answer to each box.<br><br>" + '<button type="button" id="' + $answerGroup.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
+$nextPage.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
@@ -47,7 +46,7 @@ $nextQuestion.popover({
 
 
 
-$order = [$('#description'), $('#questionTitle'), $('#selectionGroup'), $('#nextQuestion')]
+$order = [$('#description'), $('#questionTitle'), $('#selectionGroup'), $('#nextPage')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -68,19 +67,19 @@ for(var i = 0; i < $order.length; i++){
 
 
 $(window).on('load', function() {
-    console.log('loaded');
     highlight($description);
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-  // focusButton.show()
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
 
 function unhighlight(focusPoint, next) {
-  // focusButton.hide()
-  // nextButton.show()
   focusPoint.popover('toggle')
   focusPoint.css('background-color','transparent')
   if (next){
