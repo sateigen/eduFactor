@@ -140,7 +140,7 @@ def tutorial_question(request, question_id):
 def get_queryset_by_level(request, difficulty_level):
     questions = Question.objects.filter(difficulty_level=difficulty_level)
     q_list = []
-    while len(q_list) < 11:
+    while len(q_list) < 10:
         selection = random.choice(questions)
         if selection not in q_list:
             q_list.append(selection)
