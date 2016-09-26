@@ -1,9 +1,10 @@
 span {
-  padding-left: .5em;
+  padding-left: 0.08em;
   padding-right: .5em;
   line-height: 1.2em;
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
+  text-indent: 0px;
 }
 
 .popover {
@@ -16,5 +17,5 @@ span {
 }
 
 #selectionGroup{
-  padding-left: .5em;
+  padding-left: 0.08em;
 }

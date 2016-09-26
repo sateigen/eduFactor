@@ -81,7 +81,7 @@
 }
 #about:hover {
     border-bottom: solid;
-    border-width: thick;
+    border-width: 5px;
 }
 #tut {
     color: #6dc090;
@@ -91,7 +91,7 @@
 }
 #tut:hover {
     border-bottom: solid;
-    border-width: thick;
+    border-width: 5px;
 }
 #pract {
     color: #ECBE45;
@@ -120,6 +120,7 @@
     border-color: #485052;
     padding: 0.5em;
     font-weight: bold;
+    cursor: move;
 }
 .droppable {
     width: 150px;

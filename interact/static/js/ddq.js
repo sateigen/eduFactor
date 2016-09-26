@@ -68,7 +68,7 @@ function highlight(focusPoint) {
     focusPoint.css('background-color', '#ECBE45')
   } else {
     focusPoint.popover('toggle')
-    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.3em'})
 }}
 
 
