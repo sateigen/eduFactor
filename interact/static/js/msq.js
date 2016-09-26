@@ -7,7 +7,6 @@ var $titleButton = $('#titleButton')
 var $descriptionButton = $('#descriptionButton')
 var $selectButton = $('#selectButton')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var chosenAnswers = []
 var correctAnswers = []
@@ -48,7 +47,7 @@ $answers.popover({
   id: 'dataPopover',
   content : 'This section has all of the potential answers! Go ahead and click on all those you believe are right, the answers you have chosen will be a darker blue. You may click on an answer you have selected to deselct it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
+$nextPage.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
@@ -57,7 +56,7 @@ $nextQuestion.popover({
 })
 
 
-$order = [$('#description'), $('#questionTitle'), $('.selectionGroup'), $('#nextQuestion')]
+$order = [$('#description'), $('#questionTitle'), $('.selectionGroup'), $('#nextPage')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -82,9 +81,14 @@ $(window).on('load', function() {
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
 
 function unhighlight(focusPoint, next) {
   focusPoint.popover('toggle')

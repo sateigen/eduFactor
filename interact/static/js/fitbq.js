@@ -5,7 +5,6 @@ var $answerSection = $('#answerSection')
 var $encouragement = $('#encouragement')
 var $submit = $('#submit')
 var $nextPage = $('#nextPage')
-var $nextQuestion = $('#nextQuestion')
 var $isCorrect = false
 var $guessForm = $('#guessForm')
 
@@ -53,7 +52,7 @@ $guessForm.popover({
   id: 'dataPopover',
   content : 'Type your answer into the blank box!<br><br>' + '<button type="button" id="' + $guessForm.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
-$nextQuestion.popover({
+$nextPage.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>Go to the next question</strong></span>',
@@ -62,7 +61,7 @@ $nextQuestion.popover({
 })
 
 
-$order = [$('#description'), $('#questionTitle'), $('#guessForm'), $('#nextQuestion')]
+$order = [$('#description'), $('#questionTitle'), $('#guessForm'), $('#nextPage')]
 function getNext(curr)
 {
   for(var j=0; j<$order.length; j++)
@@ -88,10 +87,14 @@ $(window).on('load', function() {
 });
 
 function highlight(focusPoint) {
-  focusPoint.popover('toggle')
-  focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
-  // focusButton.show()
-}
+  if (focusPoint == $nextPage) {
+    focusPoint.popover('toggle')
+    focusPoint.css('background-color', '#ECBE45')
+  } else {
+    focusPoint.popover('toggle')
+    focusPoint.css({'background-color': '#ecbe45', 'border-radius': '.5em'})
+}}
+
 
 function unhighlight(focusPoint, next) {
   // focusButton.hide()
