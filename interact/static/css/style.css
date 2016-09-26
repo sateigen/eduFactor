@@ -122,10 +122,13 @@
     font-weight: bold;
     cursor: move;
 }
+.ui-widget-content {
+  border: none !important;
+}
 .droppable {
     width: 150px;
     height: 150px;
-    padding: 0.5em;
+    /*padding: 0.5em;*/
     background: #74CFe4;
     float: left;
     margin: 10px;

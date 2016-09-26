@@ -19,8 +19,12 @@
                     {% for answer in answers %}
                     <p class="draggable" value="{{ answer }}">{{ answer }}</p>
                     {% endfor %}
-                    <hr>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-3">
+                <hr>
             </div>
         </div>
         <div class='row'>
@@ -31,7 +35,6 @@
                 </div>
                 {% endfor %}
                 <input type="hidden" value="{{ question.solution }}" id="questionSolution">
-                <hr>
               </div>
               <div class="row">
                 <div class="col-lg-2 col-lg-offset-3" id="nextQuestion">

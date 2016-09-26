@@ -4,44 +4,46 @@
         <div class="col-lg-8 col-lg-offset-3">
             <h3 id='description1'>{{ question.flavor.description }}</h3>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-3">
+            <h2 id='questionTitle'>{{ question.title }}:</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-3">
-                <h2 id='questionTitle'>{{ question.title }}:</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div id="selectionGroup" class="col-lg-8 col-lg-offset-3">
-                <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
-                <div>
-                    <div class="ui-widget-content">
-                        {% for answer in answers %}
-                        <p class="draggable" value="{{ answer }}">{{ answer }}</p>
-                        {% endfor %}
-                        <hr>
-                    </div>
+    </div>
+    <div class="row">
+        <div id="selectionGroup" class="col-lg-8 col-lg-offset-3">
+            <h4>Possible Answers | Drag the answers to the correct boxes!</h4>
+            <div>
+                <div class="ui-widget-content">
+                    {% for answer in answers %}
+                    <p class="draggable" value="{{ answer }}">{{ answer }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-3">
-                {% for key, value in solutions.items %}
-                <div class="droppable" id='{{ key }}' value='{{ value }}'>
-                    <h4 id='dropbox'>{{ key }}</h4>
-                </div>
-                {% endfor %}
-              </div>
-              </div>
-              <div class="row">
-                  <div class="col-lg-8 col-lg-offset-3">{% if pager.has_next %}
-                  <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a>
-                  {% elif not pager.has_next and user.is_authenticated %}
-                    <a id="submit" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a>
-                    {% else %}
-                    <a id="submit" href="{% url 'register' %}" class="btn btn-default">Great job!</a>
-                  {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-3">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-8 col-lg-offset-3">
+            {% for key, value in solutions.items %}
+            <div class="droppable" id='{{ key }}' value='{{ value }}'>
+                <h4 id='dropbox'>{{ key }}</h4>
             </div>
-          </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-3">{% if pager.has_next %}
+            <a id="nextPage" href="?page={{ pager.next_page_number }}" class="btn btn-default">Next Question</a> {% elif not pager.has_next and user.is_authenticated %}
+            <a id="submit" href="{% url 'student' user.id %}" class="btn btn-default">Great job!</a> {% else %}
+            <a id="submit" href="{% url 'register' %}" class="btn btn-default">Great job!</a> {% endif %}
+        </div>
+    </div>
 
 </div>
 {% endblock %} {% block scripts %}
