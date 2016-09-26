@@ -1,179 +1,169 @@
 .container {
-  margin: 0 auto;
-  width: 100%;
+    margin: 0 auto;
+    width: 100%;
 }
-
 .question {
-  padding-top: 1.5cm;
+    padding-top: 1.5cm;
 }
-
+* {
+  box-sizing: border-box;
+}
 .site-wrapper {
- display: table;
- width: 100%;
- height: 100%;
- min-height: 100%;
- padding-top: 0.75cm;
+    display: table;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding-top: 0.75cm;
 }
-
 #msbuttons {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
-
 #jumbotron {
-width: 450px;
-height: 390px;
-margin-top: 1cm;
+    width: 450px;
+    height: 390px;
+    margin-top: 1cm;
 }
-
 #jumbotron1 {
-width: 450px;
-height: 270px;
-margin-top: 1cm;
+    width: 450px;
+    height: 270px;
+    margin-top: 1cm;
 }
-
 #nextPage {
-  margin-bottom: 0.5cm;
-  margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+    margin-top: 0.5cm;
 }
-
 .aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 .btn-primary {
-  background-color: #74CFe4;
-  color: #000000;
-  font-weight: bold;
-  border-color: #74CFe4;
+    background-color: #74CFe4;
+    color: #000000;
+    font-weight: bold;
+    border-color: #74CFe4;
 }
-
 .btn-primary:hover {
-  background-color: #74CFe4;
-  color: #FFFFFF;
-  font-weight: bold;
-  border-color: #74CFe4;
+    background-color: #74CFe4;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-color: #74CFe4;
 }
-
 .btn-primary:active:focus, .btn-primary:active, .btn-primary:focus, .btn-primary.focus, .btn-primary.active {
-  background-color: #3F7683;
-  color: #FFFFFF;
-  font-weight: bold;
-  border-color: #3F7683;
+    background-color: #3F7683;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-color: #3F7683;
 }
-
 .aligner-item {
-  max-width: 100%;
+    max-width: 100%;
 }
-
 .navbar-default {
-  background-color: #485052;
-  width: 100%
+    background-color: #485052;
+    width: 100%;
 }
-
-ul.nav.navbar-nav li a:hover {
-  color: #FFFFFF;
-}
-
 #hello {
-  color: #74CFe4;
-  text-shadow: 2px 2px 4px #000000;
-  font-size: 20px;
+    color: #74CFe4;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 20px;
 }
-
 #brand {
-  color: #74CFe4;
-  font-weight: bold;
-  font-size: 30px;
-  text-shadow: 2px 2px 4px #000000;
+    color: #74CFe4;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px #000000;
 }
-
 #about {
-  color: #EF754A;
-  font-size: 20px;
-  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    color: #EF754A;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
-
+#about:hover {
+    border-bottom: solid;
+    border-width: thick;
+}
 #tut {
-  color: #6dc090;
-  font-size: 20px;
-  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    color: #6dc090;
+    font-size: 20px;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    font-weight: bold;
 }
-
-#pract{
-  color: #ECBE45;
-  font-size: 20px;
-  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+#tut:hover {
+    border-bottom: solid;
+    border-width: thick;
 }
-
+#pract {
+    color: #ECBE45;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+#pract:hover {
+    border-bottom: solid;
+    border-width: 5px;
+}
 .draggable {
-  min-width: 50px;
-  min-height: 25px;
-  height: auto;
-  max-width: 125px;
-  width: auto;
-  background: #6DC090;
-  text-align: center;
-  float: left;
-  margin: 10px 10px 10px 0;
-  z-index: 99;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: #485052;
-  padding: 0.5em;
-  font-weight: bold;
+    min-width: 50px;
+    min-height: 25px;
+    height: auto;
+    max-width: 125px;
+    width: auto;
+    background: #6DC090;
+    text-align: center;
+    float: left;
+    margin: 10px 10px 10px 0;
+    z-index: 99;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #485052;
+    padding: 0.5em;
+    font-weight: bold;
 }
-
- .droppable {
-   width: 150px;
-   height: 150px;
-   padding: 0.5em;
-   background: #74CFe4;
-   float: left;
-   margin: 10px;
-   z-index: 1;
-   text-align: center;
-   border-style: solid;
-   border-width: medium;
-   border-color: #485052;
- }
-
- .navbar-nav > li > a {
+.droppable {
+    width: 150px;
+    height: 150px;
+    padding: 0.5em;
+    background: #74CFe4;
+    float: left;
+    margin: 10px;
+    z-index: 1;
+    text-align: center;
+    border-style: solid;
+    border-width: medium;
+    border-color: #485052;
+}
+.navbar-nav>li>a {
     line-height: 25px;
- }
-
- .droppable-highlight {
-   background: #FF7F59;
- }
-
-*{
-  font-family: 'Open Sans', sans-serif;
-  color: #485052;
+    height: 50px;
 }
-
+.droppable-highlight {
+    background: #FF7F59;
+}
+* {
+    font-family: 'Open Sans', sans-serif;
+    color: #485052;
+}
 h1, h2, h3, h4 {
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
-
-h2{
-  font-weight: bold;
+h2 {
+    font-weight: bold;
 }
-
-div{
+div {
     font-size: 16px;
 }
-
 #kids {
-  border-radius: 3em;
-  width: 423.225px;
-  height: 282.15px;
-  padding-bottom: 12px;
-  padding-top: 5px;
+    border-radius: 3em;
+    width: 423.225px;
+    height: 282.15px;
+    padding-bottom: 12px;
+    padding-top: 5px;
 }
 
 /*fraction-fill-in question*/
+
 .clicked {
-  background-color: #6dc090
+    background-color: #6dc090
 }
