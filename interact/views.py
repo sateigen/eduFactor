@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import Flavor, Course, Question, Assessment, Score
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
 from rest_framework import viewsets
-from django.views import View, generic
 from django.contrib.auth.models import User, Group
 from .serializers import UserSerializer, GroupSerializer, FlavorSerializer
 from .serializers import CourseSerializer, QuestionSerializer
