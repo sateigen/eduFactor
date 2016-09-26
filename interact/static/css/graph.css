@@ -3,6 +3,7 @@
   border-spacing: 1em 0em;
   background-color: transparent;
   width: 1em;
+  table-layout: fixed;
 }
 /*
 td {
@@ -12,6 +13,10 @@ td {
 
 #graph > caption {
   text-align: center;
+}
+
+#graphTitle {
+  padding-bottom: 1em;
 }
 
 .col1.highlight {
@@ -30,18 +35,26 @@ td {
   background-color: #ef754a;
 }
 
+col.ylabels {
+  width: 2em;
+}
+
 .col1, .col2, .col3, .col4 {
-  width: 5em;
+  width: 7em;
 }
 
 td.ylabels {
-  border-right: 1px solid;
+  border-right: 1px solid !important;
   padding-top: 0 !important;
   padding-bottom: 20px !important;
 }
 
 .xlabels {
+  text-align: center;
   border-top: 1px solid !important;
   border-collapse: collapse;
   border-spacing: 0em 0em;
+}
+
+tbody > td {
 }
