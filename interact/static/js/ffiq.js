@@ -30,7 +30,7 @@ $description.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
@@ -42,14 +42,14 @@ $questionTitle.popover({
 $answers.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>Potential Answers</strong></span>',
+  title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
   content : 'Here you will find the shape(s) that you must use to answer the question. Click on each section of the shape that you wish to be highlighted.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
   content : "The correct answer is to have 2 sections shaded in.<hr><br> You must have the correct number of sections shaded in before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })

@@ -31,7 +31,7 @@ $description.popover({
   placement:'left',
   html: 'true',
   title : '<span class="text-info"><strong>The Description</strong></span>',
-  content : 'The description tells you how to answer this type of question. Be sure to always read the description before answering the question, it may help you know how many answers to choose.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'This section tells you how to answer this type of question. Be sure to always read the description before answering the question, it may help you know how many answers to choose.<br><br>' + '<button type="button" id="' + $description.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $questionTitle.popover({
   placement:'left',
@@ -43,14 +43,14 @@ $questionTitle.popover({
 $answers.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>Potential Answers</strong></span>',
+  title : '<span class="text-info"><strong>Answer Section</strong></span>',
   id: 'dataPopover',
-  content : 'This section has all of the potential answers! Go ahead and click on all those you believe are right, the answers you have chosen will be a darker blue. You may click on an answer you have selected to deselct it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
+  content : 'These are all of the potential answers! Go ahead and click on all those you believe are right, the answers you have chosen will be a darker blue. You may click on an answer you have selected to deselct it.<br><br>' + '<button type="button" id="' + $answers.attr('id') + 'Button" class="btn btn-default">Next</button>'
 })
 $nextPage.popover({
   placement:'left',
   html: 'true',
-  title : '<span class="text-info"><strong>Go to the next question</strong></span>',
+  title : '<span class="text-info"><strong>Go to the Next Question</strong></span>',
   id: 'submitPopover',
   content : "The correct answers are 4x4 and 2x8.<hr><br> You must have the correct answers chosen before moving to the next question.<br><br>Remember that once you click 'Next Page' you may not go back to change your answers."
 })
