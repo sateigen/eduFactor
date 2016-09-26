@@ -81,7 +81,7 @@
 }
 #about:hover {
     border-bottom: solid;
-    border-width: thick;
+    border-width: 5px;
 }
 #tut {
     color: #6dc090;
@@ -91,7 +91,7 @@
 }
 #tut:hover {
     border-bottom: solid;
-    border-width: thick;
+    border-width: 5px;
 }
 #pract {
     color: #ECBE45;
