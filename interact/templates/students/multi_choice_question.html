@@ -6,17 +6,17 @@
 {% block content %}
 <div class="container question">
   <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-8 col-lg-offset-3">
         <h3><span id="description">{{ question.flavor.description }}</span></h3>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-8 col-lg-offset-3">
         <h2><span id="questionTitle">{{ question.title }}</span></h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-8 col-lg-offset-3">
         <h4><span id="radioGroup">Possible Answers | Select One!</span></h4> {% for answer in answers %}
         <div class="radio">
             <label>
