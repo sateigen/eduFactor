@@ -19,9 +19,10 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <div class="selectionGroup" data-toggle="buttons">
-                <h4><span>Possible Answers | Select the answer(s)!</span></h4> {% for answer in answers %}
-                <label id='msbuttons' class="btn btn-primary btn-large">
+            <div data-toggle="buttons">
+                <h4><span class="selectionGroup">Possible Answers | Select the answer(s)!</span></h4>
+                {% for answer in answers %}
+                <label id='msbuttons' class="btn btn-primary btn-lg">
                     <input class="answers" type="checkbox" autocomplete="off" value="{{ answer }}">{{ answer }}
                 </label>
                 {% endfor %}

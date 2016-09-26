@@ -2,6 +2,8 @@ span {
   padding-left: .5em;
   padding-right: .5em;
   line-height: 1.2em;
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
 }
 
 .popover {
@@ -11,4 +13,12 @@ span {
 
 .popover.bottom {
   min-width: 10cm;
+}
+
+#guessForm {
+  padding-right: .5em;
+}
+
+#selectionGroup{
+  padding-left: .5em;
 }
