@@ -8,13 +8,9 @@ span {
 }
 
 .popover {
-  min-width: 5.5cm;
-  max-width: 100%;
+  max-width: 8cm;
 }
 
-.popover.bottom {
-  min-width: 10cm;
-}
 
 #guessForm {
   padding-right: .5em;
