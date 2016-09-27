@@ -43,10 +43,10 @@
                     <li><a id='hello' href="{% url 'student' user.id %}">Hello, {{ user.first_name|title }}!</a></li>
                     <form id="logoutForm" class="navbar-form navbar-right" action="/logout/" method="post">
                         {% csrf_token %}
-
+                        <input type="hidden" name="logout"></input>
                         <!-- <button type="submit" name="logout" class="btn btn-default">Logout</button> -->
                     </form>
-                    <li><a href="/" id="logout">Logout</a></li>
+                    <li><a id="logout">Logout</a></li>
                     {% else %}
                     <form class="navbar-form navbar-right" method="post" action="/login/">
                         {% csrf_token %}
