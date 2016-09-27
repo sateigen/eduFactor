@@ -74,6 +74,7 @@ function highlight(focusPoint) {
 
 function unhighlight(focusPoint, next) {
   focusPoint.popover('toggle')
+  focusPoint.popover('disable')
   focusPoint.css('background-color','transparent')
   if (next){
     highlight(next)
