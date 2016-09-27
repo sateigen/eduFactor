@@ -138,11 +138,15 @@ def tutorial_question(request, question_id):
 
 def get_queryset_by_level(request, difficulty_level):
     questions = Question.objects.filter(difficulty_level=difficulty_level)
-    q_list = []
-    while len(q_list) < 10:
-        selection = random.choice(questions)
-        if selection not in q_list:
-            q_list.append(selection)
+    questions = list(questions)
+    random.seed(42)
+    random.shuffle(questions)
+    q_list = questions[:10]
+    # q_list = []
+    # while len(q_list) < 10:
+    #     selection = random.choice(questions)
+    #     if selection not in q_list:
+    #         q_list.append(selection)
     paginator = Paginator(q_list, 1)
     print(paginator.num_pages)
     page = request.GET.get('page')
