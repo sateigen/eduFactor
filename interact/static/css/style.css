@@ -66,6 +66,7 @@
     color: #ECBE45;
     text-shadow: 2px 2px 4px #000000;
     font-size: 20px;
+    font-weight: bold;
 }
 #hello:hover {
     border-bottom: solid;
@@ -111,6 +112,7 @@
   color: #6dc090;
   font-size: 20px;
   text-shadow: 2px 2px 4px #000000;
+  font-weight: bold;
 }
 #logout:hover {
     border-bottom: solid;
