@@ -64,7 +64,7 @@
 }
 #hello {
     color: #ECBE45;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
     font-size: 20px;
     font-weight: bold;
 }
@@ -111,7 +111,7 @@
 #logout {
   color: #6dc090;
   font-size: 20px;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 0 0 3px #000000, 0 0 5px #000000;
   font-weight: bold;
 }
 #logout:hover {
