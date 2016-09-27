@@ -119,6 +119,8 @@
     border-width: 5px;
     cursor: pointer;
 }
+
+
 .draggable {
     min-width: 50px;
     min-height: 25px;
