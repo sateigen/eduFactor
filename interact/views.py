@@ -204,6 +204,7 @@ def get_queryset_by_level(request, difficulty_level):
 def graph(request):
     questions = Question.objects.filter(flavor=6)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
     paginator = Paginator(questions, 1)
@@ -245,6 +246,7 @@ def graph(request):
 def fill_blank(request):
     questions = Question.objects.filter(flavor=2)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
     paginator = Paginator(questions, 1)
@@ -272,8 +274,10 @@ def fill_blank(request):
 def multiple_choice(request):
     questions = Question.objects.filter(flavor=1)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
+    print([question.id for question in questions])
     paginator = Paginator(questions, 1)
     page = request.GET.get('page')
     context = {}
@@ -299,6 +303,7 @@ def multiple_choice(request):
 def fraction_fill_in(request):
     questions = Question.objects.filter(flavor=5)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
     paginator = Paginator(questions, 1)
@@ -328,6 +333,7 @@ def fraction_fill_in(request):
 def multiple_select(request):
     questions = Question.objects.filter(flavor=3)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
     paginator = Paginator(questions, 1)
@@ -355,6 +361,7 @@ def multiple_select(request):
 def drag_and_drop(request):
     questions = Question.objects.filter(flavor=4)
     questions = list(questions)
+    random.seed(42)
     random.shuffle(questions)
     questions = questions[:10]
     paginator = Paginator(questions, 1)
