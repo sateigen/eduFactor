@@ -67,6 +67,10 @@
     text-shadow: 2px 2px 4px #000000;
     font-size: 20px;
 }
+#hello:hover {
+    border-bottom: solid;
+    border-width: 5px;
+}
 #brand {
     color: #74CFe4;
     font-weight: bold;
@@ -100,6 +104,15 @@
     text-shadow: 0 0 3px #000000, 0 0 5px #000000;
 }
 #pract:hover {
+    border-bottom: solid;
+    border-width: 5px;
+}
+#logout {
+  color: #74CFe4;
+  font-size: 20px;
+  text-shadow: 2px 2px 4px #000000;
+}
+#logout:hover {
     border-bottom: solid;
     border-width: 5px;
 }
